@@ -1,0 +1,49 @@
+## Archivos binarios y de compilación
+bin/
+obj/
+[Bb]uild/
+[Bb]in/
+[Oo]bj/
+
+## Archivos de usuario de Visual Studio
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Archivos de configuración local
+*.local.json
+
+## Archivos generados por la compilación
+*.dll
+*.exe
+*.app
+*.pdb
+*.cache
+*.log
+*.vspscc
+*.vssscc
+
+## Paquetes NuGet
+*.nupkg
+*.snupkg
+# Evitar subir paquetes restaurables
+!packages/build/
+packages/
+*.nuget.props
+*.nuget.targets
+
+## Archivos temporales y de sistema
+[Tt]emp/
+*.tmp
+*.bak
+*.swp
+
+## Configuración de Rider o JetBrains
+.idea/
+*.iml
+
+## Archivos de publicación
+publish/
+wwwroot/lib/
