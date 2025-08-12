@@ -1,0 +1,6 @@
+C:\Users\USER\OneDrive\Documentos\Facu\3ero\Análisis Numérico\AnalisisNumerico2025\AnalisisNumerico2025-\AnalisisNumerico\AnalisisNumerico\obj\Debug\net7.0\Unidad1.csproj.AssemblyReference.cache
+C:\Users\USER\OneDrive\Documentos\Facu\3ero\Análisis Numérico\AnalisisNumerico2025\AnalisisNumerico2025-\AnalisisNumerico\AnalisisNumerico\obj\Debug\net7.0\Unidad1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USER\OneDrive\Documentos\Facu\3ero\Análisis Numérico\AnalisisNumerico2025\AnalisisNumerico2025-\AnalisisNumerico\AnalisisNumerico\obj\Debug\net7.0\Unidad1.AssemblyInfoInputs.cache
+C:\Users\USER\OneDrive\Documentos\Facu\3ero\Análisis Numérico\AnalisisNumerico2025\AnalisisNumerico2025-\AnalisisNumerico\AnalisisNumerico\obj\Debug\net7.0\Unidad1.AssemblyInfo.cs
+C:\Users\USER\OneDrive\Documentos\Facu\3ero\Análisis Numérico\AnalisisNumerico2025\AnalisisNumerico2025-\AnalisisNumerico\AnalisisNumerico\obj\Debug\net7.0\Unidad1.csproj.CoreCompileInputs.cache
+C:\Users\USER\OneDrive\Documentos\Facu\3ero\Análisis Numérico\AnalisisNumerico2025\AnalisisNumerico2025-\AnalisisNumerico\AnalisisNumerico\obj\Debug\net7.0\Unidad1.sourcelink.json
