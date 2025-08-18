@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
+using Calculus;
 
 namespace Unidad1
 {
-    internal class MetodoSecante
+    public class MetodoAbierto
     {
+
     }
 }
