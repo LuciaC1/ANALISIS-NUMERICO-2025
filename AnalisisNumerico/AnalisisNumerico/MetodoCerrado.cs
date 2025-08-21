@@ -13,7 +13,7 @@ namespace Unidad1
 
         public Calculo calculo1 = new Calculo();
 
-        public double MetodoCerrado(double xiCerrado, double xdCerrado, double tol, int maxIter, string funcion, string metodo)
+        public double MetodoCerrado(double xiCerrado, double xdCerrado, double tol, int maxIter, Calculo funcion, string metodo)
         {
             ControlVariables(xiCerrado, xdCerrado, tol, maxIter, funcion, metodo);
             double fxi = calculo1.EvaluaFx(funcion, xiCerrado);
@@ -77,7 +77,7 @@ namespace Unidad1
             }
         }
 
-        public double CalcularXr(double xi, double xd, string funcion)
+        public double CalcularXr(double xi, double xd, Calculo funcion)
         {
             if(funcion == null){
                 return (xi + xd) / 2;
@@ -91,11 +91,14 @@ namespace Unidad1
             }
         }
 
-        public void ControlVariables(double xiCerrado, double xdCerrado, double tol, int maxIter, string funcion, string metodo) 
+        public void ControlVariables(double xiCerrado, double xdCerrado, double tol, int maxIter, Calculo funcion, string metodo) 
         {
+            if (calculo1.Sintaxis(funcion, 'x') == false) { 
+                throw new ArgumentException("La sintaxis de la función es incorrecta");
+            }
             if ([xiCerrado, xdCerrado, maxIter, tol, funcion, metodo].some(v => v == null))
             {
-                throw new ArgumentNullException("Ingresar valores no nulos");
+                throw new ArgumentNullException("No puede haber espacios vacíos");
             }
 
             if ([tol, maxIter] < 0)
