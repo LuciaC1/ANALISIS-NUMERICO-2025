@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using Calculus;
+usign Respuesta;
+
 
 namespace Unidad1
 {
@@ -13,8 +15,9 @@ namespace Unidad1
 
         public Calculo calculo1 = new Calculo();
 
-        public double MetodoCerrado(double xiCerrado, double xdCerrado, double tol, int maxIter, Calculo funcion, string metodo)
+        public Respuesta MetodoCerrado(double xiCerrado, double xdCerrado, double tol, int maxIter, Calculo funcion, string metodo)
         {
+            Respuesta res = new Respuesta();
             ControlVariables(xiCerrado, xdCerrado, tol, maxIter, funcion, metodo);
             double fxi = calculo1.EvaluaFx(funcion, xiCerrado);
             double fxd = calculo1.EvaluaFx(funcion, xdCerrado);
@@ -71,6 +74,10 @@ namespace Unidad1
 
                     error = Math.Abs((xr - xrAnterior) / xr); // error relativo
                     xrAnterior = xr;
+                }
+                if (i == (interacciones - 1))
+                {
+                    res.Converge = "No converge";
                 }
 
                 return xr; // raíz aproximada
