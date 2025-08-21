@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{935D7412-3DD6-422A-8CCD-AF70B8B95162}|FormularioBiseccion\\FormularioBiseccion.csproj|c:\\users\\user\\onedrive\\documentos\\facu\\3ero\\an\u00E1lisis num\u00E9rico\\analisisnumerico\\analisisnumerico\\formulariobiseccion\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{935D7412-3DD6-422A-8CCD-AF70B8B95162}|FormularioBiseccion\\FormularioBiseccion.csproj|solutionrelative:formulariobiseccion\\form1.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{935D7412-3DD6-422A-8CCD-AF70B8B95162}|FormularioBiseccion\\FormularioBiseccion.csproj|c:\\users\\user\\onedrive\\documentos\\facu\\3ero\\an\u00E1lisis num\u00E9rico\\analisisnumerico\\analisisnumerico\\formulariobiseccion\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{935D7412-3DD6-422A-8CCD-AF70B8B95162}|FormularioBiseccion\\FormularioBiseccion.csproj|solutionrelative:formulariobiseccion\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\Unidad1.csproj|c:\\users\\user\\onedrive\\documentos\\facu\\3ero\\an\u00E1lisis num\u00E9rico\\analisisnumerico\\analisisnumerico\\analisisnumerico\\metodocerrado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\Unidad1.csproj|solutionrelative:analisisnumerico\\metodocerrado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -26,11 +34,36 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Form1.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\FormularioBiseccion\\Form1.Designer.cs",
+              "RelativeDocumentMoniker": "FormularioBiseccion\\Form1.Designer.cs",
+              "ToolTip": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\FormularioBiseccion\\Form1.Designer.cs",
+              "RelativeToolTip": "FormularioBiseccion\\Form1.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T22:52:54.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\FormularioBiseccion\\Form1.cs",
+              "RelativeDocumentMoniker": "FormularioBiseccion\\Form1.cs",
+              "ToolTip": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\FormularioBiseccion\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "FormularioBiseccion\\Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-21T22:52:44.67Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "Unidad1.csproj",
               "DocumentMoniker": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\Unidad1.csproj",
               "RelativeDocumentMoniker": "AnalisisNumerico\\Unidad1.csproj",
@@ -42,7 +75,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "MetodoAbierto.cs",
               "DocumentMoniker": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\MetodoAbierto.cs",
               "RelativeDocumentMoniker": "AnalisisNumerico\\MetodoAbierto.cs",
@@ -54,7 +87,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 5,
               "Title": "program.cs",
               "DocumentMoniker": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\program.cs",
               "RelativeDocumentMoniker": "AnalisisNumerico\\program.cs",
@@ -66,13 +99,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MetodoCerrado.cs",
               "DocumentMoniker": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\MetodoCerrado.cs",
               "RelativeDocumentMoniker": "AnalisisNumerico\\MetodoCerrado.cs",
               "ToolTip": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\MetodoCerrado.cs",
               "RelativeToolTip": "AnalisisNumerico\\MetodoCerrado.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAACsAAAAAAAAAAAAQwA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-11T23:33:04.262Z",
               "EditorCaption": ""

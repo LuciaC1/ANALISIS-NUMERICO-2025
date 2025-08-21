@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using Calculus;
-usign Respuesta;
 
 
 namespace Unidad1
