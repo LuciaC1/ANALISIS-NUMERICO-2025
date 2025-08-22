@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.14.36109.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unidad1", "AnalisisNumerico\Unidad1.csproj", "{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "U1", "AnalisisNumerico\U1.csproj", "{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormularioBiseccion", "FormularioBiseccion\FormularioBiseccion.csproj", "{935D7412-3DD6-422A-8CCD-AF70B8B95162}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unidad1", "Unidad1", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,13 +17,12 @@ Global
 		{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}.Release|Any CPU.Build.0 = Release|Any CPU
-		{935D7412-3DD6-422A-8CCD-AF70B8B95162}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{935D7412-3DD6-422A-8CCD-AF70B8B95162}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{935D7412-3DD6-422A-8CCD-AF70B8B95162}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{935D7412-3DD6-422A-8CCD-AF70B8B95162}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0E858D7D-569A-4552-AB7D-0E1C22AC3F77} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {ACA6A65A-2628-4D4A-94FF-E98982DE2FED}

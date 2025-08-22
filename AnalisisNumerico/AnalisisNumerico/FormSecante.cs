@@ -1,12 +1,20 @@
-ï»¿using Calculus;
+using Calculus;
 using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Reflection.Emit;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace AnalisisNumerico
+namespace Unidad1
 {
-    public partial class FormSecante : Form
+    public partial class FormBiseccion : Form
     {
-        public FormSecante()
+        public FormBiseccion()
         {
             InitializeComponent();
         }
@@ -24,86 +32,115 @@ namespace AnalisisNumerico
                 Calculo calculo = new Calculo();
                 calculo.Sintaxis(funcion, 'x');
 
-                Respuesta result = MetodoSecante(num1, num2, calculo, tolerancia, interacciones);
+                Respuesta result = MetodoBiseccion(num1, calculo, num2, tolerancia, interacciones);
 
-                label1.Text = $"La raÃ­z es: {result.raiz}";
+                label6.Text = $"{result.Converge}";
+                label1.Text = $"La raíz es: {result.raiz}";
                 label2.Text = $"Las iteraciones fueron: {result.iteraciones}";
                 label3.Text = $"El error relativo es de: {result.error}";
-                label4.Text = $"{result.Converge}";
+
+
             }
             catch (FormatException)
             {
-                MessageBox.Show("Por favor, ingrese nÃºmeros vÃ¡lidos.");
+                MessageBox.Show("Por favor, ingrese números válidos.");
             }
         }
 
-        private static Respuesta MetodoSecante(double xi, double xi_1, Calculo funcion, double tolerancia, int interacciones)
+        private static Respuesta MetodoBiseccion(double xi, Calculo funcion, double xd, double tolerancia, int interacciones)
         {
             Respuesta res = new Respuesta();
             res.Converge = "Converge";
-            int iter = 0;
-            double x_Anterior = xi;
-            double x_Actual = xi_1;
+
+            if (!CambioDeSigno(funcion, xi, xd))
+            {
+                throw new ArgumentException("La función debe cambiar de signo en el intervalo [xi, xd].");
+            }
+
+            double c = xi;
+            double cAnterior = xi;
             double margenDeErrorRelativo = double.MaxValue;
 
-            while (iter < interacciones)
+            for (int i = 0; i < interacciones; i++)
             {
-                try
+                cAnterior = c;
+                c = (xi + xd) / 2.0;
+
+                double fC = funcion.EvaluaFx(c);
+
+                double errorAbsoluto = Math.Abs(c - cAnterior);
+                if (Math.Abs(c) == 0)
                 {
-                    double fx_Anterior = funcion.EvaluaFx(x_Anterior);
-                    double fx_Actual = funcion.EvaluaFx(x_Actual);
+                    margenDeErrorRelativo = errorAbsoluto;
+                }
+                else
+                {
+                    margenDeErrorRelativo = errorAbsoluto / Math.Abs(c);
+                }
 
-                    if (Math.Abs(fx_Actual - fx_Anterior) < 1e-10)
-                    {
-                        res.Converge = "No converge, la diferencia en la funciÃ³n es casi cero";
-                        break;
-                    }
-
-                    double x_Proxima = x_Actual - fx_Actual * (x_Actual - x_Anterior) / (fx_Actual - fx_Anterior);
-
-                    double errorAbsoluto = Math.Abs(x_Proxima - x_Actual);
-                    margenDeErrorRelativo = (Math.Abs(x_Proxima) == 0) ? errorAbsoluto : errorAbsoluto / Math.Abs(x_Proxima);
-
-                    x_Anterior = x_Actual;
-                    x_Actual = x_Proxima;
-                    iter++;
-
-                    res.iteraciones = iter;
-                    res.raiz = x_Actual;
+                if (Math.Abs(fC) < tolerancia || margenDeErrorRelativo < tolerancia)
+                {
+                    res.raiz = c;
                     res.error = margenDeErrorRelativo;
-
-                    if (margenDeErrorRelativo < tolerancia)
-                    {
-                        break;
-                    }
-
-                    if (double.IsNaN(fx_Actual) || double.IsInfinity(fx_Actual))
-                    {
-                        res.Converge = "No converge, valores fuera del dominio real";
-                        break;
-                    }
+                    res.iteraciones = i + 1;
+                    return res;
                 }
-                catch (Exception ex)
+
+                if (funcion.EvaluaFx(xi) * fC < 0)
                 {
-                    res.Converge = "No converge, error en la evaluaciÃ³n: " + ex.Message;
-                    break;
+                    xd = c;
+                }
+                else
+                {
+                    xi = c;
+                }
+                if (i == (interacciones - 1))
+                {
+                    res.Converge = "No converge";
                 }
             }
-
-            if (iter >= interacciones)
-            {
-                res.Converge = "No converge, se excediÃ³ el nÃºmero de iteraciones";
-            }
-
             return res;
         }
-    }
+        private static Respuesta MetodoBiseccion2(double xi, Calculo funcion, double xd, double tolerancia, int interacciones)
+        {
+            Respuesta res = new Respuesta();
+            if (!CambioDeSigno(funcion, xi, xd))
+            {
+                throw new ArgumentException("La función debe cambiar de signo en el intervalo [a, b].");
+            }
 
-    public class Respuesta
-    {
-        public double raiz { get; set; }
-        public int iteraciones { get; set; }
-        public double error { get; set; }
-        public string Converge { get; set; }
+            double c = xi;
+            for (int i = 0; i < interacciones; i++)
+            {
+                c = (xi + xd) / 2.0;
+
+                double fC = funcion.EvaluaFx(c);
+
+                if (Math.Abs(fC) < tolerancia || (xd - xi) / 2.0 < tolerancia)
+                {
+                    res.raiz = c;
+                    res.iteraciones = i + 1;
+                    return res;
+                }
+
+                if (funcion.EvaluaFx(xi) * fC < 0)
+                {
+                    xd = c;
+                }
+                else
+                {
+                    xi = c;
+                }
+            }
+
+            throw new Exception("No se encontró la raíz en el número máximo de iteraciones.");
+        }
+        static bool CambioDeSigno(Calculo f, double a, double b)
+        {
+            double fa = f.EvaluaFx(a);
+            double fb = f.EvaluaFx(b);
+            return fa * fb < 0;
+        }
     }
+}
 }

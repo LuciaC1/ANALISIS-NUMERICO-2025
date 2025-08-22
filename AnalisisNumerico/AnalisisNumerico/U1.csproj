@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="Calculus">
+      <HintPath>..\..\Calculus-C-dll-and-Java-Android-\Calculus.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="FormTangente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormSecante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormBiseccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FormReglaFalsa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>

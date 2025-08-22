@@ -1,20 +1,20 @@
-ï»¿using Calculus;
+using Calculus;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace AnalisisNumerico
+namespace Unidad1
 {
-    public partial class FormTangente : Form
+    public partial class FormBiseccion : Form
     {
-        public FormTangente()
+        public FormBiseccion()
         {
             InitializeComponent();
         }
@@ -24,110 +24,123 @@ namespace AnalisisNumerico
             try
             {
                 double num1 = Convert.ToDouble(textBox1.Text);
+                double num2 = Convert.ToDouble(textBox2.Text);
 
-                int interacciones = Convert.ToInt32(textBox2.Text);
-                double tolerancia = Convert.ToDouble(textBox3.Text);
-                string funcion = Convert.ToString(textBox4.Text);
+                int interacciones = Convert.ToInt32(textBox3.Text);
+                double tolerancia = Convert.ToDouble(textBox4.Text);
+                string funcion = Convert.ToString(textBox5.Text);
                 Calculo calculo = new Calculo();
                 calculo.Sintaxis(funcion, 'x');
 
-                Respuesta result = MetodoTangente(num1, calculo, tolerancia, interacciones);
+                Respuesta result = MetodoBiseccion(num1, calculo, num2, tolerancia, interacciones);
 
-                label1.Text = $"La raÃ­z es: {result.raiz}";
+                label6.Text = $"{result.Converge}";
+                label1.Text = $"La raíz es: {result.raiz}";
                 label2.Text = $"Las iteraciones fueron: {result.iteraciones}";
                 label3.Text = $"El error relativo es de: {result.error}";
-                label4.Text = $"{result.Converge}";
+
 
             }
             catch (FormatException)
             {
-                MessageBox.Show("Por favor, ingrese nï¿½meros vï¿½lidos.");
+                MessageBox.Show("Por favor, ingrese números válidos.");
             }
         }
 
-        private static Respuesta MetodoTangente(double xi, Calculo funcion, double tolerancia, int interacciones)
+        private static Respuesta MetodoBiseccion(double xi, Calculo funcion, double xd, double tolerancia, int interacciones)
         {
             Respuesta res = new Respuesta();
             res.Converge = "Converge";
-            double x = xi;
-            int iter = 0;
 
-            while (Math.Abs(funcion.EvaluaFx(x)) > tolerancia && iter < interacciones)
+            if (!CambioDeSigno(funcion, xi, xd))
             {
-                double fx = funcion.EvaluaFx(x);
-                double dfx = funcion.Dx(x);
+                throw new ArgumentException("La función debe cambiar de signo en el intervalo [xi, xd].");
+            }
 
-                if (dfx == 0)
+            double c = xi;
+            double cAnterior = xi;
+            double margenDeErrorRelativo = double.MaxValue;
+
+            for (int i = 0; i < interacciones; i++)
+            {
+                cAnterior = c;
+                c = (xi + xd) / 2.0;
+
+                double fC = funcion.EvaluaFx(c);
+
+                double errorAbsoluto = Math.Abs(c - cAnterior);
+                if (Math.Abs(c) == 0)
                 {
-                    res.Converge = "No converge, la derivada es cero.";
-                }
-
-                double xAnterior = x;
-                x = x - fx / dfx;
-
-                double errorAbsoluto = Math.Abs(x - xAnterior);
-
-                double margenDeErrorRelativo;
-                if (Math.Abs(x) == 0)
-                {
-                    margenDeErrorRelativo = errorAbsoluto; 
+                    margenDeErrorRelativo = errorAbsoluto;
                 }
                 else
                 {
-                    margenDeErrorRelativo = errorAbsoluto / Math.Abs(x); 
+                    margenDeErrorRelativo = errorAbsoluto / Math.Abs(c);
                 }
 
-                res.raiz = x;
-                res.error = margenDeErrorRelativo; 
-                iter++;
-                res.iteraciones = iter;
-
-                if (margenDeErrorRelativo < tolerancia)
+                if (Math.Abs(fC) < tolerancia || margenDeErrorRelativo < tolerancia)
                 {
-                    break;
+                    res.raiz = c;
+                    res.error = margenDeErrorRelativo;
+                    res.iteraciones = i + 1;
+                    return res;
+                }
+
+                if (funcion.EvaluaFx(xi) * fC < 0)
+                {
+                    xd = c;
+                }
+                else
+                {
+                    xi = c;
+                }
+                if (i == (interacciones - 1))
+                {
+                    res.Converge = "No converge";
                 }
             }
-
-            if (iter >= interacciones)
-            {
-                res.Converge = "No converge";
-            }
-
             return res;
         }
-
-
-
-        private static Respuesta MetodoTangente2(double xi, Calculo funcion, double tolerancia, int interacciones)
+        private static Respuesta MetodoBiseccion2(double xi, Calculo funcion, double xd, double tolerancia, int interacciones)
         {
             Respuesta res = new Respuesta();
-            double x = xi;
-            int iter = 0;
-
-            while (Math.Abs(funcion.EvaluaFx(x)) > tolerancia && iter < interacciones)
+            if (!CambioDeSigno(funcion, xi, xd))
             {
-                double fx = funcion.EvaluaFx(x);
-                double dfx = funcion.Dx(x);
+                throw new ArgumentException("La función debe cambiar de signo en el intervalo [a, b].");
+            }
 
-                if (dfx == 0)
+            double c = xi;
+            for (int i = 0; i < interacciones; i++)
+            {
+                c = (xi + xd) / 2.0;
+
+                double fC = funcion.EvaluaFx(c);
+
+                if (Math.Abs(fC) < tolerancia || (xd - xi) / 2.0 < tolerancia)
                 {
-                    throw new DivideByZeroException("La derivada es cero. No se puede continuar.");
+                    res.raiz = c;
+                    res.iteraciones = i + 1;
+                    return res;
                 }
-                x = x - fx / dfx;
 
-                res.raiz = x;
-
-                iter++;
-                res.iteraciones = iter;
+                if (funcion.EvaluaFx(xi) * fC < 0)
+                {
+                    xd = c;
+                }
+                else
+                {
+                    xi = c;
+                }
             }
 
-            if (iter >= interacciones)
-            {
-                throw new Exception("NÃºmero mÃ¡ximo de iteraciones alcanzado.");
-            }
-
-            return res;
+            throw new Exception("No se encontró la raíz en el número máximo de iteraciones.");
         }
-
+        static bool CambioDeSigno(Calculo f, double a, double b)
+        {
+            double fa = f.EvaluaFx(a);
+            double fb = f.EvaluaFx(b);
+            return fa * fb < 0;
+        }
     }
+}
 }

@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\Análisis Numérico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\Unidad1.csproj",
-      "projectName": "Unidad1",
-      "projectPath": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\Análisis Numérico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\Unidad1.csproj",
+      "projectUniqueName": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\Análisis Numérico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\U1.csproj",
+      "projectName": "U1",
+      "projectPath": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\Análisis Numérico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\U1.csproj",
       "packagesPath": "C:\\Users\\USER\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\Análisis Numérico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\obj\\",
       "projectStyle": "PackageReference",
