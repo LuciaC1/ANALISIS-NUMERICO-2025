@@ -8,31 +8,60 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Unidad1;
 
 namespace U1
 {
     public partial class FormMenu : Form
     {
+        private Chart chartFuncion;
+
         public FormMenu()
         {
             InitializeComponent();
+            chartFuncion = new Chart();
+            chartFuncion.Size = new Size(500, 300);
+            chartFuncion.Location = new Point(344, 110);
+            this.Controls.Add(chartFuncion);
+
+            chartFuncion.ChartAreas.Add(new ChartArea("MainArea"));
+            chartFuncion.Series.Add("Funcion");
+            chartFuncion.Series["Funcion"].ChartType = SeriesChartType.Line;
+            chartFuncion.Series.Add("Raiz");
+            chartFuncion.Series["Raiz"].ChartType = SeriesChartType.Point;
+            chartFuncion.Series["Raiz"].MarkerSize = 10;
+            chartFuncion.Series["Raiz"].Color = Color.Red;
+            cmbMetodo.SelectedIndex = 0;
+            cmbMetodo.Items.Clear();
+            cmbMetodo.Items.Add("Secante (abierto)");
+            cmbMetodo.Items.Add("Tangente (abierto)");
+            cmbMetodo.Items.Add("Regla Falsa (cerrado)");
+            cmbMetodo.Items.Add("Bisección (cerrado)");
+            cmbMetodo.SelectedIndex = 0;
         }
         private void button1_Click_1(object sender, EventArgs e)
         {
             try
             {
                 string funcionStr = txtFuncion.Text;
-                string metodo = cmbMetodo.Text;
+                string metodo = cmbMetodo.SelectedItem?.ToString();
+                if (string.IsNullOrEmpty(metodo))
+                {
+                    MessageBox.Show("Por favor selecciona un método.");
+                    return;
+                }
+
                 double xi = double.Parse(txtXi.Text);
                 double xd = double.Parse(txtXd.Text);
                 int iteraciones = int.Parse(txtIteraciones.Text);
                 double tol = double.Parse(txtTolerancia.Text);
 
-                Calculo funcion = new Calculo();
+                Calculo funcion = new Calculo(); // si tu constructor requiere funcionStr, pasala
                 MetodoAbierto metodoAbierto = new MetodoAbierto();
                 Respuesta resultado = metodoAbierto.MetodosAbiertos(xi, xd, tol, iteraciones, funcion, metodo);
 
+                // Mostrar resultados
                 txtResFuncion.Text = funcionStr;
                 txtResMetodo.Text = metodo;
                 txtResIteraciones.Text = resultado.iteraciones.ToString();
@@ -40,6 +69,23 @@ namespace U1
                 txtResConverge.Text = resultado.Converge;
                 txtResRaiz.Text = resultado.raiz.ToString("G10");
                 txtResError.Text = resultado.error.ToString("G10");
+
+                // Limpiar gráficos anteriores
+                chartFuncion.Series["Funcion"].Points.Clear();
+                chartFuncion.Series["Raiz"].Points.Clear();
+
+                // Graficar la función
+                int puntos = 100;
+                double paso = (xd - xi) / puntos;
+                for (int i = 0; i <= puntos; i++)
+                {
+                    double x = xi + i * paso;
+                    double y = funcion.EvaluaFx(x); // <-- asegúrate de tener este método
+                    chartFuncion.Series["Funcion"].Points.AddXY(x, y);
+                }
+
+                // Graficar la raíz
+                chartFuncion.Series["Raiz"].Points.AddXY(resultado.raiz, 0);
             }
             catch (Exception ex)
             {
@@ -107,6 +153,11 @@ namespace U1
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
         {
 
         }

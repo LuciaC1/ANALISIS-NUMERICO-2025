@@ -177,7 +177,7 @@
             label9.BackColor = Color.FromArgb(177, 149, 160);
             label9.BorderStyle = BorderStyle.FixedSingle;
             label9.Font = new Font("Cascadia Mono", 15F);
-            label9.Location = new Point(826, 38);
+            label9.Location = new Point(956, 38);
             label9.Name = "label9";
             label9.Size = new Size(134, 29);
             label9.TabIndex = 27;
@@ -190,7 +190,7 @@
             label12.BackColor = Color.FromArgb(177, 149, 160);
             label12.BorderStyle = BorderStyle.FixedSingle;
             label12.Font = new Font("Cascadia Mono", 12F);
-            label12.Location = new Point(758, 335);
+            label12.Location = new Point(888, 335);
             label12.Name = "label12";
             label12.Size = new Size(102, 23);
             label12.TabIndex = 22;
@@ -202,7 +202,7 @@
             label13.BackColor = Color.FromArgb(177, 149, 160);
             label13.BorderStyle = BorderStyle.FixedSingle;
             label13.Font = new Font("Cascadia Mono", 12F);
-            label13.Location = new Point(836, 265);
+            label13.Location = new Point(966, 265);
             label13.Name = "label13";
             label13.Size = new Size(102, 23);
             label13.TabIndex = 20;
@@ -214,7 +214,7 @@
             label14.BackColor = Color.FromArgb(177, 149, 160);
             label14.BorderStyle = BorderStyle.FixedSingle;
             label14.Font = new Font("Cascadia Mono", 12F);
-            label14.Location = new Point(793, 209);
+            label14.Location = new Point(923, 209);
             label14.Name = "label14";
             label14.Size = new Size(210, 23);
             label14.TabIndex = 18;
@@ -226,7 +226,7 @@
             label15.BackColor = Color.FromArgb(177, 149, 160);
             label15.BorderStyle = BorderStyle.FixedSingle;
             label15.Font = new Font("Cascadia Mono", 12F);
-            label15.Location = new Point(863, 148);
+            label15.Location = new Point(993, 148);
             label15.Name = "label15";
             label15.Size = new Size(66, 23);
             label15.TabIndex = 16;
@@ -236,7 +236,7 @@
             // 
             txtResFuncion.BackColor = Color.FromArgb(233, 231, 235);
             txtResFuncion.BorderStyle = BorderStyle.FixedSingle;
-            txtResFuncion.Location = new Point(776, 110);
+            txtResFuncion.Location = new Point(906, 110);
             txtResFuncion.Name = "txtResFuncion";
             txtResFuncion.Size = new Size(237, 23);
             txtResFuncion.TabIndex = 15;
@@ -247,7 +247,7 @@
             label16.BackColor = Color.FromArgb(177, 149, 160);
             label16.BorderStyle = BorderStyle.FixedSingle;
             label16.Font = new Font("Cascadia Mono", 12F);
-            label16.Location = new Point(857, 84);
+            label16.Location = new Point(987, 84);
             label16.Name = "label16";
             label16.Size = new Size(75, 23);
             label16.TabIndex = 14;
@@ -257,7 +257,7 @@
             // 
             txtResMetodo.BackColor = Color.FromArgb(233, 231, 235);
             txtResMetodo.BorderStyle = BorderStyle.FixedSingle;
-            txtResMetodo.Location = new Point(776, 174);
+            txtResMetodo.Location = new Point(906, 174);
             txtResMetodo.Name = "txtResMetodo";
             txtResMetodo.Size = new Size(237, 23);
             txtResMetodo.TabIndex = 28;
@@ -266,7 +266,7 @@
             // 
             txtResIteraciones.BackColor = Color.FromArgb(233, 231, 235);
             txtResIteraciones.BorderStyle = BorderStyle.FixedSingle;
-            txtResIteraciones.Location = new Point(777, 235);
+            txtResIteraciones.Location = new Point(907, 235);
             txtResIteraciones.Name = "txtResIteraciones";
             txtResIteraciones.Size = new Size(237, 23);
             txtResIteraciones.TabIndex = 29;
@@ -275,7 +275,7 @@
             // 
             txtResTolerancia.BackColor = Color.FromArgb(233, 231, 235);
             txtResTolerancia.BorderStyle = BorderStyle.FixedSingle;
-            txtResTolerancia.Location = new Point(777, 291);
+            txtResTolerancia.Location = new Point(907, 291);
             txtResTolerancia.Name = "txtResTolerancia";
             txtResTolerancia.Size = new Size(237, 23);
             txtResTolerancia.TabIndex = 30;
@@ -284,7 +284,7 @@
             // 
             txtResConverge.BackColor = Color.FromArgb(233, 231, 235);
             txtResConverge.BorderStyle = BorderStyle.FixedSingle;
-            txtResConverge.Location = new Point(743, 361);
+            txtResConverge.Location = new Point(873, 361);
             txtResConverge.Name = "txtResConverge";
             txtResConverge.Size = new Size(139, 23);
             txtResConverge.TabIndex = 31;
@@ -295,7 +295,7 @@
             label10.BackColor = Color.FromArgb(177, 149, 160);
             label10.BorderStyle = BorderStyle.FixedSingle;
             label10.Font = new Font("Cascadia Mono", 12F);
-            label10.Location = new Point(962, 335);
+            label10.Location = new Point(1092, 335);
             label10.Name = "label10";
             label10.Size = new Size(48, 23);
             label10.TabIndex = 35;
@@ -306,7 +306,7 @@
             // 
             txtResError.BackColor = Color.FromArgb(233, 231, 235);
             txtResError.BorderStyle = BorderStyle.FixedSingle;
-            txtResError.Location = new Point(777, 420);
+            txtResError.Location = new Point(907, 420);
             txtResError.Name = "txtResError";
             txtResError.Size = new Size(237, 23);
             txtResError.TabIndex = 37;
@@ -317,7 +317,7 @@
             label11.BackColor = Color.FromArgb(177, 149, 160);
             label11.BorderStyle = BorderStyle.FixedSingle;
             label11.Font = new Font("Cascadia Mono", 12F);
-            label11.Location = new Point(864, 395);
+            label11.Location = new Point(994, 395);
             label11.Name = "label11";
             label11.Size = new Size(57, 23);
             label11.TabIndex = 36;
@@ -362,7 +362,7 @@
             // 
             txtResRaiz.BackColor = Color.FromArgb(233, 231, 235);
             txtResRaiz.BorderStyle = BorderStyle.FixedSingle;
-            txtResRaiz.Location = new Point(915, 361);
+            txtResRaiz.Location = new Point(1045, 361);
             txtResRaiz.Name = "txtResRaiz";
             txtResRaiz.Size = new Size(139, 23);
             txtResRaiz.TabIndex = 42;
@@ -399,7 +399,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(200, 179, 193);
-            ClientSize = new Size(1094, 558);
+            ClientSize = new Size(1228, 609);
             Controls.Add(button1);
             Controls.Add(cmbMetodo);
             Controls.Add(txtResRaiz);

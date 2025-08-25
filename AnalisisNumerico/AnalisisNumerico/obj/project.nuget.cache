@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "ejFwF2minrU=",
+  "dgSpecHash": "BSigJONMMsY=",
   "success": true,
   "projectFilePath": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\U1.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Lara\\.nuget\\packages\\winforms.datavisualization\\1.10.0\\winforms.datavisualization.1.10.0.nupkg.sha512"
+  ],
   "logs": []
 }
