@@ -1,30 +1,18 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\",
+  "WorkspaceRootPath": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|c:\\users\\user\\onedrive\\documentos\\facu\\3ero\\an\u00E1lisis num\u00E9rico\\analisisnumerico\\analisisnumerico\\analisisnumerico\\formbiseccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|solutionrelative:analisisnumerico\\formbiseccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|c:\\users\\lara\\onedrive\\documentos\\analisis_numerico_2025\\analisisnumerico\\analisisnumerico\\u1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|solutionrelative:analisisnumerico\\u1.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|c:\\users\\user\\onedrive\\documentos\\facu\\3ero\\an\u00E1lisis num\u00E9rico\\analisisnumerico\\analisisnumerico\\analisisnumerico\\formbiseccion.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|solutionrelative:analisisnumerico\\formbiseccion.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|c:\\users\\lara\\onedrive\\documentos\\analisis_numerico_2025\\analisisnumerico\\analisisnumerico\\formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|solutionrelative:analisisnumerico\\formmenu.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|c:\\users\\user\\onedrive\\documentos\\facu\\3ero\\an\u00E1lisis num\u00E9rico\\analisisnumerico\\analisisnumerico\\analisisnumerico\\metodocerrado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|solutionrelative:analisisnumerico\\metodocerrado.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|c:\\users\\user\\onedrive\\documentos\\facu\\3ero\\an\u00E1lisis num\u00E9rico\\analisisnumerico\\analisisnumerico\\analisisnumerico\\respuesta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|solutionrelative:analisisnumerico\\respuesta.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|c:\\users\\user\\onedrive\\documentos\\facu\\3ero\\an\u00E1lisis num\u00E9rico\\analisisnumerico\\analisisnumerico\\analisisnumerico\\formbiseccion.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}",
-      "RelativeMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|solutionrelative:analisisnumerico\\formbiseccion.resx||{81828910-B8B3-4D2B-99A3-067027C180C1}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\analisisnumerico\\formbiseccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|solutionrelative:analisisnumerico\\formbiseccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|c:\\users\\lara\\onedrive\\documentos\\analisis_numerico_2025\\analisisnumerico\\analisisnumerico\\formmenu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|solutionrelative:analisisnumerico\\formmenu.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -39,79 +27,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FormBiseccion.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\FormBiseccion.cs",
-              "RelativeDocumentMoniker": "AnalisisNumerico\\FormBiseccion.cs",
-              "ToolTip": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\FormBiseccion.cs",
-              "RelativeToolTip": "AnalisisNumerico\\FormBiseccion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T14:12:27.367Z",
-              "IsPinned": true,
+              "Title": "U1",
+              "DocumentMoniker": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\U1.csproj",
+              "RelativeDocumentMoniker": "AnalisisNumerico\\U1.csproj",
+              "ToolTip": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\U1.csproj",
+              "RelativeToolTip": "AnalisisNumerico\\U1.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-08-25T15:58:52.142Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "MetodoCerrado.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\MetodoCerrado.cs",
-              "RelativeDocumentMoniker": "AnalisisNumerico\\MetodoCerrado.cs",
-              "ToolTip": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\MetodoCerrado.cs",
-              "RelativeToolTip": "AnalisisNumerico\\MetodoCerrado.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "Title": "FormMenu.Designer.cs",
+              "DocumentMoniker": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormMenu.Designer.cs",
+              "RelativeDocumentMoniker": "AnalisisNumerico\\FormMenu.Designer.cs",
+              "ToolTip": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormMenu.Designer.cs",
+              "RelativeToolTip": "AnalisisNumerico\\FormMenu.Designer.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T14:17:31.485Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Respuesta.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\Respuesta.cs",
-              "RelativeDocumentMoniker": "AnalisisNumerico\\Respuesta.cs",
-              "ToolTip": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\Respuesta.cs",
-              "RelativeToolTip": "AnalisisNumerico\\Respuesta.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T14:16:03.099Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "FormBiseccion.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\FormBiseccion.cs",
-              "RelativeDocumentMoniker": "AnalisisNumerico\\FormBiseccion.cs",
-              "ToolTip": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\FormBiseccion.cs [Dise\u00F1o]",
-              "RelativeToolTip": "AnalisisNumerico\\FormBiseccion.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T14:07:24.69Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "FormBiseccion.resx",
-              "DocumentMoniker": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\FormBiseccion.resx",
-              "RelativeDocumentMoniker": "AnalisisNumerico\\FormBiseccion.resx",
-              "ToolTip": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\FormBiseccion.resx",
-              "RelativeToolTip": "AnalisisNumerico\\FormBiseccion.resx",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001005|",
-              "WhenOpened": "2025-08-22T13:58:10.742Z",
+              "WhenOpened": "2025-08-25T15:56:25.337Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "FormBiseccion.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\FormBiseccion.Designer.cs",
-              "RelativeDocumentMoniker": "AnalisisNumerico\\FormBiseccion.Designer.cs",
-              "ToolTip": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\An\u00E1lisis Num\u00E9rico\\AnalisisNumerico\\AnalisisNumerico\\AnalisisNumerico\\FormBiseccion.Designer.cs",
-              "RelativeToolTip": "AnalisisNumerico\\FormBiseccion.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAL8AAAAAAAAAAAAAAA==",
+              "Title": "FormMenu.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormMenu.cs",
+              "RelativeDocumentMoniker": "AnalisisNumerico\\FormMenu.cs",
+              "ToolTip": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormMenu.cs [Dise\u00F1o]",
+              "RelativeToolTip": "AnalisisNumerico\\FormMenu.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-22T13:57:52.352Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-25T15:55:54.818Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }
