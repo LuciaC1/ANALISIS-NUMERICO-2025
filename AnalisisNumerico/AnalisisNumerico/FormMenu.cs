@@ -32,12 +32,11 @@ namespace U1
             chartFuncion.Series["Raiz"].ChartType = SeriesChartType.Point;
             chartFuncion.Series["Raiz"].MarkerSize = 10;
             chartFuncion.Series["Raiz"].Color = Color.Red;
-            cmbMetodo.SelectedIndex = 0;
-            cmbMetodo.Items.Clear();
-            cmbMetodo.Items.Add("Secante (abierto)");
-            cmbMetodo.Items.Add("Tangente (abierto)");
+            cmbMetodo.Items.Clear();     
+            cmbMetodo.Items.Add("Biseccion (cerrado)");
             cmbMetodo.Items.Add("Regla Falsa (cerrado)");
-            cmbMetodo.Items.Add("Bisección (cerrado)");
+            cmbMetodo.Items.Add("Tangente (abierto)");
+            cmbMetodo.Items.Add("Secante (abierto)");
             cmbMetodo.SelectedIndex = 0;
         }
         private void button1_Click_1(object sender, EventArgs e)
@@ -57,7 +56,7 @@ namespace U1
                 int iteraciones = int.Parse(txtIteraciones.Text);
                 double tol = double.Parse(txtTolerancia.Text);
 
-                Calculo funcion = new Calculo(); // si tu constructor requiere funcionStr, pasala
+                Calculo funcion = new Calculo(); 
                 MetodoAbierto metodoAbierto = new MetodoAbierto();
                 Respuesta resultado = metodoAbierto.MetodosAbiertos(xi, xd, tol, iteraciones, funcion, metodo);
 
@@ -70,7 +69,6 @@ namespace U1
                 txtResRaiz.Text = resultado.raiz.ToString("G10");
                 txtResError.Text = resultado.error.ToString("G10");
 
-                // Limpiar gráficos anteriores
                 chartFuncion.Series["Funcion"].Points.Clear();
                 chartFuncion.Series["Raiz"].Points.Clear();
 
@@ -80,7 +78,7 @@ namespace U1
                 for (int i = 0; i <= puntos; i++)
                 {
                     double x = xi + i * paso;
-                    double y = funcion.EvaluaFx(x); // <-- asegúrate de tener este método
+                    double y = funcion.EvaluaFx(x); 
                     chartFuncion.Series["Funcion"].Points.AddXY(x, y);
                 }
 

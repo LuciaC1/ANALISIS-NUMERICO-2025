@@ -56,8 +56,8 @@
             txtFuncion = new TextBox();
             label18 = new Label();
             txtResRaiz = new TextBox();
-            cmbMetodo = new ListBox();
             button1 = new Button();
+            cmbMetodo = new ComboBox();
             SuspendLayout();
             // 
             // txtIteraciones
@@ -368,20 +368,6 @@
             txtResRaiz.TabIndex = 42;
             txtResRaiz.TextChanged += textBox1_TextChanged;
             // 
-            // cmbMetodo
-            // 
-            cmbMetodo.BackColor = Color.FromArgb(233, 231, 235);
-            cmbMetodo.BorderStyle = BorderStyle.FixedSingle;
-            cmbMetodo.FormattingEnabled = true;
-            cmbMetodo.ItemHeight = 15;
-            cmbMetodo.Items.AddRange(new object[] { "Bisección (cerrado)", "Regla Falsa (cerrado)", "Secante (abierto)", "Tangente (abierto)" });
-            cmbMetodo.Location = new Point(45, 180);
-            cmbMetodo.Name = "cmbMetodo";
-            cmbMetodo.SelectionMode = SelectionMode.MultiSimple;
-            cmbMetodo.Size = new Size(237, 17);
-            cmbMetodo.TabIndex = 43;
-            cmbMetodo.SelectedIndexChanged += listBox1_SelectedIndexChanged;
-            // 
             // button1
             // 
             button1.BackColor = Color.FromArgb(233, 231, 235);
@@ -394,14 +380,23 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click_1;
             // 
+            // cmbMetodo
+            // 
+            cmbMetodo.BackColor = Color.FromArgb(233, 231, 235);
+            cmbMetodo.FormattingEnabled = true;
+            cmbMetodo.Location = new Point(45, 174);
+            cmbMetodo.Name = "cmbMetodo";
+            cmbMetodo.Size = new Size(237, 23);
+            cmbMetodo.TabIndex = 45;
+            // 
             // FormMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(200, 179, 193);
             ClientSize = new Size(1228, 609);
-            Controls.Add(button1);
             Controls.Add(cmbMetodo);
+            Controls.Add(button1);
             Controls.Add(txtResRaiz);
             Controls.Add(label17);
             Controls.Add(txtFuncion);
@@ -467,7 +462,7 @@
         private TextBox txtFuncion;
         private Label label18;
         private TextBox txtResRaiz;
-        private ListBox cmbMetodo;
         private Button button1;
+        private ComboBox cmbMetodo;
     }
 }
