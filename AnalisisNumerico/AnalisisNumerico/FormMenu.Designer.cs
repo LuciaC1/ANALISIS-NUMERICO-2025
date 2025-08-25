@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox3 = new TextBox();
+            txtIteraciones = new TextBox();
             label3 = new Label();
-            textBox4 = new TextBox();
+            txtTolerancia = new TextBox();
             label4 = new Label();
             label5 = new Label();
-            textBox5 = new TextBox();
-            textBox6 = new TextBox();
+            txtXi = new TextBox();
+            txtXd = new TextBox();
             label6 = new Label();
             label7 = new Label();
             label8 = new Label();
@@ -43,30 +43,31 @@
             label13 = new Label();
             label14 = new Label();
             label15 = new Label();
-            textBox12 = new TextBox();
+            txtResFuncion = new TextBox();
             label16 = new Label();
-            textBox13 = new TextBox();
-            textBox9 = new TextBox();
-            textBox10 = new TextBox();
-            textBox14 = new TextBox();
+            txtResMetodo = new TextBox();
+            txtResIteraciones = new TextBox();
+            txtResTolerancia = new TextBox();
+            txtResConverge = new TextBox();
             label10 = new Label();
-            textBox7 = new TextBox();
+            txtResError = new TextBox();
             label11 = new Label();
             label17 = new Label();
-            textBox15 = new TextBox();
+            txtFuncion = new TextBox();
             label18 = new Label();
-            textBox1 = new TextBox();
-            Método = new ListBox();
+            txtResRaiz = new TextBox();
+            cmbMetodo = new ListBox();
+            button1 = new Button();
             SuspendLayout();
             // 
-            // textBox3
+            // txtIteraciones
             // 
-            textBox3.BackColor = Color.FromArgb(233, 231, 235);
-            textBox3.BorderStyle = BorderStyle.FixedSingle;
-            textBox3.Location = new Point(45, 235);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(237, 23);
-            textBox3.TabIndex = 5;
+            txtIteraciones.BackColor = Color.FromArgb(233, 231, 235);
+            txtIteraciones.BorderStyle = BorderStyle.FixedSingle;
+            txtIteraciones.Location = new Point(45, 235);
+            txtIteraciones.Name = "txtIteraciones";
+            txtIteraciones.Size = new Size(237, 23);
+            txtIteraciones.TabIndex = 5;
             // 
             // label3
             // 
@@ -80,14 +81,14 @@
             label3.TabIndex = 4;
             label3.Text = "Iteraciones";
             // 
-            // textBox4
+            // txtTolerancia
             // 
-            textBox4.BackColor = Color.FromArgb(233, 231, 235);
-            textBox4.BorderStyle = BorderStyle.FixedSingle;
-            textBox4.Location = new Point(45, 291);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(237, 23);
-            textBox4.TabIndex = 7;
+            txtTolerancia.BackColor = Color.FromArgb(233, 231, 235);
+            txtTolerancia.BorderStyle = BorderStyle.FixedSingle;
+            txtTolerancia.Location = new Point(45, 291);
+            txtTolerancia.Name = "txtTolerancia";
+            txtTolerancia.Size = new Size(237, 23);
+            txtTolerancia.TabIndex = 7;
             // 
             // label4
             // 
@@ -114,23 +115,24 @@
             label5.TabIndex = 8;
             label5.Text = "Intervalo";
             // 
-            // textBox5
+            // txtXi
             // 
-            textBox5.BackColor = Color.FromArgb(233, 231, 235);
-            textBox5.BorderStyle = BorderStyle.FixedSingle;
-            textBox5.Location = new Point(45, 349);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(105, 23);
-            textBox5.TabIndex = 9;
+            txtXi.BackColor = Color.FromArgb(233, 231, 235);
+            txtXi.BorderStyle = BorderStyle.FixedSingle;
+            txtXi.Location = new Point(45, 349);
+            txtXi.Name = "txtXi";
+            txtXi.Size = new Size(105, 23);
+            txtXi.TabIndex = 9;
+            txtXi.TextChanged += textBox5_TextChanged;
             // 
-            // textBox6
+            // txtXd
             // 
-            textBox6.BackColor = Color.FromArgb(233, 231, 235);
-            textBox6.BorderStyle = BorderStyle.FixedSingle;
-            textBox6.Location = new Point(177, 349);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(105, 23);
-            textBox6.TabIndex = 10;
+            txtXd.BackColor = Color.FromArgb(233, 231, 235);
+            txtXd.BorderStyle = BorderStyle.FixedSingle;
+            txtXd.Location = new Point(177, 349);
+            txtXd.Name = "txtXd";
+            txtXd.Size = new Size(105, 23);
+            txtXd.TabIndex = 10;
             // 
             // label6
             // 
@@ -230,14 +232,14 @@
             label15.TabIndex = 16;
             label15.Text = "Método";
             // 
-            // textBox12
+            // txtResFuncion
             // 
-            textBox12.BackColor = Color.FromArgb(233, 231, 235);
-            textBox12.BorderStyle = BorderStyle.FixedSingle;
-            textBox12.Location = new Point(776, 110);
-            textBox12.Name = "textBox12";
-            textBox12.Size = new Size(237, 23);
-            textBox12.TabIndex = 15;
+            txtResFuncion.BackColor = Color.FromArgb(233, 231, 235);
+            txtResFuncion.BorderStyle = BorderStyle.FixedSingle;
+            txtResFuncion.Location = new Point(776, 110);
+            txtResFuncion.Name = "txtResFuncion";
+            txtResFuncion.Size = new Size(237, 23);
+            txtResFuncion.TabIndex = 15;
             // 
             // label16
             // 
@@ -251,41 +253,41 @@
             label16.TabIndex = 14;
             label16.Text = "Función";
             // 
-            // textBox13
+            // txtResMetodo
             // 
-            textBox13.BackColor = Color.FromArgb(233, 231, 235);
-            textBox13.BorderStyle = BorderStyle.FixedSingle;
-            textBox13.Location = new Point(776, 174);
-            textBox13.Name = "textBox13";
-            textBox13.Size = new Size(237, 23);
-            textBox13.TabIndex = 28;
+            txtResMetodo.BackColor = Color.FromArgb(233, 231, 235);
+            txtResMetodo.BorderStyle = BorderStyle.FixedSingle;
+            txtResMetodo.Location = new Point(776, 174);
+            txtResMetodo.Name = "txtResMetodo";
+            txtResMetodo.Size = new Size(237, 23);
+            txtResMetodo.TabIndex = 28;
             // 
-            // textBox9
+            // txtResIteraciones
             // 
-            textBox9.BackColor = Color.FromArgb(233, 231, 235);
-            textBox9.BorderStyle = BorderStyle.FixedSingle;
-            textBox9.Location = new Point(777, 235);
-            textBox9.Name = "textBox9";
-            textBox9.Size = new Size(237, 23);
-            textBox9.TabIndex = 29;
+            txtResIteraciones.BackColor = Color.FromArgb(233, 231, 235);
+            txtResIteraciones.BorderStyle = BorderStyle.FixedSingle;
+            txtResIteraciones.Location = new Point(777, 235);
+            txtResIteraciones.Name = "txtResIteraciones";
+            txtResIteraciones.Size = new Size(237, 23);
+            txtResIteraciones.TabIndex = 29;
             // 
-            // textBox10
+            // txtResTolerancia
             // 
-            textBox10.BackColor = Color.FromArgb(233, 231, 235);
-            textBox10.BorderStyle = BorderStyle.FixedSingle;
-            textBox10.Location = new Point(777, 291);
-            textBox10.Name = "textBox10";
-            textBox10.Size = new Size(237, 23);
-            textBox10.TabIndex = 30;
+            txtResTolerancia.BackColor = Color.FromArgb(233, 231, 235);
+            txtResTolerancia.BorderStyle = BorderStyle.FixedSingle;
+            txtResTolerancia.Location = new Point(777, 291);
+            txtResTolerancia.Name = "txtResTolerancia";
+            txtResTolerancia.Size = new Size(237, 23);
+            txtResTolerancia.TabIndex = 30;
             // 
-            // textBox14
+            // txtResConverge
             // 
-            textBox14.BackColor = Color.FromArgb(233, 231, 235);
-            textBox14.BorderStyle = BorderStyle.FixedSingle;
-            textBox14.Location = new Point(743, 361);
-            textBox14.Name = "textBox14";
-            textBox14.Size = new Size(139, 23);
-            textBox14.TabIndex = 31;
+            txtResConverge.BackColor = Color.FromArgb(233, 231, 235);
+            txtResConverge.BorderStyle = BorderStyle.FixedSingle;
+            txtResConverge.Location = new Point(743, 361);
+            txtResConverge.Name = "txtResConverge";
+            txtResConverge.Size = new Size(139, 23);
+            txtResConverge.TabIndex = 31;
             // 
             // label10
             // 
@@ -300,14 +302,14 @@
             label10.Text = "Raíz";
             label10.Click += label10_Click;
             // 
-            // textBox7
+            // txtResError
             // 
-            textBox7.BackColor = Color.FromArgb(233, 231, 235);
-            textBox7.BorderStyle = BorderStyle.FixedSingle;
-            textBox7.Location = new Point(777, 420);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(237, 23);
-            textBox7.TabIndex = 37;
+            txtResError.BackColor = Color.FromArgb(233, 231, 235);
+            txtResError.BorderStyle = BorderStyle.FixedSingle;
+            txtResError.Location = new Point(777, 420);
+            txtResError.Name = "txtResError";
+            txtResError.Size = new Size(237, 23);
+            txtResError.TabIndex = 37;
             // 
             // label11
             // 
@@ -334,15 +336,15 @@
             label17.TabIndex = 40;
             label17.Text = "Método";
             // 
-            // textBox15
+            // txtFuncion
             // 
-            textBox15.BackColor = Color.FromArgb(233, 231, 235);
-            textBox15.BorderStyle = BorderStyle.FixedSingle;
-            textBox15.Location = new Point(45, 110);
-            textBox15.Name = "textBox15";
-            textBox15.Size = new Size(237, 23);
-            textBox15.TabIndex = 39;
-            textBox15.TextChanged += textBox15_TextChanged;
+            txtFuncion.BackColor = Color.FromArgb(233, 231, 235);
+            txtFuncion.BorderStyle = BorderStyle.FixedSingle;
+            txtFuncion.Location = new Point(45, 110);
+            txtFuncion.Name = "txtFuncion";
+            txtFuncion.Size = new Size(237, 23);
+            txtFuncion.TabIndex = 39;
+            txtFuncion.TextChanged += textBox15_TextChanged;
             // 
             // label18
             // 
@@ -356,28 +358,41 @@
             label18.TabIndex = 38;
             label18.Text = "Función";
             // 
-            // textBox1
+            // txtResRaiz
             // 
-            textBox1.BackColor = Color.FromArgb(233, 231, 235);
-            textBox1.BorderStyle = BorderStyle.FixedSingle;
-            textBox1.Location = new Point(915, 361);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(139, 23);
-            textBox1.TabIndex = 42;
+            txtResRaiz.BackColor = Color.FromArgb(233, 231, 235);
+            txtResRaiz.BorderStyle = BorderStyle.FixedSingle;
+            txtResRaiz.Location = new Point(915, 361);
+            txtResRaiz.Name = "txtResRaiz";
+            txtResRaiz.Size = new Size(139, 23);
+            txtResRaiz.TabIndex = 42;
+            txtResRaiz.TextChanged += textBox1_TextChanged;
             // 
-            // Método
+            // cmbMetodo
             // 
-            Método.BackColor = Color.FromArgb(233, 231, 235);
-            Método.BorderStyle = BorderStyle.FixedSingle;
-            Método.FormattingEnabled = true;
-            Método.ItemHeight = 15;
-            Método.Items.AddRange(new object[] { "Bisección (cerrado)", "Regla Falsa (cerrado)", "Secante (abierto)", "Tangente (abierto)" });
-            Método.Location = new Point(45, 180);
-            Método.Name = "Método";
-            Método.SelectionMode = SelectionMode.MultiSimple;
-            Método.Size = new Size(237, 17);
-            Método.TabIndex = 43;
-            Método.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            cmbMetodo.BackColor = Color.FromArgb(233, 231, 235);
+            cmbMetodo.BorderStyle = BorderStyle.FixedSingle;
+            cmbMetodo.FormattingEnabled = true;
+            cmbMetodo.ItemHeight = 15;
+            cmbMetodo.Items.AddRange(new object[] { "Bisección (cerrado)", "Regla Falsa (cerrado)", "Secante (abierto)", "Tangente (abierto)" });
+            cmbMetodo.Location = new Point(45, 180);
+            cmbMetodo.Name = "cmbMetodo";
+            cmbMetodo.SelectionMode = SelectionMode.MultiSimple;
+            cmbMetodo.Size = new Size(237, 17);
+            cmbMetodo.TabIndex = 43;
+            cmbMetodo.SelectedIndexChanged += listBox1_SelectedIndexChanged;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.FromArgb(233, 231, 235);
+            button1.Font = new Font("Cascadia Mono", 12F);
+            button1.Location = new Point(116, 420);
+            button1.Name = "button1";
+            button1.Size = new Size(94, 37);
+            button1.TabIndex = 44;
+            button1.Text = "CALCULAR";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click_1;
             // 
             // FormMenu
             // 
@@ -385,34 +400,35 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(200, 179, 193);
             ClientSize = new Size(1094, 558);
-            Controls.Add(Método);
-            Controls.Add(textBox1);
+            Controls.Add(button1);
+            Controls.Add(cmbMetodo);
+            Controls.Add(txtResRaiz);
             Controls.Add(label17);
-            Controls.Add(textBox15);
+            Controls.Add(txtFuncion);
             Controls.Add(label18);
-            Controls.Add(textBox7);
+            Controls.Add(txtResError);
             Controls.Add(label11);
             Controls.Add(label10);
-            Controls.Add(textBox14);
-            Controls.Add(textBox10);
-            Controls.Add(textBox9);
-            Controls.Add(textBox13);
+            Controls.Add(txtResConverge);
+            Controls.Add(txtResTolerancia);
+            Controls.Add(txtResIteraciones);
+            Controls.Add(txtResMetodo);
             Controls.Add(label9);
             Controls.Add(label12);
             Controls.Add(label13);
             Controls.Add(label14);
             Controls.Add(label15);
-            Controls.Add(textBox12);
+            Controls.Add(txtResFuncion);
             Controls.Add(label16);
             Controls.Add(label8);
             Controls.Add(label7);
             Controls.Add(label6);
-            Controls.Add(textBox6);
-            Controls.Add(textBox5);
+            Controls.Add(txtXd);
+            Controls.Add(txtXi);
             Controls.Add(label5);
-            Controls.Add(textBox4);
+            Controls.Add(txtTolerancia);
             Controls.Add(label4);
-            Controls.Add(textBox3);
+            Controls.Add(txtIteraciones);
             Controls.Add(label3);
             ForeColor = Color.FromArgb(9, 10, 23);
             Name = "FormMenu";
@@ -423,13 +439,13 @@
         }
 
         #endregion
-        private TextBox textBox3;
+        private TextBox txtIteraciones;
         private Label label3;
-        private TextBox textBox4;
+        private TextBox txtTolerancia;
         private Label label4;
         private Label label5;
-        private TextBox textBox5;
-        private TextBox textBox6;
+        private TextBox txtXi;
+        private TextBox txtXd;
         private Label label6;
         private Label label7;
         private Label label8;
@@ -438,19 +454,20 @@
         private Label label13;
         private Label label14;
         private Label label15;
-        private TextBox textBox12;
+        private TextBox txtResFuncion;
         private Label label16;
-        private TextBox textBox13;
-        private TextBox textBox9;
-        private TextBox textBox10;
-        private TextBox textBox14;
+        private TextBox txtResMetodo;
+        private TextBox txtResIteraciones;
+        private TextBox txtResTolerancia;
+        private TextBox txtResConverge;
         private Label label10;
-        private TextBox textBox7;
+        private TextBox txtResError;
         private Label label11;
         private Label label17;
-        private TextBox textBox15;
+        private TextBox txtFuncion;
         private Label label18;
-        private TextBox textBox1;
-        private ListBox Método;
+        private TextBox txtResRaiz;
+        private ListBox cmbMetodo;
+        private Button button1;
     }
 }
