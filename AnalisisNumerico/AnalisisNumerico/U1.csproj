@@ -11,12 +11,12 @@
 	<ItemGroup>
 	  <PackageReference Include="WinForms.DataVisualization" Version="1.10.0" />
 	</ItemGroup>
-
-  <ItemGroup>
-    <Reference Include="Calculus">
-      <HintPath>..\..\Calculus-C-dll-and-Java-Android-\Calculus.dll</HintPath>
-    </Reference>
-  </ItemGroup>
+	
+	<ItemGroup>
+	  <Reference Include="Calculus">
+	    <HintPath>..\..\..\Calculus-C-dll-and-Java-Android--master\Calculus.dll</HintPath>
+	  </Reference>
+	</ItemGroup>
 
   <ItemGroup>
     <Compile Update="FormSecante.cs">

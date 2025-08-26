@@ -32,7 +32,7 @@ namespace U1
             chartFuncion.Series["Raiz"].ChartType = SeriesChartType.Point;
             chartFuncion.Series["Raiz"].MarkerSize = 10;
             chartFuncion.Series["Raiz"].Color = Color.Red;
-            cmbMetodo.Items.Clear();     
+            cmbMetodo.Items.Clear();
             cmbMetodo.Items.Add("Biseccion (cerrado)");
             cmbMetodo.Items.Add("Regla Falsa (cerrado)");
             cmbMetodo.Items.Add("Tangente (abierto)");
@@ -56,7 +56,7 @@ namespace U1
                 int iteraciones = int.Parse(txtIteraciones.Text);
                 double tol = double.Parse(txtTolerancia.Text);
 
-                Calculo funcion = new Calculo(); 
+                Calculo funcion = new Calculo();
                 MetodoAbierto metodoAbierto = new MetodoAbierto();
                 Respuesta resultado = metodoAbierto.MetodosAbiertos(xi, xd, tol, iteraciones, funcion, metodo);
 
@@ -78,7 +78,7 @@ namespace U1
                 for (int i = 0; i <= puntos; i++)
                 {
                     double x = xi + i * paso;
-                    double y = funcion.EvaluaFx(x); 
+                    double y = funcion.EvaluaFx(x);
                     chartFuncion.Series["Funcion"].Points.AddXY(x, y);
                 }
 
@@ -156,6 +156,11 @@ namespace U1
         }
 
         private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
         {
 
         }
