@@ -1,6 +1,6 @@
 ﻿namespace U1
 {
-    partial class FormMenu
+    partial class FormUnidad1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMenu));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUnidad1));
             txtIteraciones = new TextBox();
             label3 = new Label();
             txtTolerancia = new TextBox();
@@ -59,16 +59,18 @@
             txtResRaiz = new TextBox();
             button1 = new Button();
             cmbMetodo = new ComboBox();
+            webview = new Microsoft.Web.WebView2.WinForms.WebView2();
+            ((System.ComponentModel.ISupportInitialize)webview).BeginInit();
             SuspendLayout();
             // 
             // txtIteraciones
             // 
             txtIteraciones.BackColor = Color.FromArgb(233, 231, 235);
             txtIteraciones.BorderStyle = BorderStyle.FixedSingle;
-            txtIteraciones.Font = new Font("Rockwell", 12F);
-            txtIteraciones.Location = new Point(45, 235);
+            txtIteraciones.Font = new Font("Rockwell", 15F);
+            txtIteraciones.Location = new Point(80, 353);
             txtIteraciones.Name = "txtIteraciones";
-            txtIteraciones.Size = new Size(237, 26);
+            txtIteraciones.Size = new Size(237, 31);
             txtIteraciones.TabIndex = 5;
             // 
             // label3
@@ -76,10 +78,10 @@
             label3.AutoSize = true;
             label3.BackColor = SystemColors.ActiveCaptionText;
             label3.BorderStyle = BorderStyle.FixedSingle;
-            label3.Font = new Font("Rockwell", 12F);
-            label3.Location = new Point(107, 209);
+            label3.Font = new Font("Rockwell", 15F);
+            label3.Location = new Point(142, 327);
             label3.Name = "label3";
-            label3.Size = new Size(92, 21);
+            label3.Size = new Size(112, 24);
             label3.TabIndex = 4;
             label3.Text = "Iteraciones";
             // 
@@ -87,10 +89,10 @@
             // 
             txtTolerancia.BackColor = Color.FromArgb(233, 231, 235);
             txtTolerancia.BorderStyle = BorderStyle.FixedSingle;
-            txtTolerancia.Font = new Font("Rockwell", 12F);
-            txtTolerancia.Location = new Point(45, 291);
+            txtTolerancia.Font = new Font("Rockwell", 15F);
+            txtTolerancia.Location = new Point(75, 449);
             txtTolerancia.Name = "txtTolerancia";
-            txtTolerancia.Size = new Size(237, 26);
+            txtTolerancia.Size = new Size(237, 31);
             txtTolerancia.TabIndex = 7;
             // 
             // label4
@@ -98,10 +100,10 @@
             label4.AutoSize = true;
             label4.BackColor = SystemColors.ActiveCaptionText;
             label4.BorderStyle = BorderStyle.FixedSingle;
-            label4.Font = new Font("Rockwell", 12F);
-            label4.Location = new Point(116, 265);
+            label4.Font = new Font("Rockwell", 15F);
+            label4.Location = new Point(146, 422);
             label4.Name = "label4";
-            label4.Size = new Size(88, 21);
+            label4.Size = new Size(108, 24);
             label4.TabIndex = 6;
             label4.Text = "Tolerancia";
             label4.Click += label4_Click;
@@ -111,10 +113,10 @@
             label5.AutoSize = true;
             label5.BackColor = SystemColors.ActiveCaptionText;
             label5.BorderStyle = BorderStyle.FixedSingle;
-            label5.Font = new Font("Rockwell", 12F);
-            label5.Location = new Point(116, 323);
+            label5.Font = new Font("Rockwell", 15F);
+            label5.Location = new Point(150, 495);
             label5.Name = "label5";
-            label5.Size = new Size(77, 21);
+            label5.Size = new Size(93, 24);
             label5.TabIndex = 8;
             label5.Text = "Intervalo";
             // 
@@ -122,10 +124,10 @@
             // 
             txtXi.BackColor = Color.FromArgb(233, 231, 235);
             txtXi.BorderStyle = BorderStyle.FixedSingle;
-            txtXi.Font = new Font("Rockwell", 12F);
-            txtXi.Location = new Point(45, 349);
+            txtXi.Font = new Font("Rockwell", 15F);
+            txtXi.Location = new Point(79, 533);
             txtXi.Name = "txtXi";
-            txtXi.Size = new Size(105, 26);
+            txtXi.Size = new Size(112, 31);
             txtXi.TabIndex = 9;
             txtXi.TextChanged += textBox5_TextChanged;
             // 
@@ -133,10 +135,10 @@
             // 
             txtXd.BackColor = Color.FromArgb(233, 231, 235);
             txtXd.BorderStyle = BorderStyle.FixedSingle;
-            txtXd.Font = new Font("Rockwell", 12F);
-            txtXd.Location = new Point(177, 349);
+            txtXd.Font = new Font("Rockwell", 15F);
+            txtXd.Location = new Point(211, 533);
             txtXd.Name = "txtXd";
-            txtXd.Size = new Size(105, 26);
+            txtXd.Size = new Size(105, 31);
             txtXd.TabIndex = 10;
             // 
             // label6
@@ -144,10 +146,10 @@
             label6.AutoSize = true;
             label6.BackColor = SystemColors.ActiveCaptionText;
             label6.BorderStyle = BorderStyle.FixedSingle;
-            label6.Font = new Font("Rockwell", 12F);
-            label6.Location = new Point(31, 385);
+            label6.Font = new Font("Rockwell", 15F);
+            label6.Location = new Point(77, 580);
             label6.Name = "label6";
-            label6.Size = new Size(89, 21);
+            label6.Size = new Size(112, 24);
             label6.TabIndex = 11;
             label6.Text = "xi , xInicial";
             // 
@@ -156,10 +158,10 @@
             label7.AutoSize = true;
             label7.BackColor = SystemColors.ActiveCaptionText;
             label7.BorderStyle = BorderStyle.FixedSingle;
-            label7.Font = new Font("Rockwell", 12F);
-            label7.Location = new Point(211, 382);
+            label7.Font = new Font("Rockwell", 15F);
+            label7.Location = new Point(243, 580);
             label7.Name = "label7";
-            label7.Size = new Size(30, 21);
+            label7.Size = new Size(36, 24);
             label7.TabIndex = 12;
             label7.Text = "xd";
             // 
@@ -168,10 +170,10 @@
             label8.AutoSize = true;
             label8.BackColor = SystemColors.ActiveCaptionText;
             label8.BorderStyle = BorderStyle.FixedSingle;
-            label8.Font = new Font("Rockwell", 12F);
-            label8.Location = new Point(93, 38);
+            label8.Font = new Font("Rockwell", 20F);
+            label8.Location = new Point(83, 110);
             label8.Name = "label8";
-            label8.Size = new Size(134, 21);
+            label8.Size = new Size(221, 33);
             label8.TabIndex = 13;
             label8.Text = "Ingreso de datos";
             label8.Click += label8_Click;
@@ -181,11 +183,11 @@
             label9.AutoSize = true;
             label9.BackColor = SystemColors.ActiveCaptionText;
             label9.BorderStyle = BorderStyle.FixedSingle;
-            label9.Font = new Font("Rockwell", 12F);
+            label9.Font = new Font("Rockwell", 20F);
             label9.ForeColor = Color.White;
-            label9.Location = new Point(960, 38);
+            label9.Location = new Point(1278, 110);
             label9.Name = "label9";
-            label9.Size = new Size(90, 21);
+            label9.Size = new Size(148, 33);
             label9.TabIndex = 27;
             label9.Text = "Resultados";
             label9.Click += label9_Click;
@@ -195,11 +197,11 @@
             label12.AutoSize = true;
             label12.BackColor = SystemColors.ActiveCaptionText;
             label12.BorderStyle = BorderStyle.FixedSingle;
-            label12.Font = new Font("Rockwell", 12F);
+            label12.Font = new Font("Rockwell", 15F);
             label12.ForeColor = Color.White;
-            label12.Location = new Point(892, 335);
+            label12.Location = new Point(1196, 484);
             label12.Name = "label12";
-            label12.Size = new Size(101, 21);
+            label12.Size = new Size(121, 24);
             label12.TabIndex = 22;
             label12.Text = "¿Converge?";
             // 
@@ -208,11 +210,11 @@
             label13.AutoSize = true;
             label13.BackColor = SystemColors.ActiveCaptionText;
             label13.BorderStyle = BorderStyle.FixedSingle;
-            label13.Font = new Font("Rockwell", 12F);
+            label13.Font = new Font("Rockwell", 15F);
             label13.ForeColor = Color.White;
-            label13.Location = new Point(970, 265);
+            label13.Location = new Point(1283, 403);
             label13.Name = "label13";
-            label13.Size = new Size(88, 21);
+            label13.Size = new Size(108, 24);
             label13.TabIndex = 20;
             label13.Text = "Tolerancia";
             // 
@@ -221,11 +223,11 @@
             label14.AutoSize = true;
             label14.BackColor = SystemColors.ActiveCaptionText;
             label14.BorderStyle = BorderStyle.FixedSingle;
-            label14.Font = new Font("Rockwell", 12F);
+            label14.Font = new Font("Rockwell", 15F);
             label14.ForeColor = Color.White;
-            label14.Location = new Point(927, 209);
+            label14.Location = new Point(1233, 327);
             label14.Name = "label14";
-            label14.Size = new Size(174, 21);
+            label14.Size = new Size(216, 24);
             label14.TabIndex = 18;
             label14.Text = "Iteraciones Realizadas";
             // 
@@ -234,11 +236,11 @@
             label15.AutoSize = true;
             label15.BackColor = SystemColors.ActiveCaptionText;
             label15.BorderStyle = BorderStyle.FixedSingle;
-            label15.Font = new Font("Rockwell", 12F);
+            label15.Font = new Font("Rockwell", 15F);
             label15.ForeColor = Color.White;
-            label15.Location = new Point(997, 148);
+            label15.Location = new Point(1309, 242);
             label15.Name = "label15";
-            label15.Size = new Size(67, 21);
+            label15.Size = new Size(82, 24);
             label15.TabIndex = 16;
             label15.Text = "Método";
             // 
@@ -246,10 +248,10 @@
             // 
             txtResFuncion.BackColor = Color.FromArgb(233, 231, 235);
             txtResFuncion.BorderStyle = BorderStyle.FixedSingle;
-            txtResFuncion.Font = new Font("Rockwell", 12F);
-            txtResFuncion.Location = new Point(910, 110);
+            txtResFuncion.Font = new Font("Rockwell", 15F);
+            txtResFuncion.Location = new Point(1238, 197);
             txtResFuncion.Name = "txtResFuncion";
-            txtResFuncion.Size = new Size(237, 26);
+            txtResFuncion.Size = new Size(226, 31);
             txtResFuncion.TabIndex = 15;
             // 
             // label16
@@ -257,11 +259,11 @@
             label16.AutoSize = true;
             label16.BackColor = SystemColors.ActiveCaptionText;
             label16.BorderStyle = BorderStyle.FixedSingle;
-            label16.Font = new Font("Rockwell", 12F);
+            label16.Font = new Font("Rockwell", 15F);
             label16.ForeColor = Color.White;
-            label16.Location = new Point(991, 84);
+            label16.Location = new Point(1308, 171);
             label16.Name = "label16";
-            label16.Size = new Size(68, 21);
+            label16.Size = new Size(83, 24);
             label16.TabIndex = 14;
             label16.Text = "Función";
             // 
@@ -269,40 +271,40 @@
             // 
             txtResMetodo.BackColor = Color.FromArgb(233, 231, 235);
             txtResMetodo.BorderStyle = BorderStyle.FixedSingle;
-            txtResMetodo.Font = new Font("Rockwell", 12F);
-            txtResMetodo.Location = new Point(910, 174);
+            txtResMetodo.Font = new Font("Rockwell", 15F);
+            txtResMetodo.Location = new Point(1233, 268);
             txtResMetodo.Name = "txtResMetodo";
-            txtResMetodo.Size = new Size(237, 26);
+            txtResMetodo.Size = new Size(226, 31);
             txtResMetodo.TabIndex = 28;
             // 
             // txtResIteraciones
             // 
             txtResIteraciones.BackColor = Color.FromArgb(233, 231, 235);
             txtResIteraciones.BorderStyle = BorderStyle.FixedSingle;
-            txtResIteraciones.Font = new Font("Rockwell", 12F);
-            txtResIteraciones.Location = new Point(911, 235);
+            txtResIteraciones.Font = new Font("Rockwell", 15F);
+            txtResIteraciones.Location = new Point(1228, 353);
             txtResIteraciones.Name = "txtResIteraciones";
-            txtResIteraciones.Size = new Size(237, 26);
+            txtResIteraciones.Size = new Size(226, 31);
             txtResIteraciones.TabIndex = 29;
             // 
             // txtResTolerancia
             // 
             txtResTolerancia.BackColor = Color.FromArgb(233, 231, 235);
             txtResTolerancia.BorderStyle = BorderStyle.FixedSingle;
-            txtResTolerancia.Font = new Font("Rockwell", 12F);
-            txtResTolerancia.Location = new Point(911, 291);
+            txtResTolerancia.Font = new Font("Rockwell", 15F);
+            txtResTolerancia.Location = new Point(1235, 429);
             txtResTolerancia.Name = "txtResTolerancia";
-            txtResTolerancia.Size = new Size(237, 26);
+            txtResTolerancia.Size = new Size(226, 31);
             txtResTolerancia.TabIndex = 30;
             // 
             // txtResConverge
             // 
             txtResConverge.BackColor = Color.FromArgb(233, 231, 235);
             txtResConverge.BorderStyle = BorderStyle.FixedSingle;
-            txtResConverge.Font = new Font("Rockwell", 12F);
-            txtResConverge.Location = new Point(877, 361);
+            txtResConverge.Font = new Font("Rockwell", 15F);
+            txtResConverge.Location = new Point(1192, 510);
             txtResConverge.Name = "txtResConverge";
-            txtResConverge.Size = new Size(139, 26);
+            txtResConverge.Size = new Size(128, 31);
             txtResConverge.TabIndex = 31;
             // 
             // label10
@@ -310,11 +312,11 @@
             label10.AutoSize = true;
             label10.BackColor = SystemColors.ActiveCaptionText;
             label10.BorderStyle = BorderStyle.FixedSingle;
-            label10.Font = new Font("Rockwell", 12F);
+            label10.Font = new Font("Rockwell", 15F);
             label10.ForeColor = Color.White;
-            label10.Location = new Point(1096, 335);
+            label10.Location = new Point(1410, 484);
             label10.Name = "label10";
-            label10.Size = new Size(41, 21);
+            label10.Size = new Size(50, 24);
             label10.TabIndex = 35;
             label10.Text = "Raíz";
             label10.Click += label10_Click;
@@ -323,10 +325,10 @@
             // 
             txtResError.BackColor = Color.FromArgb(233, 231, 235);
             txtResError.BorderStyle = BorderStyle.FixedSingle;
-            txtResError.Font = new Font("Rockwell", 12F);
-            txtResError.Location = new Point(911, 420);
+            txtResError.Font = new Font("Rockwell", 15F);
+            txtResError.Location = new Point(1233, 605);
             txtResError.Name = "txtResError";
-            txtResError.Size = new Size(237, 26);
+            txtResError.Size = new Size(226, 31);
             txtResError.TabIndex = 37;
             // 
             // label11
@@ -334,11 +336,11 @@
             label11.AutoSize = true;
             label11.BackColor = SystemColors.ActiveCaptionText;
             label11.BorderStyle = BorderStyle.FixedSingle;
-            label11.Font = new Font("Rockwell", 12F);
+            label11.Font = new Font("Rockwell", 15F);
             label11.ForeColor = Color.White;
-            label11.Location = new Point(998, 395);
+            label11.Location = new Point(1309, 578);
             label11.Name = "label11";
-            label11.Size = new Size(51, 21);
+            label11.Size = new Size(60, 24);
             label11.TabIndex = 36;
             label11.Text = "Error";
             label11.Click += label11_Click;
@@ -348,10 +350,10 @@
             label17.AutoSize = true;
             label17.BackColor = SystemColors.ActiveCaptionText;
             label17.BorderStyle = BorderStyle.FixedSingle;
-            label17.Font = new Font("Rockwell", 12F);
-            label17.Location = new Point(132, 148);
+            label17.Font = new Font("Rockwell", 15F);
+            label17.Location = new Point(160, 249);
             label17.Name = "label17";
-            label17.Size = new Size(67, 21);
+            label17.Size = new Size(82, 24);
             label17.TabIndex = 40;
             label17.Text = "Método";
             // 
@@ -359,10 +361,10 @@
             // 
             txtFuncion.BackColor = Color.FromArgb(233, 231, 235);
             txtFuncion.BorderStyle = BorderStyle.FixedSingle;
-            txtFuncion.Font = new Font("Rockwell", 12F);
-            txtFuncion.Location = new Point(45, 110);
+            txtFuncion.Font = new Font("Rockwell", 15F);
+            txtFuncion.Location = new Point(79, 197);
             txtFuncion.Name = "txtFuncion";
-            txtFuncion.Size = new Size(237, 26);
+            txtFuncion.Size = new Size(237, 31);
             txtFuncion.TabIndex = 39;
             txtFuncion.TextChanged += textBox15_TextChanged;
             // 
@@ -371,10 +373,10 @@
             label18.AutoSize = true;
             label18.BackColor = SystemColors.ActiveCaptionText;
             label18.BorderStyle = BorderStyle.FixedSingle;
-            label18.Font = new Font("Rockwell", 12F);
-            label18.Location = new Point(126, 84);
+            label18.Font = new Font("Rockwell", 15F);
+            label18.Location = new Point(160, 171);
             label18.Name = "label18";
-            label18.Size = new Size(68, 21);
+            label18.Size = new Size(83, 24);
             label18.TabIndex = 38;
             label18.Text = "Función";
             // 
@@ -382,20 +384,20 @@
             // 
             txtResRaiz.BackColor = Color.FromArgb(233, 231, 235);
             txtResRaiz.BorderStyle = BorderStyle.FixedSingle;
-            txtResRaiz.Font = new Font("Rockwell", 12F);
-            txtResRaiz.Location = new Point(1049, 361);
+            txtResRaiz.Font = new Font("Rockwell", 15F);
+            txtResRaiz.Location = new Point(1364, 510);
             txtResRaiz.Name = "txtResRaiz";
-            txtResRaiz.Size = new Size(139, 26);
+            txtResRaiz.Size = new Size(128, 31);
             txtResRaiz.TabIndex = 42;
             txtResRaiz.TextChanged += textBox1_TextChanged;
             // 
             // button1
             // 
             button1.BackColor = SystemColors.ActiveCaptionText;
-            button1.Font = new Font("Rockwell", 12F);
-            button1.Location = new Point(116, 420);
+            button1.Font = new Font("Rockwell", 15F);
+            button1.Location = new Point(123, 627);
             button1.Name = "button1";
-            button1.Size = new Size(94, 37);
+            button1.Size = new Size(142, 37);
             button1.TabIndex = 44;
             button1.Text = "CALCULAR";
             button1.UseVisualStyleBackColor = false;
@@ -404,20 +406,33 @@
             // cmbMetodo
             // 
             cmbMetodo.BackColor = Color.FromArgb(233, 231, 235);
-            cmbMetodo.Font = new Font("Rockwell", 12F);
+            cmbMetodo.Font = new Font("Rockwell", 15F);
             cmbMetodo.FormattingEnabled = true;
-            cmbMetodo.Location = new Point(45, 174);
+            cmbMetodo.Location = new Point(73, 275);
             cmbMetodo.Name = "cmbMetodo";
-            cmbMetodo.Size = new Size(237, 27);
+            cmbMetodo.Size = new Size(237, 30);
             cmbMetodo.TabIndex = 45;
             // 
-            // FormMenu
+            // webview
+            // 
+            webview.AllowExternalDrop = true;
+            webview.BackColor = Color.Black;
+            webview.CreationProperties = null;
+            webview.DefaultBackgroundColor = Color.White;
+            webview.Location = new Point(392, 25);
+            webview.Name = "webview";
+            webview.Size = new Size(758, 705);
+            webview.TabIndex = 46;
+            webview.ZoomFactor = 1D;
+            // 
+            // FormUnidad1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ActiveCaptionText;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(1106, 456);
+            ClientSize = new Size(1557, 742);
+            Controls.Add(webview);
             Controls.Add(cmbMetodo);
             Controls.Add(button1);
             Controls.Add(txtResRaiz);
@@ -449,9 +464,10 @@
             Controls.Add(txtIteraciones);
             Controls.Add(label3);
             ForeColor = Color.White;
-            Name = "FormMenu";
+            Name = "FormUnidad1";
             Text = "FormMenu";
-            Load += FormMenu_Load;
+            Load += FormUnidad1_Load;
+            ((System.ComponentModel.ISupportInitialize)webview).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -487,5 +503,6 @@
         private TextBox txtResRaiz;
         private Button button1;
         private ComboBox cmbMetodo;
+        private Microsoft.Web.WebView2.WinForms.WebView2 webview;
     }
 }

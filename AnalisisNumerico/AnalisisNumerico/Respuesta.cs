@@ -16,4 +16,5 @@ namespace U1
         public int iteraciones { get; set; }
         public string Converge { get; set; }
     }
+
 }

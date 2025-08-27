@@ -13,94 +13,117 @@ namespace U1
     public class MetodoCerrado
     {
 
-        private Calculo calculo1 = new Calculo();
+        public Calculo calculo1 = new Calculo();
 
-        public Respuesta MetodosCerrados(
-            double xiCerrado,
-            double xdCerrado,
-            double tol,
-            int maxIter,
-            Calculo funcion,
-            string metodo)
+        public Respuesta MetodosCerrados(double xiCerrado, double xdCerrado, double tol, int maxIter, Calculo funcion, string metodo)
         {
-            // Validación de entradas
-            ValidarEntradas(xiCerrado, xdCerrado, tol, maxIter, funcion, metodo);
+            Respuesta res = new Respuesta();
+            res.Converge = "Converge";
+
 
             double fxi = funcion.EvaluaFx(xiCerrado);
             double fxd = funcion.EvaluaFx(xdCerrado);
 
-            // Verificar raíces exactas antes del bucle
-            if (fxi == 0) return new Respuesta { raiz = xiCerrado, Converge = "Converge", iteraciones = 0, error = 0 };
-            if (fxd == 0) return new Respuesta { raiz = xdCerrado, Converge = "Converge", iteraciones = 0, error = 0 };
-            if (fxi * fxd > 0) throw new ArgumentException("No hay raíz en el intervalo [xi, xd].");
-
-            // Inicialización de variables
-            double xrAnterior = xiCerrado;
-            double xr = 0;
-            double error = double.MaxValue;
-            Respuesta res = new Respuesta { Converge = "Converge" };
-
-            for (int i = 0; i < maxIter && error > tol; i++)
+            if (fxi * fxd > 0)
             {
-                xr = CalcularXr(xiCerrado, xdCerrado, funcion, metodo);
-                double fxr = funcion.EvaluaFx(xr);
+                MessageBox.Show("Error: f(xi) * f(xd) > 0. No hay raíz en el intervalo. Vuelva a ingresar el intervalo");
+            }
+            else if (fxi * fxd == 0)
+            {
+                if (fxi == 0) res.raiz = xiCerrado;
+                else if (fxd == 0) res.raiz = xdCerrado;
+            }
+            else
+            {
+                double xrAnterior = xiCerrado;
+                double xr = 0;
+                double error = 0;
 
-                // Verificar convergencia absoluta
-                if (Math.Abs(fxr) < tol)
+                for (int i = 0; i < maxIter; i++)
                 {
-                    res.raiz = xr;
+                    if (metodo == "Biseccion")
+                    {
+                        xr = CalcularXr(xiCerrado, xdCerrado, null);
+                    }
+                    else if (metodo == "Regla falsa")
+                    {
+                        xr = CalcularXr(xiCerrado, xdCerrado, funcion);
+                    }
+                    else
+                    {
+                        throw new FormatException("Método no reconocido. Use 'Biseccion' o 'Regla Falsa'.");
+                    }
+
+                    double fxr = funcion.EvaluaFx(xr);
+
+                    error = Math.Abs((xr - xrAnterior) / xr);
+
+                    if (Math.Abs(fxr) < tol || error < tol)
+                    {
+                        res.raiz = xr;
+                        res.error = error;
+                        res.iteraciones = i + 1;
+                        break;
+                    }
+
+                    else if ((fxi * fxr) > 0)
+                    {
+                        xiCerrado = xr;
+
+                    }
+                    else
+                    {
+                        xdCerrado = xr;
+
+                    }
+
                     res.error = error;
                     res.iteraciones = i + 1;
-                    return res;
+                    xrAnterior = xr;
+
                 }
 
-                // Actualizar intervalo
-                if (fxi * fxr < 0)
-                {
-                    xdCerrado = xr;
-                    fxd = fxr;
-                }
-                else
-                {
-                    xiCerrado = xr;
-                    fxi = fxr;
-                }
-
-                // Calcular error relativo
-                error = Math.Abs((xr - xrAnterior) / xr);
-                xrAnterior = xr;
-
-                res.error = error;
-                res.iteraciones = i + 1;
+                res.raiz = xr;
             }
 
-            // Si supera iteraciones
-            res.raiz = xr;
-            res.Converge = "No converge";
             return res;
         }
 
-        private double CalcularXr(double xi, double xd, Calculo funcion, string metodo)
+        public double CalcularXr(double xi, double xd, Calculo funcion)
         {
-            return metodo switch
+            if (funcion == null)
             {
-                "Biseccion" => (xi + xd) / 2,
-                "Regla Falsa" => (xi * funcion.EvaluaFx(xd) - xd * funcion.EvaluaFx(xi)) /
-                                 (funcion.EvaluaFx(xd) - funcion.EvaluaFx(xi)),
-                _ => throw new ArgumentException("Método no reconocido. Use 'Biseccion' o 'Regla Falsa'.")
-            };
+                return ((xi + xd) / 2);
+            }
+            else
+            {
+                double fxd = funcion.EvaluaFx(xd);
+                double fxi = funcion.EvaluaFx(xi);
+                return ((xi * fxd - xd * fxi) / (fxd - fxi));
+            }
         }
 
-        private void ValidarEntradas(double xi, double xd, double tol, int maxIter, Calculo funcion, string metodo)
+        /*public void ControlVariables(double xiCerrado, double xdCerrado, double tol, int maxIter, Calculo funcion, string metodo)
         {
-            if (funcion == null) throw new ArgumentNullException(nameof(funcion), "La función no puede ser nula.");
-            if (string.IsNullOrWhiteSpace(metodo)) throw new ArgumentException("El método no puede estar vacío.");
-            if (tol <= 0) throw new ArgumentException("La tolerancia debe ser mayor a cero.");
-            if (maxIter <= 0) throw new ArgumentException("El número de iteraciones debe ser mayor a cero.");
+            Calculo cal = new Calculo();
+            if (funcion == null) throw new FormatException(nameof(funcion));
+            if (string.IsNullOrWhiteSpace(metodo)) throw new FormatException("El método no puede estar vacío.");
+            if (tol <= 0) throw new FormatException("La tolerancia debe ser mayor a cero.");
+            if (maxIter <= 0) throw new FormatException("El número de iteraciones debe ser mayor a cero.");
 
-            if (!calculo1.Sintaxis(funcion.ToString(), 'x'))
-                throw new ArgumentException("La sintaxis de la función es incorrecta.");
+            string fun = Convert.ToString(funcion);
+            if (cal.Sintaxis(fun, 'x')) throw new FormatException("La sintaxis de la función es incorrecta.");
+        }*/
+
+        static bool CambioDeSigno(Calculo f, double a, double b)
+        {
+            double fa = f.EvaluaFx(a);
+            double fb = f.EvaluaFx(b);
+            return fa * fb < 0;
         }
-    }
 
+
+
+
+    }
 }

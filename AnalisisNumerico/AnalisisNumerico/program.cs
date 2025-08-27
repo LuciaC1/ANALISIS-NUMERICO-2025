@@ -4,25 +4,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using U1;
+using System.Windows.Forms;
+using static System.Windows.Forms.DataFormats;
 
-namespace Unidad1
+namespace U1
 {
-    public class program
+    internal static class Program
     {
-        internal static class Program
+        [STAThread]   
+        static void Main()
         {
-            [STAThread]
-            static void Main()
-            {
-                // Configura la aplicación para usar controles visuales y estilos modernos
-                Application.SetHighDpiMode(HighDpiMode.SystemAware);
-                Application.EnableVisualStyles();
-                Application.SetCompatibleTextRenderingDefault(false);
-
-                // Indica qué formulario se abre al ejecutar
-                Application.Run(new FormMenu());
-            }
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new FormUnidad1());
         }
     }
 }
