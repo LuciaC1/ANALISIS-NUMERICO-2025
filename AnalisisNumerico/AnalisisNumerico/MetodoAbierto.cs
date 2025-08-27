@@ -14,15 +14,108 @@ namespace U1
 
         Calculo calculo = new Calculo();
 
-        public Respuesta MetodosAbiertos(double xi, double xi1, double tol, int iteraciones, Calculo funcion, string metodo)
+        public Respuesta MetodosAbiertos(double xi, double xi1, double tolerancia, int iteraciones, Calculo funcion, string metodo)
         {
             Respuesta res = new Respuesta();
-
-            ControlVariables(xi, tol, iteraciones, funcion, metodo);
-
             res.Converge = "Converge";
             int iter = 0;
-            double x_Anterior = xi;
+            
+            if(metodo == "Newton-Raphson")
+            {
+                double xr = xi;
+                double derivadafx = funcion.Dx(xi);
+
+                while (Math.Abs(funcion.EvaluaFx(xr)) > tolerancia && iter < iteraciones)
+                {
+                    double fx = funcion.EvaluaFx(xr);
+                    derivadafx = funcion.Dx(xr);
+
+                    if (derivadafx == 0)
+                    {
+                        res.Converge = "No converge, la derivada es cero.";
+                        break;
+                    }
+
+                    double xAnterior = xr;
+                    xr = xr - (fx / derivadafx);
+
+                    double errorAbsoluto = Math.Abs((xr - xAnterior) / xr);
+
+                    double margenErrorRelativo;
+                    if (Math.Abs(xr) == 0)
+                    {
+                        margenErrorRelativo = errorAbsoluto;
+                    }
+                    else
+                    {
+                        margenErrorRelativo = errorAbsoluto / Math.Abs(xr);
+                    }
+
+                    res.raiz = xr;
+                    res.error = margenErrorRelativo;
+                    iter++;
+                    res.iteraciones = iter;
+
+                    if (margenErrorRelativo < tolerancia || Math.Abs(fx) < tolerancia)
+                    {
+                        break;
+                    }
+                }
+
+            }
+            else if(metodo == "Secante")
+            {
+                double xAnt = xi;
+                double xAct = xi1;
+                double margenDeErrorRelativo = double.MaxValue;
+
+                while (iter < iteraciones)
+                {
+                    try
+                    {
+                        double fxAnt = funcion.EvaluaFx(xAnt);
+                        double fxAct = funcion.EvaluaFx(xAct);
+
+                        if (Math.Abs(fxAct - fxAnt) < 1e-10)
+                        {
+                            res.Converge = "No converge, la diferencia en la función es casi cero";
+                            break;
+                        }
+
+                        double xProx = xAct - fxAct * (xAct - xAnt) / (fxAct - fxAnt);
+
+                        double errorAbsoluto = Math.Abs(xProx - xAct);
+                        margenDeErrorRelativo = (Math.Abs(xProx) == 0) ? errorAbsoluto : errorAbsoluto / Math.Abs(xProx);
+
+                        xAnt = xAct;
+                        xAct = xProx;
+                        iter++;
+
+                        res.iteraciones = iter;
+                        res.raiz = xAct;
+                        res.error = margenDeErrorRelativo;
+
+                        if (margenDeErrorRelativo < tolerancia)
+                        {
+                            break;
+                        }
+
+                        if (double.IsNaN(fxAct) || double.IsInfinity(fxAct))
+                        {
+                            res.Converge = "No converge, valores fuera del dominio real";
+                            break;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        res.Converge = "No converge, error en la evaluación: " + ex.Message;
+                        break;
+                    }
+                }
+
+            }
+
+            /*double x_Anterior = xi;
 
             double fxi = funcion.EvaluaFx(xi);
 
@@ -64,11 +157,16 @@ namespace U1
                 }
                 res.raiz = xr;
                 res.error = error;
+            }*/
+
+            if (iter >= iteraciones)
+            {
+                res.Converge = "No converge, se excedió el número de iteraciones";
             }
             return res;
         }
 
-        public double CalcularXr(double xi, Calculo funcion, string metodo)
+        /*public double CalcularXr(double xi, Calculo funcion, string metodo)
         {
             double xr = 0;
             if (metodo == "Secante")
@@ -80,9 +178,9 @@ namespace U1
                 calculo.Dx(xi);
             }
             return xr;
-        }
+        }*/
 
-        public void ControlVariables(double xiAbierto, double tol, double maxIter, Calculo funcion, string metodo)
+        /*public void ControlVariables(double xiAbierto, double tol, double maxIter, Calculo funcion, string metodo)
         {
             Calculo cal = new Calculo();
             if (funcion == null) throw new ArgumentNullException(nameof(funcion));
@@ -92,13 +190,13 @@ namespace U1
 
             string fun = Convert.ToString(funcion);
             if (cal.Sintaxis(fun, 'x')) throw new ArgumentException("La sintaxis de la función es incorrecta.");
-        }
+        }*/
 
-        static bool CambioDeSigno(Calculo f, double a, double b)
+        /*static bool CambioDeSigno(Calculo f, double a, double b)
         {
             double fa = f.EvaluaFx(a);
             double fb = f.EvaluaFx(b);
             return fa * fb < 0;
-        }
+        }*/
     }
 }

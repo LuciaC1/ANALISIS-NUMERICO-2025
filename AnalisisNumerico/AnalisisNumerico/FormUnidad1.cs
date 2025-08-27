@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -36,6 +38,8 @@ namespace U1
             cmbMetodo.Items.Add("Newton-Raphson");
             cmbMetodo.Items.Add("Secante");
             cmbMetodo.SelectedIndex = 0;
+            cmbMetodo.SelectedIndexChanged += cmbMetodo_SelectedIndexChanged;
+
 
             this.Load += FormUnidad1_Load;
         }
@@ -63,6 +67,28 @@ namespace U1
             try
             {
                 string funcionStr = txtFuncion.Text;
+
+                int pos = funcionStr.IndexOf("||");
+
+                int firstPos = funcionStr.IndexOf('|');
+
+                if (firstPos != -1)
+                {
+                    int secondPos = funcionStr.IndexOf('|', firstPos + 1);
+
+                    if (secondPos != -1)
+                    {
+                        string contenido = funcionStr.Substring(firstPos + 1, secondPos - firstPos - 1);
+                        string conteni = "abs(" + contenido + ")";
+                        funcionStr = funcionStr.Replace($"|{contenido}|", $"{conteni}");
+                    }
+                }
+
+                if((funcionStr.Contains("e")))
+                {
+                    funcionStr = Regex.Replace(funcionStr, @"e\^\((.*?)\)", "exp($1)");
+                }
+
                 string metodo = cmbMetodo.SelectedItem?.ToString();
                 if (string.IsNullOrEmpty(metodo))
                 {
@@ -71,7 +97,19 @@ namespace U1
                 }
 
                 double xi = double.Parse(txtXi.Text);
-                double xd = double.Parse(txtXd.Text);
+                //double xd = double.Parse(txtXd.Text);
+                var cul = CultureInfo.CurrentCulture;
+                double xd = 0;
+                if (metodo == "Biseccion" || metodo == "Regla Falsa" || metodo == "Secante")
+                {
+                    if (!double.TryParse(txtXd.Text, NumberStyles.Float, cul, out xd) &&
+                        !double.TryParse(txtXd.Text, NumberStyles.Float, CultureInfo.InvariantCulture, out xd))
+                    {
+                        MessageBox.Show("Ingresá un xd válido para el método seleccionado.");
+                        txtXd.Focus(); return;
+                    }
+                }
+
                 int iteraciones = int.Parse(txtIteraciones.Text);
                 double tol = double.Parse(txtTolerancia.Text);
 
@@ -79,26 +117,48 @@ namespace U1
                 funcion.Sintaxis(funcionStr, 'x');
 
                 Respuesta resultado = null;
+                MetodoCerrado metodoCerrado = new MetodoCerrado();
+                MetodoAbierto metodoAbierto = new MetodoAbierto();
 
-                if (metodo == ("Biseccion") || metodo == ("Regla Falsa"))
+                if (ControlVariables(xi, xd, tol, iteraciones, funcionStr))
                 {
-                    MetodoCerrado metodoCerrado = new MetodoCerrado();
-                    resultado = metodoCerrado.MetodosCerrados(xi, xd, tol, iteraciones, funcion, metodo);
-                }
-                else if (metodo == ("Newton-Raphson") || metodo == ("Secante"))
-                {
-                    MetodoAbierto metodoAbierto = new MetodoAbierto();
-                    resultado = metodoAbierto.MetodosAbiertos(xi, xd, tol, iteraciones, funcion, metodo);
-                }
+                    if (metodo == ("Biseccion") || metodo == ("Regla Falsa"))
+                    {
+                        
+                        resultado = metodoCerrado.MetodosCerrados(xi, xd, tol, iteraciones, funcion, metodo);
+                    }
+                    else if (metodo == ("Secante"))
+                    {
+                        
+                        resultado = metodoAbierto.MetodosAbiertos(xi, xd, tol, iteraciones, funcion, metodo);
+                    }else if(metodo == ("Newton-Raphson"))
+                    {
+                        resultado = metodoAbierto.MetodosAbiertos(xi, 0, tol, iteraciones, funcion, metodo);
+                    }
 
-                txtResFuncion.Text = funcionStr;
-                txtResMetodo.Text = metodo;
-                txtResIteraciones.Text = resultado.iteraciones.ToString();
-                txtResTolerancia.Text = tol.ToString();
-                txtResConverge.Text = resultado.Converge;
-                txtResRaiz.Text = resultado.raiz.ToString("G10");
-                txtResError.Text = resultado.error.ToString("G10");
+                        txtResFuncion.Text = funcionStr;
+                    txtResMetodo.Text = metodo;
+                    txtResIteraciones.Text = resultado.iteraciones.ToString();
+                    txtResTolerancia.Text = tol.ToString();
+                    if(resultado.Converge == "Converge")
+                    {
+                        txtResConverge.Text = "Si";
+                    }
+                    else
+                    {
+                        txtResConverge.Text = "No";
+                    } 
+                    txtResRaiz.Text = resultado.raiz.ToString("G10");
 
+                    string notacion = resultado.error.ToString("E4");
+
+                    string[] partes = notacion.Split('E');
+                    string mantisa = partes[0];              
+                    int exponente = int.Parse(partes[1]);    
+
+                    string error = $"{mantisa} × 10^{exponente}";
+                    txtResError.Text = error;
+                }
 
                 if (webview.CoreWebView2 != null)
                 {
@@ -120,6 +180,57 @@ namespace U1
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public bool ControlVariables(double xiCerrado, double xdCerrado, double tol, int maxIter, string funcion)
+        {
+
+            Calculo cal = new Calculo();
+            if (cal.Sintaxis(funcion, 'x') == false)
+            {
+                MessageBox.Show("Sintaxis de la función incorrecta");
+                return false;
+            }
+            if (xiCerrado == null)
+            {
+                MessageBox.Show("Se debe ingresar el primer valor para el intervalo");
+                return false;
+            }
+            if (xdCerrado == null)
+            {
+                MessageBox.Show("Se debe ingresar el segundo valor para el intervalo");
+                return false;
+            }
+            if (tol <= 0)
+            {
+                MessageBox.Show("La tolerancia debe ser mayor a cero.");
+                return false;
+            }
+            if (maxIter <= 0)
+            {
+                MessageBox.Show("El número de iteraciones debe ser mayor a cero.");
+                return false;
+            }
+
+            return true;
+        }
+
+
+        private void cmbMetodo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string metodo = cmbMetodo.SelectedItem.ToString();
+
+            if (metodo == "Newton-Raphson")
+            {
+                txtXd.Enabled = false;   
+                txtXd.Text = "";         
+            }
+            else
+            {
+                txtXd.Enabled = true;    
+            }
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
 

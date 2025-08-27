@@ -45,7 +45,7 @@ namespace U1
                     {
                         xr = CalcularXr(xiCerrado, xdCerrado, null);
                     }
-                    else if (metodo == "Regla falsa")
+                    else if (metodo == "Regla Falsa")
                     {
                         xr = CalcularXr(xiCerrado, xdCerrado, funcion);
                     }
