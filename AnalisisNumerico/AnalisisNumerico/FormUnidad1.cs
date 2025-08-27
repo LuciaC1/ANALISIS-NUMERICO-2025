@@ -23,6 +23,10 @@ namespace U1
             AplicarBordeNegro(txtXd);
             AplicarBordeNegro(txtIteraciones);
             AplicarBordeNegro(txtTolerancia);
+            txtFuncion.Multiline = true;        
+            txtFuncion.WordWrap = true;        
+            txtFuncion.ScrollBars = ScrollBars.Vertical; 
+            txtFuncion.Height = txtFuncion.Height * 2;   
             AplicarBordeNegro(txtFuncion);
             AplicarBordeNegro(txtResFuncion);
             AplicarBordeNegro(txtResMetodo);
