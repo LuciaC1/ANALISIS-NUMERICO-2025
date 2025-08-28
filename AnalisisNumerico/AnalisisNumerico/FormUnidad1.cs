@@ -144,15 +144,16 @@ namespace U1
                     txtResMetodo.Text = metodo;
                     txtResIteraciones.Text = resultado.iteraciones.ToString();
                     txtResTolerancia.Text = tol.ToString();
-                    if(resultado.Converge == "Converge")
+                    txtResRaiz.Text = resultado.raiz.ToString("G10");
+                    if (resultado.Converge == "Converge")
                     {
                         txtResConverge.Text = "Si";
                     }
                     else
                     {
                         txtResConverge.Text = "No";
+                        txtResRaiz.Text = "No hay raíz";
                     } 
-                    txtResRaiz.Text = resultado.raiz.ToString("G10");
 
                     string notacion = resultado.error.ToString("E4");
 
