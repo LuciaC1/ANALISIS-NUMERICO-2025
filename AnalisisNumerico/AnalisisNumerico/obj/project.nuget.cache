@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "Dhz5oi0PCUI=",
+  "dgSpecHash": "f8Mgul9DdLE=",
   "success": true,
-  "projectFilePath": "C:\\Users\\USER\\OneDrive\\Documentos\\Facu\\3ero\\AnalisisNumerico\\RepoANALISIS-NUMERICO-2025\\AnalisisNumerico\\AnalisisNumerico\\U1.csproj",
+  "projectFilePath": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\U1.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\USER\\.nuget\\packages\\microsoft.web.webview2\\1.0.3405.78\\microsoft.web.webview2.1.0.3405.78.nupkg.sha512",
-    "C:\\Users\\USER\\.nuget\\packages\\winforms.datavisualization\\1.10.0\\winforms.datavisualization.1.10.0.nupkg.sha512"
+    "C:\\Users\\Lara\\.nuget\\packages\\microsoft.web.webview2\\1.0.3405.78\\microsoft.web.webview2.1.0.3405.78.nupkg.sha512",
+    "C:\\Users\\Lara\\.nuget\\packages\\winforms.datavisualization\\1.10.0\\winforms.datavisualization.1.10.0.nupkg.sha512"
   ],
   "logs": []
 }
