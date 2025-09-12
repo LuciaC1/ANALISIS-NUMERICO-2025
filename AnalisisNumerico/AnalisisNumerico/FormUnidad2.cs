@@ -25,10 +25,10 @@ namespace U1
                 int rows = int.Parse(textBox1.Text);
                 int cols = rows + 1;
 
-                int pointX = 10;
-                int pointY = 10;
-                int spaceX = 80;
-                int spaceY = 30;
+                int pointX = 40;
+                int pointY = 40;
+                int spaceX = 100;
+                int spaceY = 40;
 
                 panel2.Controls.Clear();
                 if (!panel2.Controls.Contains(lineaPunteada))
@@ -43,7 +43,7 @@ namespace U1
                     {
                         TextBox a = new TextBox();
                         a.Location = new Point(pointX + j * spaceX, pointY + i * spaceY);
-                        a.Size = new Size(70, 20);
+                        a.Size = new Size(90, 20);
                         a.Name = $"TextBox_{i}_{j}";
                         panel2.Controls.Add(a);
                     }
