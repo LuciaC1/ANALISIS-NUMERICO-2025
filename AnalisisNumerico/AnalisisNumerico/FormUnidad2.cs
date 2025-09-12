@@ -17,6 +17,7 @@ namespace U1
             InitializeComponent();
         }
 
+        Panel lineaPunteada = new Panel();
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -30,7 +31,12 @@ namespace U1
                 int spaceY = 30;
 
                 panel2.Controls.Clear();
+                if (!panel2.Controls.Contains(lineaPunteada))
+                {
+                    panel2.Controls.Add(lineaPunteada);
+                }
 
+                // Crear TextBox
                 for (int i = 0; i < rows; i++)
                 {
                     for (int j = 0; j < cols; j++)
@@ -43,9 +49,24 @@ namespace U1
                     }
                 }
 
+                // Configurar la línea punteada entre las dos últimas columnas
+                int secondLastColX = pointX + (cols - 2) * spaceX;
+                lineaPunteada.Location = new Point(secondLastColX + 70, pointY); // borde derecho penúltima columna
+                lineaPunteada.Size = new Size(2, rows * spaceY);
+                lineaPunteada.BackColor = Color.Black;
+                lineaPunteada.BorderStyle = BorderStyle.None;
+
+                // Hacerla punteada usando Paint
+                lineaPunteada.Paint += (s, pe) =>
+                {
+                    Pen pen = new Pen(Color.Black, 2);
+                    pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+                    pe.Graphics.DrawLine(pen, 0, 0, 0, lineaPunteada.Height);
+                };
 
                 panel2.AutoScroll = true;
                 panel2.AutoScrollMinSize = new Size(cols * spaceX + pointX, rows * spaceY + pointY);
+                lineaPunteada.Invalidate(); // Redibuja la línea
             }
             catch (Exception ex)
             {
@@ -283,8 +304,18 @@ namespace U1
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
-            _menu.Show(); 
-            this.Close(); 
+            _menu.Show();
+            this.Close();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxError_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

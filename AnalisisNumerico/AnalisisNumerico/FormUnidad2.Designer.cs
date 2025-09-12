@@ -59,7 +59,7 @@ namespace U1
             button2.BackColor = SystemColors.ActiveCaptionText;
             button2.Font = new Font("Rockwell", 15F);
             button2.ForeColor = Color.White;
-            button2.Location = new Point(1252, 68);
+            button2.Location = new Point(1251, 67);
             button2.Margin = new Padding(3, 4, 3, 4);
             button2.Name = "button2";
             button2.Size = new Size(149, 55);
@@ -109,11 +109,12 @@ namespace U1
             // 
             textBoxError.BackColor = Color.FromArgb(233, 231, 235);
             textBoxError.Font = new Font("Rockwell", 15F);
-            textBoxError.Location = new Point(1011, 102);
+            textBoxError.Location = new Point(918, 102);
             textBoxError.Margin = new Padding(3, 4, 3, 4);
             textBoxError.Name = "textBoxError";
-            textBoxError.Size = new Size(158, 37);
+            textBoxError.Size = new Size(253, 37);
             textBoxError.TabIndex = 3;
+            textBoxError.TextChanged += textBoxError_TextChanged;
             // 
             // label3
             // 
@@ -124,9 +125,10 @@ namespace U1
             label3.ForeColor = Color.White;
             label3.Location = new Point(746, 105);
             label3.Name = "label3";
-            label3.Size = new Size(200, 31);
+            label3.Size = new Size(141, 31);
             label3.TabIndex = 6;
-            label3.Text = "Error Permitido:";
+            label3.Text = "Tolerancia:";
+            label3.Click += label3_Click;
             // 
             // button1
             // 
