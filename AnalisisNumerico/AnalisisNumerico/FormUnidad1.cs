@@ -10,6 +10,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+
 
 namespace U1
 {
@@ -23,10 +25,10 @@ namespace U1
             AplicarBordeNegro(txtXd);
             AplicarBordeNegro(txtIteraciones);
             AplicarBordeNegro(txtTolerancia);
-            txtFuncion.Multiline = true;        
-            txtFuncion.WordWrap = true;        
-            txtFuncion.ScrollBars = ScrollBars.Vertical; 
-            txtFuncion.Height = txtFuncion.Height * 2;   
+            txtFuncion.Multiline = true;
+            txtFuncion.WordWrap = true;
+            txtFuncion.ScrollBars = ScrollBars.Vertical;
+            txtFuncion.Height = txtFuncion.Height * 2;
             AplicarBordeNegro(txtFuncion);
             AplicarBordeNegro(txtResFuncion);
             AplicarBordeNegro(txtResMetodo);
@@ -46,6 +48,7 @@ namespace U1
 
 
             this.Load += FormUnidad1_Load;
+
         }
         private void AplicarBordeNegro(TextBox txt)
         {
@@ -88,7 +91,7 @@ namespace U1
                     }
                 }
 
-                if((funcionStr.Contains("e")))
+                if ((funcionStr.Contains("e")))
                 {
                     funcionStr = Regex.Replace(funcionStr, @"e\^\((.*?)\)", "exp($1)");
                 }
@@ -128,19 +131,20 @@ namespace U1
                 {
                     if (metodo == ("Biseccion") || metodo == ("Regla Falsa"))
                     {
-                        
+
                         resultado = metodoCerrado.MetodosCerrados(xi, xd, tol, iteraciones, funcion, metodo);
                     }
                     else if (metodo == ("Secante"))
                     {
-                        
+
                         resultado = metodoAbierto.MetodosAbiertos(xi, xd, tol, iteraciones, funcion, metodo);
-                    }else if(metodo == ("Newton-Raphson"))
+                    }
+                    else if (metodo == ("Newton-Raphson"))
                     {
                         resultado = metodoAbierto.MetodosAbiertos(xi, 0, tol, iteraciones, funcion, metodo);
                     }
 
-                        txtResFuncion.Text = funcionStr;
+                    txtResFuncion.Text = funcionStr;
                     txtResMetodo.Text = metodo;
                     txtResIteraciones.Text = resultado.iteraciones.ToString();
                     txtResTolerancia.Text = tol.ToString();
@@ -153,13 +157,13 @@ namespace U1
                     {
                         txtResConverge.Text = "No";
                         txtResRaiz.Text = "No hay raíz";
-                    } 
+                    }
 
                     string notacion = resultado.error.ToString("E4");
 
                     string[] partes = notacion.Split('E');
-                    string mantisa = partes[0];              
-                    int exponente = int.Parse(partes[1]);    
+                    string mantisa = partes[0];
+                    int exponente = int.Parse(partes[1]);
 
                     string error = $"{mantisa} × 10^{exponente}";
                     txtResError.Text = error;
@@ -226,12 +230,12 @@ namespace U1
 
             if (metodo == "Newton-Raphson")
             {
-                txtXd.Enabled = false;   
-                txtXd.Text = "";         
+                txtXd.Enabled = false;
+                txtXd.Text = "";
             }
             else
             {
-                txtXd.Enabled = true;    
+                txtXd.Enabled = true;
             }
         }
 
@@ -300,6 +304,22 @@ namespace U1
         private void label12_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+
+        private FormPrincipal _menu;
+
+        public FormUnidad1(FormPrincipal menu)
+        {
+            InitializeComponent();
+            _menu = menu;
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            _menu.Show();
+            this.Close();
         }
     }
 }
