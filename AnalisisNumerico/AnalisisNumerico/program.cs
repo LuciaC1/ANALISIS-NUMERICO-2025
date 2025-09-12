@@ -11,12 +11,13 @@ namespace U1
 {
     internal static class Program
     {
-        [STAThread]   
+        [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormUnidad1());
+            //Application.Run(new FormUnidad1());
+            Application.Run(new FormUnidad2());
         }
     }
 }

@@ -307,7 +307,6 @@ namespace U1
         }
 
 
-
         private FormPrincipal _menu;
 
         public FormUnidad1(FormPrincipal menu)
