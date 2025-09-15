@@ -17,7 +17,8 @@ namespace U1
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new FormUnidad1());
-            Application.Run(new FormUnidad2());
+            //Application.Run(new FormUnidad2());
+            Application.Run(new FormPrincipal());
         }
     }
 }

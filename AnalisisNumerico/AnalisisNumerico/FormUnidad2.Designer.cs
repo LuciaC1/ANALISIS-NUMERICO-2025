@@ -41,7 +41,7 @@ namespace U1
             button1 = new Button();
             textBox1 = new TextBox();
             label1 = new Label();
-            button3 = new Button();
+            buttonVolverMenu = new Button();
             label4 = new Label();
             SuspendLayout();
             // 
@@ -164,16 +164,17 @@ namespace U1
             label1.TabIndex = 2;
             label1.Text = "Dimensión Matriz:";
             // 
-            // button3
+            // buttonVolverMenu
             // 
-            button3.BackColor = SystemColors.ActiveCaptionText;
-            button3.Font = new Font("Rockwell", 10F);
-            button3.Location = new Point(12, 12);
-            button3.Name = "button3";
-            button3.Size = new Size(125, 28);
-            button3.TabIndex = 45;
-            button3.Text = "Volver al menú";
-            button3.UseVisualStyleBackColor = false;
+            buttonVolverMenu.BackColor = SystemColors.ActiveCaptionText;
+            buttonVolverMenu.Font = new Font("Rockwell", 10F);
+            buttonVolverMenu.Location = new Point(12, 12);
+            buttonVolverMenu.Name = "buttonVolverMenu";
+            buttonVolverMenu.Size = new Size(125, 28);
+            buttonVolverMenu.TabIndex = 45;
+            buttonVolverMenu.Text = "Volver al menú";
+            buttonVolverMenu.UseVisualStyleBackColor = false;
+            buttonVolverMenu.Click += buttonVolverMenu_Click;
             // 
             // label4
             // 
@@ -197,7 +198,7 @@ namespace U1
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             ClientSize = new Size(1379, 706);
             Controls.Add(label4);
-            Controls.Add(button3);
+            Controls.Add(buttonVolverMenu);
             Controls.Add(button1);
             Controls.Add(label1);
             Controls.Add(textBoxError);
@@ -228,7 +229,7 @@ namespace U1
         private Button button1;
         private TextBox textBox1;
         private Label label1;
-        private Button button3;
+        private Button buttonVolverMenu;
         private Label label4;
     }
 }

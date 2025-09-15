@@ -306,10 +306,9 @@ namespace U1
             InitializeComponent();
             _menu = menu;
         }
-
-        private void btnVolver_Click(object sender, EventArgs e)
+        private void buttonVolverMenu_Click(object sender, EventArgs e)
         {
-            _menu.Show();
+            this.Owner.Show();
             this.Close();
         }
 
@@ -337,5 +336,6 @@ namespace U1
         {
 
         }
+
     }
 }

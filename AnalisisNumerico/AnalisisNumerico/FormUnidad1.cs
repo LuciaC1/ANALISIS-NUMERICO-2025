@@ -238,7 +238,11 @@ namespace U1
                 txtXd.Enabled = true;
             }
         }
-
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Owner.Show();
+            this.Close();
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -304,21 +308,6 @@ namespace U1
         private void label12_Click(object sender, EventArgs e)
         {
 
-        }
-
-
-        private FormPrincipal _menu;
-
-        public FormUnidad1(FormPrincipal menu)
-        {
-            InitializeComponent();
-            _menu = menu;
-        }
-
-        private void btnVolver_Click(object sender, EventArgs e)
-        {
-            _menu.Show();
-            this.Close();
         }
     }
 }
