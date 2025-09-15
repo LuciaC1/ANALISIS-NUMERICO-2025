@@ -101,7 +101,8 @@ namespace U1
                     {
                         string textBoxName = $"TextBox_{i}_{j}";
                         TextBox txt = (TextBox)panel2.Controls[textBoxName];
-                        matriz[i, j] = double.Parse(txt.Text);
+                        //matriz[i, j] = double.Parse(txt.Text);
+                        matriz[i, j] = ParseFractionOrDouble(txt.Text);
                     }
                 }
 
@@ -299,6 +300,29 @@ namespace U1
             return resultadoFinal;
         }
 
+        private double ParseFractionOrDouble(string input)
+        {
+            if (input.Contains("/"))
+            {
+                string[] parts = input.Split('/');
+                if (parts.Length == 2)
+                {
+                    double numerador = double.Parse(parts[0]);
+                    double denominador = double.Parse(parts[1]);
+                    return numerador / denominador;
+                }
+                else
+                {
+                    throw new FormatException("Fracción inválida.");
+                }
+            }
+            else
+            {
+                return double.Parse(input);
+            }
+        }
+
+
         private FormPrincipal _menu;
 
         public FormUnidad2(FormPrincipal menu)
@@ -337,5 +361,9 @@ namespace U1
 
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
