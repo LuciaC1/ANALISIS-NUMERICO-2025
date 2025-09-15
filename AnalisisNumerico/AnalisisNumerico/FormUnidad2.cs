@@ -12,9 +12,36 @@ namespace U1
 {
     public partial class FormUnidad2 : Form
     {
+        private int rowsGlobal;
+        private int colsGlobal;
+        private int pointX = 40;
+        private int pointY = 40;
+        private int spaceX = 100;
+        private int spaceY = 40;
+
         public FormUnidad2()
         {
             InitializeComponent();
+            panel2.Paint += (s, pe) =>
+            {
+                if (colsGlobal < 2) return;
+
+                int textBoxWidth = 90;
+                int espacioEntreColumnas = spaceX - textBoxWidth;
+
+                // Línea en el medio de la separación
+                int secondLastColX = pointX + (colsGlobal - 2) * spaceX + textBoxWidth + espacioEntreColumnas / 2;
+
+                using (Pen pen = new Pen(Color.Black, 3)) // grosor más grande
+                {
+                    pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dash; // más visible que Dot
+
+                    int startY = pointY;
+                    int endY = pointY + rowsGlobal * spaceY;
+
+                    pe.Graphics.DrawLine(pen, secondLastColX, startY, secondLastColX, endY);
+                }
+            };
         }
 
         Panel lineaPunteada = new Panel();
@@ -22,24 +49,15 @@ namespace U1
         {
             try
             {
-                int rows = int.Parse(textBox1.Text);
-                int cols = rows + 1;
-
-                int pointX = 40;
-                int pointY = 40;
-                int spaceX = 100;
-                int spaceY = 40;
+                rowsGlobal = int.Parse(textBox1.Text);
+                colsGlobal = rowsGlobal + 1;
 
                 panel2.Controls.Clear();
-                if (!panel2.Controls.Contains(lineaPunteada))
-                {
-                    panel2.Controls.Add(lineaPunteada);
-                }
 
                 // Crear TextBox
-                for (int i = 0; i < rows; i++)
+                for (int i = 0; i < rowsGlobal; i++)
                 {
-                    for (int j = 0; j < cols; j++)
+                    for (int j = 0; j < colsGlobal; j++)
                     {
                         TextBox a = new TextBox();
                         a.Location = new Point(pointX + j * spaceX, pointY + i * spaceY);
@@ -49,24 +67,11 @@ namespace U1
                     }
                 }
 
-                // Configurar la línea punteada entre las dos últimas columnas
-                int secondLastColX = pointX + (cols - 2) * spaceX;
-                lineaPunteada.Location = new Point(secondLastColX + 70, pointY); // borde derecho penúltima columna
-                lineaPunteada.Size = new Size(2, rows * spaceY);
-                lineaPunteada.BackColor = Color.Black;
-                lineaPunteada.BorderStyle = BorderStyle.None;
-
-                // Hacerla punteada usando Paint
-                lineaPunteada.Paint += (s, pe) =>
-                {
-                    Pen pen = new Pen(Color.Black, 2);
-                    pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-                    pe.Graphics.DrawLine(pen, 0, 0, 0, lineaPunteada.Height);
-                };
-
                 panel2.AutoScroll = true;
-                panel2.AutoScrollMinSize = new Size(cols * spaceX + pointX, rows * spaceY + pointY);
-                lineaPunteada.Invalidate(); // Redibuja la línea
+                panel2.AutoScrollMinSize = new Size(colsGlobal * spaceX + pointX, rowsGlobal * spaceY + pointY);
+
+                // Forzar repintado del panel (para que aparezca la línea correcta)
+                panel2.Invalidate();
             }
             catch (Exception ex)
             {
@@ -314,6 +319,21 @@ namespace U1
         }
 
         private void textBoxError_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormUnidad2_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
