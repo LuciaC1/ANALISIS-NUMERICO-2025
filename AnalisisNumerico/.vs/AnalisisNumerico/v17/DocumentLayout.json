@@ -3,9 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\dotnet\\sdk\\9.0.304\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|c:\\users\\lara\\onedrive\\documentos\\analisis_numerico_2025\\analisisnumerico\\analisisnumerico\\formprincipal.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|solutionrelative:analisisnumerico\\formprincipal.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -45,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
@@ -53,20 +50,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Microsoft.PackageDependencyResolution.targets",
-              "DocumentMoniker": "C:\\Program Files\\dotnet\\sdk\\9.0.304\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.304\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
-              "ToolTip": "C:\\Program Files\\dotnet\\sdk\\9.0.304\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\dotnet\\sdk\\9.0.304\\Sdks\\Microsoft.NET.Sdk\\targets\\Microsoft.PackageDependencyResolution.targets",
-              "ViewState": "AgIAAPQAAAAAAAAAAAAtwAkBAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-09-21T20:29:36.948Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "FormPrincipal.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormPrincipal.cs",
               "RelativeDocumentMoniker": "AnalisisNumerico\\FormPrincipal.cs",
@@ -78,7 +62,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "FormPrincipal.Designer.cs",
               "DocumentMoniker": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormPrincipal.Designer.cs",
               "RelativeDocumentMoniker": "AnalisisNumerico\\FormPrincipal.Designer.cs",
@@ -91,7 +75,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 6,
               "Title": "program.cs",
               "DocumentMoniker": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\program.cs",
               "RelativeDocumentMoniker": "AnalisisNumerico\\program.cs",
@@ -104,7 +88,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "FormUnidad1.cs",
               "DocumentMoniker": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormUnidad1.cs",
               "RelativeDocumentMoniker": "AnalisisNumerico\\FormUnidad1.cs",
@@ -117,7 +101,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 7,
               "Title": "FormUnidad2.cs",
               "DocumentMoniker": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormUnidad2.cs",
               "RelativeDocumentMoniker": "AnalisisNumerico\\FormUnidad2.cs",
@@ -130,7 +114,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "FormPrincipal.cs",
               "DocumentMoniker": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormPrincipal.cs",
               "RelativeDocumentMoniker": "AnalisisNumerico\\FormPrincipal.cs",
@@ -143,7 +127,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "FormUnidad2.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormUnidad2.cs",
               "RelativeDocumentMoniker": "AnalisisNumerico\\FormUnidad2.cs",
@@ -155,7 +139,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "FormUnidad1.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormUnidad1.cs",
               "RelativeDocumentMoniker": "AnalisisNumerico\\FormUnidad1.cs",
