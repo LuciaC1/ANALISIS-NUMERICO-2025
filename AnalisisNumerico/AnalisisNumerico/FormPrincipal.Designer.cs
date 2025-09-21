@@ -211,7 +211,7 @@
             label9.AutoSize = true;
             label9.BackColor = SystemColors.ActiveCaptionText;
             label9.BorderStyle = BorderStyle.FixedSingle;
-            label9.Font = new Font("Rockwell", 25F);
+            label9.Font = new Font("Rockwell", 18F);
             label9.ForeColor = Color.White;
             label9.Location = new Point(384, 18);
             label9.Name = "label9";
