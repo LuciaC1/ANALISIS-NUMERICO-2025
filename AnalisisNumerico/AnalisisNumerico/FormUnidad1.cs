@@ -159,14 +159,14 @@ namespace U1
                         txtResRaiz.Text = "No hay raíz";
                     }
 
-                    string notacion = resultado.error.ToString("E4");
+                    /*string notacion = resultado.error.ToString("E4");
 
                     string[] partes = notacion.Split('E');
                     string mantisa = partes[0];
                     int exponente = int.Parse(partes[1]);
 
-                    string error = $"{mantisa} × 10^{exponente}";
-                    txtResError.Text = error;
+                    string error = $"{mantisa} × 10^{exponente}";*/
+                    txtResError.Text = resultado.error.ToString("F7");
                 }
 
                 if (webview.CoreWebView2 != null)
