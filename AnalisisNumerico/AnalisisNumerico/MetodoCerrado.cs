@@ -86,7 +86,12 @@ namespace U1
                 res.raiz = xr;
             }
 
+            if (res.iteraciones >= maxIter)
+            {
+                res.Converge = "No converge, se excedió el número de iteraciones";
+            }
             return res;
+
         }
 
         public double CalcularXr(double xi, double xd, Calculo funcion)
