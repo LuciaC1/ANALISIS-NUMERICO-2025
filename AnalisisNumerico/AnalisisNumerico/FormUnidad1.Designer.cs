@@ -311,10 +311,10 @@
             txtResConverge.BackColor = Color.FromArgb(233, 231, 235);
             txtResConverge.BorderStyle = BorderStyle.FixedSingle;
             txtResConverge.Font = new Font("Rockwell", 10F);
-            txtResConverge.Location = new Point(1082, 659);
+            txtResConverge.Location = new Point(1062, 659);
             txtResConverge.Margin = new Padding(3, 4, 3, 4);
             txtResConverge.Name = "txtResConverge";
-            txtResConverge.Size = new Size(319, 27);
+            txtResConverge.Size = new Size(355, 27);
             txtResConverge.TabIndex = 31;
             txtResConverge.TextChanged += txtResConverge_TextChanged;
             // 
