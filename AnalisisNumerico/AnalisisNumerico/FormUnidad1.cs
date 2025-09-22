@@ -149,13 +149,18 @@ namespace U1
                     txtResIteraciones.Text = resultado.iteraciones.ToString();
                     txtResTolerancia.Text = tol.ToString();
                     txtResRaiz.Text = resultado.raiz.ToString("G10");
-                    if (resultado.Converge == "Converge")
+                    txtResConverge.Text = resultado.Converge;
+                    /*if (resultado.Converge == "Converge")
                     {
                         txtResConverge.Text = "Si";
                     }
                     else
                     {
                         txtResConverge.Text = "No";
+                        txtResRaiz.Text = "No hay raíz";
+                    }*/
+                    if (resultado.Converge != "Converge")
+                    {
                         txtResRaiz.Text = "No hay raíz";
                     }
 
@@ -306,6 +311,11 @@ namespace U1
         }
 
         private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtResConverge_TextChanged(object sender, EventArgs e)
         {
 
         }
