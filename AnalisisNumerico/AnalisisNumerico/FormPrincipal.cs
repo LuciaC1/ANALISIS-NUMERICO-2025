@@ -41,7 +41,10 @@ namespace U1
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            FormUnidad3 f3 = new FormUnidad3();
+            f3.Owner = this;
+            f3.Show();
+            this.Hide();
         }
         private void panel4_Paint(object sender, PaintEventArgs e)
         {
