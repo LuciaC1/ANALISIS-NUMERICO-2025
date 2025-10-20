@@ -35,7 +35,7 @@
             this.Text = "FormUnidad3";
         }*/
 
-     
+
         private void InitializeComponent()
         {
             panel1 = new Panel();
@@ -61,8 +61,11 @@
             labelCorrelacion = new Label();
             labelFuncionObtenida = new Label();
             panelGraficador = new Panel();
+            webViewUnidad3 = new Microsoft.Web.WebView2.WinForms.WebView2();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
+            panelGraficador.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)webViewUnidad3).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -110,7 +113,7 @@
             // 
             labelDatEntrada.AutoSize = true;
             labelDatEntrada.BackColor = Color.Transparent;
-            labelDatEntrada.Font = new Font("Gadugi", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            labelDatEntrada.Font = new Font("Gadugi", 9F, FontStyle.Bold);
             labelDatEntrada.ForeColor = SystemColors.ControlText;
             labelDatEntrada.Location = new Point(11, 0);
             labelDatEntrada.Name = "labelDatEntrada";
@@ -121,7 +124,7 @@
             // buttonBorrarTodos
             // 
             buttonBorrarTodos.BackColor = Color.DarkGreen;
-            buttonBorrarTodos.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonBorrarTodos.Font = new Font("Segoe UI", 8.25F);
             buttonBorrarTodos.ForeColor = SystemColors.ButtonHighlight;
             buttonBorrarTodos.Location = new Point(263, 305);
             buttonBorrarTodos.Name = "buttonBorrarTodos";
@@ -170,7 +173,7 @@
             // buttonCalcular
             // 
             buttonCalcular.BackColor = Color.DarkGreen;
-            buttonCalcular.Font = new Font("Segoe UI", 8F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonCalcular.Font = new Font("Segoe UI", 8F);
             buttonCalcular.ForeColor = SystemColors.ButtonHighlight;
             buttonCalcular.Location = new Point(294, 161);
             buttonCalcular.Name = "buttonCalcular";
@@ -183,7 +186,7 @@
             // buttonCargar
             // 
             buttonCargar.BackColor = Color.DarkGreen;
-            buttonCargar.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonCargar.Font = new Font("Segoe UI", 8.25F);
             buttonCargar.ForeColor = SystemColors.ButtonHighlight;
             buttonCargar.Location = new Point(295, 29);
             buttonCargar.Name = "buttonCargar";
@@ -196,7 +199,7 @@
             // buttonBorrarUltimo
             // 
             buttonBorrarUltimo.BackColor = Color.DarkGreen;
-            buttonBorrarUltimo.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point);
+            buttonBorrarUltimo.Font = new Font("Segoe UI", 8.25F);
             buttonBorrarUltimo.ForeColor = SystemColors.ButtonHighlight;
             buttonBorrarUltimo.Location = new Point(264, 248);
             buttonBorrarUltimo.Name = "buttonBorrarUltimo";
@@ -214,7 +217,6 @@
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(215, 28);
             comboBox1.TabIndex = 2;
-            //comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged_1;
             // 
             // textBoxTolerancia
             // 
@@ -243,7 +245,7 @@
             // 
             panelPuntosIngresados.BackColor = Color.LightGreen;
             panelPuntosIngresados.BorderStyle = BorderStyle.FixedSingle;
-            panelPuntosIngresados.Font = new Font("Segoe UI", 6F, FontStyle.Regular, GraphicsUnit.Point);
+            panelPuntosIngresados.Font = new Font("Segoe UI", 6F);
             panelPuntosIngresados.Location = new Point(5, 248);
             panelPuntosIngresados.Name = "panelPuntosIngresados";
             panelPuntosIngresados.Size = new Size(243, 489);
@@ -267,7 +269,7 @@
             // 
             labelDatSalida.AutoSize = true;
             labelDatSalida.BackColor = Color.Transparent;
-            labelDatSalida.Font = new Font("Gadugi", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            labelDatSalida.Font = new Font("Gadugi", 9F, FontStyle.Bold);
             labelDatSalida.Location = new Point(26, 0);
             labelDatSalida.Name = "labelDatSalida";
             labelDatSalida.Size = new Size(116, 19);
@@ -304,25 +306,40 @@
             // panelGraficador
             // 
             panelGraficador.BackColor = Color.LightGreen;
+            panelGraficador.Controls.Add(webViewUnidad3);
             panelGraficador.Location = new Point(3, 175);
             panelGraficador.Name = "panelGraficador";
             panelGraficador.Size = new Size(784, 573);
             panelGraficador.TabIndex = 1;
             panelGraficador.Paint += PanelGraficador_Paint;
             // 
-            // Unidad3
+            // webViewUnidad3
+            // 
+            webViewUnidad3.AllowExternalDrop = true;
+            webViewUnidad3.CreationProperties = null;
+            webViewUnidad3.DefaultBackgroundColor = Color.White;
+            webViewUnidad3.Location = new Point(3, 3);
+            webViewUnidad3.Name = "webViewUnidad3";
+            webViewUnidad3.Size = new Size(778, 567);
+            webViewUnidad3.TabIndex = 0;
+            webViewUnidad3.ZoomFactor = 1D;
+            webViewUnidad3.Click += webView21_Click;
+            // 
+            // FormUnidad3
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1182, 749);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "Unidad3";
+            Name = "FormUnidad3";
             Text = "Unidad3";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panelGraficador.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)webViewUnidad3).EndInit();
             ResumeLayout(false);
         }
 
@@ -362,6 +379,8 @@
         private Label labelGrado;
         private TextBox textBoxGrado;
         #endregion
+
+        private Microsoft.Web.WebView2.WinForms.WebView2 webViewUnidad3;
     }
 
 }

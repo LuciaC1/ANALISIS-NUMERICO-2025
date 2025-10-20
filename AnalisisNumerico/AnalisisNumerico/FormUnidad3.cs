@@ -8,6 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Calculus;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Globalization;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace U1
 {
@@ -16,6 +26,8 @@ namespace U1
         public FormUnidad3()
         {
             InitializeComponent();
+
+            this.Load += FormUnidad3_Load;
         }
 
         public List<double[]> PuntosCargados { get; set; } = new List<double[]>();
@@ -27,10 +39,10 @@ namespace U1
 
         string seleccion = "";
 
-        private async void FormUnidad1_Load(object sender, EventArgs e)
+        private async void FormUnidad3_Load(object sender, EventArgs e)
         {
-            await webview.EnsureCoreWebView2Async(null);
-            webview.Source = new Uri("https://www.geogebra.org/graphing");
+            await webViewUnidad3.EnsureCoreWebView2Async(null);
+            webViewUnidad3.Source = new Uri("https://www.geogebra.org/graphing");
         }
 
 
@@ -188,7 +200,7 @@ namespace U1
             double st = 0;
             double sumY = PuntosCargados.Sum(p => p[1]);
             double n = PuntosCargados.Count;
-            double mediaY = sumY / n; 
+            double mediaY = sumY / n;
 
             foreach (var punto in PuntosCargados)
             {
@@ -304,6 +316,11 @@ namespace U1
                 resultado3.Efectividad = "El ajuste es aceptable";
             }
             return resultado3;
+        }
+
+        private void webView21_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

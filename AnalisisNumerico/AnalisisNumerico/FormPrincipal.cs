@@ -39,7 +39,7 @@ namespace U1
             Application.Exit();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonUnidad3_Click(object sender, EventArgs e)
         {
             FormUnidad3 f3 = new FormUnidad3();
             f3.Owner = this;

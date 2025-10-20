@@ -82,8 +82,6 @@ namespace U1
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             seleccion = comboBox1.SelectedItem.ToString();
-
-
         }
 
 
