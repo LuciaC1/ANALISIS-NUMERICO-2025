@@ -37,14 +37,12 @@ namespace U1
             PuntosCargados.Add(punto);
         }
 
-        string seleccion = "";
 
         private async void FormUnidad3_Load(object sender, EventArgs e)
         {
             await webViewUnidad3.EnsureCoreWebView2Async(null);
             webViewUnidad3.Source = new Uri("https://www.geogebra.org/graphing");
         }
-
 
         public void buttonCargar_Click(object sender, EventArgs e)
         {
@@ -61,7 +59,7 @@ namespace U1
                 panelPuntosIngresados.BorderStyle = BorderStyle.None;
                 puntoIngresado.Location = new Point(0, puntoY);
                 puntoIngresado.Size = new Size(251, 20);
-                puntoIngresado.Font = new Font("Arial", 11);
+                puntoIngresado.Font = new Font("Rockwell", 11);
                 panelPuntosIngresados.Controls.Add(puntoIngresado);
                 panelPuntosIngresados.Show();
                 textBoxX.Clear();
@@ -69,12 +67,9 @@ namespace U1
             }
         }
 
-
         public RespuestaU3 MetodoRegresionLineal_MinimosCuadrados()
         {
-
             RespuestaU3 result = new RespuestaU3();
-
 
             int n = PuntosCargados.Count;
 
@@ -122,67 +117,67 @@ namespace U1
             double tolerancia = 80;
             if (r > tolerancia)
             {
-                result.Efectividad = "Es efectivo.";
+                result.Efectividad = "El ajuste es aceptable.";
             }
             else
             {
-                result.Efectividad = "No es efectivo.";
+                result.Efectividad = "El ajuste no es aceptable.";
             }
             return result;
         }
 
         private void buttonCalcular_Click(object sender, EventArgs e)
         {
-            if (seleccion == "Regresión Lineal por Mínimos Cuadrados")
+
+            string seleccion = comboBox1.SelectedItem?.ToString();
+
+            if (seleccion == null)
+            {
+                MessageBox.Show("Por favor, seleccioná un método antes de continuar.");
+                return;
+            }
+
+            if (seleccion == "Regresión Lineal por mínimos cuadrados")
             {
                 RespuestaU3 res = MetodoRegresionLineal_MinimosCuadrados();
 
                 labelFuncionObtenida.Text = $"Función obtenida: {res.Funcion}";
-                labelCorrelacion.Text = $"Correlación (r): {res.Correlacion}";
-                labelEfectividadAjuste.Text = $"Efectividad del ajuste: {res.Efectividad}";
+                labelCorrelacion.Text = $"Correlación (r): {res.Correlacion:F4}";
+                labelEfectividadAjuste.Text = $"Efectividad del ajuste: {res.Efectividad:F4}";
                 GraficarResultados(res.Funcion, null);
             }
-            if (seleccion == "Regresión Polinomial por Mínimos Cuadrados")
+            if (seleccion == "Regresión Polinomial por mínimos cuadrados")
             {
                 double tole = Convert.ToDouble(textBoxTolerancia.Text);
                 int grado = Convert.ToInt32(textBoxGrado.Text);
 
                 double[,] func1 = GenerarMatrizPolinomial(grado, PuntosCargados);
                 double[] func2 = ResolverGaussJordan(func1);
-                //DatoSalida datoSalida = CalcularAjustePolinomial(tole, func2, grado);
+
+                RespuestaU3 res = CalcularAjustePolinomial(tole, func2, grado);
                 double c = CalcularCorrelacion(func2);
 
-                labelFuncionObtenida.Text = $"Función obtenida: {func2}";
-                labelCorrelacion.Text = $"Correlación (r):{c}";
-                string funcion3 = $"{func2}";
-                GraficarResultados(funcion3, null);
-                
 
-                /*labelFuncionObtenida.Text = $"Función obtenida: {datoSalida.Funcion}";
-                labelCorrelacion.Text = $"Correlación (r):{c}";
-                labelEfectividadAjuste.Text = $"Efectividad del ajuste: {datoSalida.EfectividadAjuste}";
-                Graficar(datoSalida.Funcion);*/
+                labelFuncionObtenida.Text = $"Función obtenida: {res.Funcion}";
+                labelCorrelacion.Text = $"Correlación (r):{c:F4}";
+                labelEfectividadAjuste.Text = $"Efectividad del ajuste: {res.Efectividad:F4}";
+                string funcion = res.Funcion.ToString();
+                GraficarResultados(funcion, null);
             }
         }
 
-        // --- Agregar: método para graficar función + puntos en GeoGebra ---
         public void GraficarResultados(string funcion, double? raiz = null)
         {
             try
             {
-                // Si WebView2 no está listo, no hacemos nada (no cambiamos la firma de tus botones)
                 if (webViewUnidad3?.CoreWebView2 == null) return;
 
-                // Normalizar separador decimal y escapar comillas simples
                 string funcionEsc = funcion.Replace(",", ".").Replace("'", "\\'").Replace("\"", "\\\"");
 
-                // Construir comandos para GeoGebra (evalCommand)
                 var sb = new System.Text.StringBuilder();
 
-                // Crear/actualizar la función f
                 sb.Append($"ggbApplet.evalCommand('f(x) = {funcionEsc}');");
 
-                // Crear/actualizar puntos P1, P2, ...
                 for (int i = 0; i < PuntosCargados.Count; i++)
                 {
                     string x = PuntosCargados[i][0].ToString(System.Globalization.CultureInfo.InvariantCulture);
@@ -191,22 +186,18 @@ namespace U1
                     sb.Append($"ggbApplet.evalCommand('{nombre}=({x},{y})');");
                 }
 
-                // Si hay raíz, dibujar punto R en (raiz, 0)
                 if (raiz.HasValue)
                 {
                     string r = raiz.Value.ToString(System.Globalization.CultureInfo.InvariantCulture);
                     sb.Append($"ggbApplet.evalCommand('R=({r},0)');");
                 }
 
-                // Ajuste simple de vista (opcional; modificalo si querés otro rango)
                 sb.Append("ggbApplet.setCoordSystem(-10, 10, -10, 10);");
 
-                // Ejecutar el script (no await para no cambiar firmas)
                 webViewUnidad3.CoreWebView2.ExecuteScriptAsync(sb.ToString());
             }
             catch (Exception ex)
             {
-                // Opcional: mostrar error sin interrumpir la ejecución principal
                 Console.WriteLine("Error al graficar en GeoGebra: " + ex.Message);
             }
         }
@@ -253,7 +244,7 @@ namespace U1
             double st = 0;
             double sumY = PuntosCargados.Sum(p => p[1]);
             double n = PuntosCargados.Count;
-            double mediaY = sumY / n;
+            double mediaY = sumY / n; 
 
             foreach (var punto in PuntosCargados)
             {
@@ -321,7 +312,6 @@ namespace U1
                 }
             }
 
-
             for (int i = 0; i < n; i++)
             {
                 resultado[i] = matriz[i, n];
@@ -362,24 +352,44 @@ namespace U1
             resultado3.Funcion = funcion;
             if (r < tolerancia * 100)
             {
-                resultado3.Efectividad = "El ajuste no es aceptable";
+                resultado3.Efectividad = "El ajuste no es aceptable.";
             }
             else
             {
-                resultado3.Efectividad = "El ajuste es aceptable";
+                resultado3.Efectividad = "El ajuste es aceptable.";
             }
             return resultado3;
-        }
-
-        private void webView21_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Owner.Show();
             this.Close();
+        }
+
+        private void FormUnidad3_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelDatEntrada_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelPuntosIngresar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void webViewUnidad3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelDatEntrada_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
