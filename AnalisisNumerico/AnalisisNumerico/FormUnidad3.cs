@@ -110,7 +110,10 @@ namespace U1
 
             double r = Math.Sqrt((st - sr) / st) * 100;
 
-            result.Funcion = $"{a1}*x+{a0}";
+            //result.Funcion = $"{a1}*x+{a0}";
+
+            string signo = a0 >= 0 ? "+" : "-";
+            result.Funcion = $"y = {a1:F4}x {signo} {Math.Abs(a0):F4}";
 
             result.Correlacion = r;
 
@@ -142,8 +145,8 @@ namespace U1
                 RespuestaU3 res = MetodoRegresionLineal_MinimosCuadrados();
 
                 labelFuncionObtenida.Text = $"Función obtenida: {res.Funcion}";
-                labelCorrelacion.Text = $"Correlación (r): {res.Correlacion:F4}";
-                labelEfectividadAjuste.Text = $"Efectividad del ajuste: {res.Efectividad:F4}";
+                labelCorrelacion.Text = $"Correlación (r): {Convert.ToDouble(res.Correlacion):F4}";
+                labelEfectividadAjuste.Text = $"Efectividad del ajuste: {res.Efectividad}";
                 GraficarResultados(res.Funcion, null);
             }
             if (seleccion == "Regresión Polinomial por mínimos cuadrados")
@@ -159,8 +162,8 @@ namespace U1
 
 
                 labelFuncionObtenida.Text = $"Función obtenida: {res.Funcion}";
-                labelCorrelacion.Text = $"Correlación (r):{c:F4}";
-                labelEfectividadAjuste.Text = $"Efectividad del ajuste: {res.Efectividad:F4}";
+                labelCorrelacion.Text = $"Correlación (r):{Convert.ToDouble(c):F4}";
+                labelEfectividadAjuste.Text = $"Efectividad del ajuste: {res.Efectividad}";
                 string funcion = res.Funcion.ToString();
                 GraficarResultados(funcion, null);
             }

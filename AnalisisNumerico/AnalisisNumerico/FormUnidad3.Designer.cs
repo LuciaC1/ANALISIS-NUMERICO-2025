@@ -99,7 +99,7 @@
             labelDatEntrada.TabIndex = 3;
             labelDatEntrada.Text = "Datos de Entrada";
             labelDatEntrada.Click += labelDatEntrada_Click_1;
-           / 
+           
             buttonBorrarTodos.BackColor = Color.DarkGreen;
             buttonBorrarTodos.Font = new Font("Rockwell", 8.25F);
             buttonBorrarTodos.ForeColor = SystemColors.ButtonHighlight;
