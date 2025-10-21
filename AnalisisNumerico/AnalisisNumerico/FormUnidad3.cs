@@ -50,10 +50,11 @@ namespace U1
         {
             if (textBoxX.Text != "" && textBoxY.Text != "")
             {
-                CargarPunto(double.Parse(textBoxX.Text), double.Parse(textBoxY.Text));
+                CargarPunto(double.Parse(textBoxX.Text, CultureInfo.InvariantCulture),
+                           double.Parse(textBoxY.Text, CultureInfo.InvariantCulture));
 
                 Label puntoIngresado = new Label();
-                puntoIngresado.Text = $"({textBoxX.Text} " + "," + $" {textBoxY.Text})";
+                puntoIngresado.Text = $"({textBoxX.Text} , {textBoxY.Text})";
                 int cantElementos = PuntosCargados.Count();
                 int puntoY = (cantElementos - 1) * 17;
                 puntoIngresado.TextAlign = ContentAlignment.MiddleCenter;
@@ -67,6 +68,7 @@ namespace U1
                 textBoxY.Clear();
             }
         }
+
 
         public RespuestaU3 MetodoRegresionLineal_MinimosCuadrados()
         {
@@ -138,7 +140,7 @@ namespace U1
                 labelFuncionObtenida.Text = $"Función obtenida: {res.Funcion}";
                 labelCorrelacion.Text = $"Correlación (r): {res.Correlacion}";
                 labelEfectividadAjuste.Text = $"Efectividad del ajuste: {res.Efectividad}";
-                //Graficar(res.Función);
+                GraficarResultados(res.Funcion, null);
             }
             if (seleccion == "Regresión Polinomial por Mínimos Cuadrados")
             {
@@ -150,11 +152,62 @@ namespace U1
                 //DatoSalida datoSalida = CalcularAjustePolinomial(tole, func2, grado);
                 double c = CalcularCorrelacion(func2);
 
+                labelFuncionObtenida.Text = $"Función obtenida: {func2}";
+                labelCorrelacion.Text = $"Correlación (r):{c}";
+                string funcion3 = $"{func2}";
+                GraficarResultados(funcion3, null);
+                
 
                 /*labelFuncionObtenida.Text = $"Función obtenida: {datoSalida.Funcion}";
                 labelCorrelacion.Text = $"Correlación (r):{c}";
                 labelEfectividadAjuste.Text = $"Efectividad del ajuste: {datoSalida.EfectividadAjuste}";
                 Graficar(datoSalida.Funcion);*/
+            }
+        }
+
+        // --- Agregar: método para graficar función + puntos en GeoGebra ---
+        public void GraficarResultados(string funcion, double? raiz = null)
+        {
+            try
+            {
+                // Si WebView2 no está listo, no hacemos nada (no cambiamos la firma de tus botones)
+                if (webViewUnidad3?.CoreWebView2 == null) return;
+
+                // Normalizar separador decimal y escapar comillas simples
+                string funcionEsc = funcion.Replace(",", ".").Replace("'", "\\'").Replace("\"", "\\\"");
+
+                // Construir comandos para GeoGebra (evalCommand)
+                var sb = new System.Text.StringBuilder();
+
+                // Crear/actualizar la función f
+                sb.Append($"ggbApplet.evalCommand('f(x) = {funcionEsc}');");
+
+                // Crear/actualizar puntos P1, P2, ...
+                for (int i = 0; i < PuntosCargados.Count; i++)
+                {
+                    string x = PuntosCargados[i][0].ToString(System.Globalization.CultureInfo.InvariantCulture);
+                    string y = PuntosCargados[i][1].ToString(System.Globalization.CultureInfo.InvariantCulture);
+                    string nombre = $"P{i + 1}";
+                    sb.Append($"ggbApplet.evalCommand('{nombre}=({x},{y})');");
+                }
+
+                // Si hay raíz, dibujar punto R en (raiz, 0)
+                if (raiz.HasValue)
+                {
+                    string r = raiz.Value.ToString(System.Globalization.CultureInfo.InvariantCulture);
+                    sb.Append($"ggbApplet.evalCommand('R=({r},0)');");
+                }
+
+                // Ajuste simple de vista (opcional; modificalo si querés otro rango)
+                sb.Append("ggbApplet.setCoordSystem(-10, 10, -10, 10);");
+
+                // Ejecutar el script (no await para no cambiar firmas)
+                webViewUnidad3.CoreWebView2.ExecuteScriptAsync(sb.ToString());
+            }
+            catch (Exception ex)
+            {
+                // Opcional: mostrar error sin interrumpir la ejecución principal
+                Console.WriteLine("Error al graficar en GeoGebra: " + ex.Message);
             }
         }
 
@@ -321,6 +374,12 @@ namespace U1
         private void webView21_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnVolver_Click(object sender, EventArgs e)
+        {
+            this.Owner.Show();
+            this.Close();
         }
     }
 }
