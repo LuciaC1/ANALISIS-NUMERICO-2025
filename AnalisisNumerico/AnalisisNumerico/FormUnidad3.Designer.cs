@@ -80,7 +80,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(761, 724);
+            panel1.Size = new Size(761, 773);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -301,11 +301,12 @@
             labelFuncionObtenida.BackColor = SystemColors.ActiveCaptionText;
             labelFuncionObtenida.Font = new Font("Rockwell", 13F);
             labelFuncionObtenida.ForeColor = SystemColors.ControlLightLight;
-            labelFuncionObtenida.Location = new Point(11, 27);
+            labelFuncionObtenida.Location = new Point(11, 68);
             labelFuncionObtenida.Name = "labelFuncionObtenida";
             labelFuncionObtenida.Size = new Size(160, 20);
             labelFuncionObtenida.TabIndex = 7;
             labelFuncionObtenida.Text = "Función Obtenida:";
+            labelFuncionObtenida.Click += this.labelFuncionObtenida_Click;
             // 
             // labelCorrelacion
             // 
@@ -313,11 +314,12 @@
             labelCorrelacion.BackColor = SystemColors.ActiveCaptionText;
             labelCorrelacion.Font = new Font("Rockwell", 13F);
             labelCorrelacion.ForeColor = SystemColors.ControlLightLight;
-            labelCorrelacion.Location = new Point(11, 64);
+            labelCorrelacion.Location = new Point(11, 137);
             labelCorrelacion.Name = "labelCorrelacion";
             labelCorrelacion.Size = new Size(140, 20);
             labelCorrelacion.TabIndex = 8;
             labelCorrelacion.Text = "Correlación (r):";
+            labelCorrelacion.Click += this.labelCorrelacion_Click;
             // 
             // labelEfectividadAjuste
             // 
@@ -325,11 +327,12 @@
             labelEfectividadAjuste.BackColor = SystemColors.ActiveCaptionText;
             labelEfectividadAjuste.Font = new Font("Rockwell", 13F);
             labelEfectividadAjuste.ForeColor = SystemColors.ControlLightLight;
-            labelEfectividadAjuste.Location = new Point(11, 98);
+            labelEfectividadAjuste.Location = new Point(11, 200);
             labelEfectividadAjuste.Name = "labelEfectividadAjuste";
             labelEfectividadAjuste.Size = new Size(193, 20);
             labelEfectividadAjuste.TabIndex = 9;
             labelEfectividadAjuste.Text = "Efectividad del Ajuste:";
+            labelEfectividadAjuste.Click += labelEfectividadAjuste_Click;
             // 
             // labelDatSalida
             // 
@@ -348,10 +351,10 @@
             webViewUnidad3.AllowExternalDrop = true;
             webViewUnidad3.CreationProperties = null;
             webViewUnidad3.DefaultBackgroundColor = Color.White;
-            webViewUnidad3.Location = new Point(11, 135);
+            webViewUnidad3.Location = new Point(11, 239);
             webViewUnidad3.Margin = new Padding(3, 2, 3, 2);
             webViewUnidad3.Name = "webViewUnidad3";
-            webViewUnidad3.Size = new Size(763, 587);
+            webViewUnidad3.Size = new Size(573, 478);
             webViewUnidad3.TabIndex = 0;
             webViewUnidad3.ZoomFactor = 1D;
             webViewUnidad3.Click += webViewUnidad3_Click;
@@ -370,7 +373,7 @@
             panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
             panel2.RightToLeft = RightToLeft.No;
-            panel2.Size = new Size(777, 724);
+            panel2.Size = new Size(816, 773);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
             // 
@@ -378,7 +381,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1538, 724);
+            ClientSize = new Size(1577, 773);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Margin = new Padding(3, 2, 3, 2);
@@ -432,6 +435,7 @@
         private Label labelDatSalida;
         private Microsoft.Web.WebView2.WinForms.WebView2 webViewUnidad3;
         private Panel panel2;
+
     }
 
 }

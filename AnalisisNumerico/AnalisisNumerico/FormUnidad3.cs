@@ -44,10 +44,10 @@ namespace U1
             webViewUnidad3.Source = new Uri("https://www.geogebra.org/graphing");
         }
 
-        // Agregar campo para seguimiento del punto seleccionado
+
         private int selectedPointIndex = -1;
 
-        // Reemplaza el método existente buttonCargar_Click por este (añade evento Click a cada Label)
+
         public void buttonCargar_Click(object sender, EventArgs e)
         {
             if (textBoxX.Text != "" && textBoxY.Text != "")
@@ -61,11 +61,11 @@ namespace U1
                 int cantElementos = PuntosCargados.Count;
                 int puntoY = (cantElementos - 1) * 22;
 
-                // contenedor para label + checkbox
+
                 Panel puntoContainer = new Panel();
                 puntoContainer.Size = new Size(panelPuntosIngresados.Width - 4, 20);
                 puntoContainer.Location = new Point(0, puntoY);
-                puntoContainer.Tag = punto; // guardamos referencia al punto para borrado
+                puntoContainer.Tag = punto; 
                 puntoContainer.BorderStyle = BorderStyle.None;
 
                 Label puntoIngresado = new Label();
@@ -92,12 +92,12 @@ namespace U1
             }
         }
 
-        // Nuevo manejador: marca el punto clicado como seleccionado (resalta)
+
         private void PuntoIngresado_Click(object? sender, EventArgs e)
         {
             if (sender is Label lbl)
             {
-                // quitar resaltado previo
+
                 foreach (Control c in panelPuntosIngresados.Controls)
                 {
                     if (c is Label l)
@@ -107,14 +107,13 @@ namespace U1
                     }
                 }
 
-                // marcar seleccionado
+ 
                 if (lbl.Tag is int idx)
                 {
                     selectedPointIndex = idx;
                 }
                 else
                 {
-                    // fallback: buscar por posición en Controls
                     selectedPointIndex = panelPuntosIngresados.Controls.IndexOf(lbl);
                     lbl.Tag = selectedPointIndex;
                 }
@@ -123,8 +122,6 @@ namespace U1
                 lbl.ForeColor = Color.Black;
             }
         }
-
-        // Agregar este nuevo manejador para borrar los puntos seleccionados
         private void buttonBorrarSeleccionado_Click(object sender, EventArgs e)
         {
             var containers = panelPuntosIngresados.Controls.OfType<Panel>().ToList();
@@ -143,7 +140,6 @@ namespace U1
                 var tag = cont.Tag as double[];
                 if (tag != null)
                 {
-                    // Remover primer punto que coincida por coordenadas
                     var match = PuntosCargados.FirstOrDefault(p => p[0] == tag[0] && p[1] == tag[1]);
                     if (match != null)
                     {
@@ -153,7 +149,7 @@ namespace U1
                 panelPuntosIngresados.Controls.Remove(cont);
             }
 
-            // Reordenar posición Y de los contenedores restantes
+   
             int idx = 0;
             foreach (Panel cont in panelPuntosIngresados.Controls.OfType<Panel>().OrderBy(p => p.Top))
             {
@@ -205,7 +201,6 @@ namespace U1
 
             double r = Math.Sqrt((st - sr) / st) * 100;
 
-            //result.Funcion = $"{a1}*x+{a0}";
 
             string signo = a0 >= 0 ? "+" : "-";
             result.Funcion = $"y = {a1:F4}x {signo} {Math.Abs(a0):F4}";
@@ -269,12 +264,9 @@ namespace U1
             try
             {
                 if (webViewUnidad3?.CoreWebView2 == null) return;
-
-                // Si `funcion` viene como "y = ..." se elimina el prefijo para que GeoGebra reciba solo la expresión.
                 string expr = (funcion ?? string.Empty).Trim();
                 if (!string.IsNullOrEmpty(expr))
                 {
-                    // elimina "y =" o cualquier cosa antes del '='
                     int eq = expr.IndexOf('=');
                     if (eq >= 0)
                     {
@@ -282,7 +274,6 @@ namespace U1
                     }
                 }
 
-                // Asegurar notación de punto decimal y escapar comillas para insertar en JS
                 string funcionEsc = expr.Replace(",", ".").Replace("'", "\\'").Replace("\"", "\\\"");
 
                 var sb = new System.Text.StringBuilder();
@@ -471,7 +462,7 @@ namespace U1
 
             double r = CalcularCorrelacion(vector);
             resultado3.Funcion = funcion;
-            if (r < tolerancia * 100)
+            if (r < tolerancia)
             {
                 resultado3.Efectividad = "El ajuste no es aceptable.";
             }
@@ -542,6 +533,16 @@ namespace U1
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+        private void labelFuncionObtenida_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void labelCorrelacion_Click(object sender, EventArgs e)
+        {
+        }
+        private void labelEfectividadAjuste_Click(object sender, EventArgs e)
+        {
         }
 
         // Agregar este nuevo manejador para borrar los puntos seleccionados
