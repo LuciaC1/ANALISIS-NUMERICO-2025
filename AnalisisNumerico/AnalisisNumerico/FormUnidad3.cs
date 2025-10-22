@@ -44,26 +44,121 @@ namespace U1
             webViewUnidad3.Source = new Uri("https://www.geogebra.org/graphing");
         }
 
+        // Agregar campo para seguimiento del punto seleccionado
+        private int selectedPointIndex = -1;
+
+        // Reemplaza el método existente buttonCargar_Click por este (añade evento Click a cada Label)
         public void buttonCargar_Click(object sender, EventArgs e)
         {
             if (textBoxX.Text != "" && textBoxY.Text != "")
             {
-                CargarPunto(double.Parse(textBoxX.Text, CultureInfo.InvariantCulture),
-                           double.Parse(textBoxY.Text, CultureInfo.InvariantCulture));
+                    double xVal = double.Parse(textBoxX.Text, CultureInfo.InvariantCulture);
+                double yVal = double.Parse(textBoxY.Text, CultureInfo.InvariantCulture);
+
+                double[] punto = new double[2] { xVal, yVal };
+                PuntosCargados.Add(punto);
+
+                int cantElementos = PuntosCargados.Count;
+                int puntoY = (cantElementos - 1) * 22;
+
+                // contenedor para label + checkbox
+                Panel puntoContainer = new Panel();
+                puntoContainer.Size = new Size(panelPuntosIngresados.Width - 4, 20);
+                puntoContainer.Location = new Point(0, puntoY);
+                puntoContainer.Tag = punto; // guardamos referencia al punto para borrado
+                puntoContainer.BorderStyle = BorderStyle.None;
 
                 Label puntoIngresado = new Label();
                 puntoIngresado.Text = $"({textBoxX.Text} , {textBoxY.Text})";
-                int cantElementos = PuntosCargados.Count();
-                int puntoY = (cantElementos - 1) * 17;
                 puntoIngresado.TextAlign = ContentAlignment.MiddleCenter;
-                panelPuntosIngresados.BorderStyle = BorderStyle.None;
-                puntoIngresado.Location = new Point(0, puntoY);
-                puntoIngresado.Size = new Size(251, 20);
+                puntoIngresado.Location = new Point(0, 0);
+                puntoIngresado.Size = new Size(230, 20);
                 puntoIngresado.Font = new Font("Rockwell", 11);
-                panelPuntosIngresados.Controls.Add(puntoIngresado);
+
+                CheckBox cbSeleccion = new CheckBox();
+                cbSeleccion.Location = new Point(235, 0);
+                cbSeleccion.Size = new Size(20, 20);
+                cbSeleccion.Anchor = AnchorStyles.Right;
+                cbSeleccion.Checked = false;
+
+                puntoContainer.Controls.Add(puntoIngresado);
+                puntoContainer.Controls.Add(cbSeleccion);
+
+                panelPuntosIngresados.Controls.Add(puntoContainer);
                 panelPuntosIngresados.Show();
+
                 textBoxX.Clear();
                 textBoxY.Clear();
+            }
+        }
+
+        // Nuevo manejador: marca el punto clicado como seleccionado (resalta)
+        private void PuntoIngresado_Click(object? sender, EventArgs e)
+        {
+            if (sender is Label lbl)
+            {
+                // quitar resaltado previo
+                foreach (Control c in panelPuntosIngresados.Controls)
+                {
+                    if (c is Label l)
+                    {
+                        l.BackColor = Color.Transparent;
+                        l.ForeColor = Color.Black;
+                    }
+                }
+
+                // marcar seleccionado
+                if (lbl.Tag is int idx)
+                {
+                    selectedPointIndex = idx;
+                }
+                else
+                {
+                    // fallback: buscar por posición en Controls
+                    selectedPointIndex = panelPuntosIngresados.Controls.IndexOf(lbl);
+                    lbl.Tag = selectedPointIndex;
+                }
+
+                lbl.BackColor = Color.LightBlue;
+                lbl.ForeColor = Color.Black;
+            }
+        }
+
+        // Agregar este nuevo manejador para borrar los puntos seleccionados
+        private void buttonBorrarSeleccionado_Click(object sender, EventArgs e)
+        {
+            var containers = panelPuntosIngresados.Controls.OfType<Panel>().ToList();
+            var seleccionados = containers
+                                .Where(c => c.Controls.OfType<CheckBox>().FirstOrDefault()?.Checked == true)
+                                .ToList();
+
+            if (seleccionados.Count == 0)
+            {
+                MessageBox.Show("No hay puntos seleccionados para borrar.");
+                return;
+            }
+
+            foreach (var cont in seleccionados)
+            {
+                var tag = cont.Tag as double[];
+                if (tag != null)
+                {
+                    // Remover primer punto que coincida por coordenadas
+                    var match = PuntosCargados.FirstOrDefault(p => p[0] == tag[0] && p[1] == tag[1]);
+                    if (match != null)
+                    {
+                        PuntosCargados.Remove(match);
+                    }
+                }
+                panelPuntosIngresados.Controls.Remove(cont);
+            }
+
+            // Reordenar posición Y de los contenedores restantes
+            int idx = 0;
+            foreach (Panel cont in panelPuntosIngresados.Controls.OfType<Panel>().OrderBy(p => p.Top))
+            {
+                cont.Location = new Point(0, idx * 22);
+                idx++;
             }
         }
 
@@ -175,12 +270,31 @@ namespace U1
             {
                 if (webViewUnidad3?.CoreWebView2 == null) return;
 
-                string funcionEsc = funcion.Replace(",", ".").Replace("'", "\\'").Replace("\"", "\\\"");
+                // Si `funcion` viene como "y = ..." se elimina el prefijo para que GeoGebra reciba solo la expresión.
+                string expr = (funcion ?? string.Empty).Trim();
+                if (!string.IsNullOrEmpty(expr))
+                {
+                    // elimina "y =" o cualquier cosa antes del '='
+                    int eq = expr.IndexOf('=');
+                    if (eq >= 0)
+                    {
+                        expr = expr.Substring(eq + 1).Trim();
+                    }
+                }
+
+                // Asegurar notación de punto decimal y escapar comillas para insertar en JS
+                string funcionEsc = expr.Replace(",", ".").Replace("'", "\\'").Replace("\"", "\\\"");
 
                 var sb = new System.Text.StringBuilder();
 
+                // Intentamos actualizar la función y los puntos (si ggbApplet está disponible en la página)
+                sb.Append("try{");
+                sb.Append("if(typeof ggbApplet !== 'undefined') {");
+
+                // Reemplaza o crea la función f(x)
                 sb.Append($"ggbApplet.evalCommand('f(x) = {funcionEsc}');");
 
+                // Añadir / actualizar puntos P1, P2, ...
                 for (int i = 0; i < PuntosCargados.Count; i++)
                 {
                     string x = PuntosCargados[i][0].ToString(System.Globalization.CultureInfo.InvariantCulture);
@@ -189,13 +303,17 @@ namespace U1
                     sb.Append($"ggbApplet.evalCommand('{nombre}=({x},{y})');");
                 }
 
+                // Si se pasó una raíz, dibujar el punto R en (raiz,0)
                 if (raiz.HasValue)
                 {
                     string r = raiz.Value.ToString(System.Globalization.CultureInfo.InvariantCulture);
                     sb.Append($"ggbApplet.evalCommand('R=({r},0)');");
                 }
 
+                // Ajuste de ventana de coordenadas (opcional)
                 sb.Append("ggbApplet.setCoordSystem(-10, 10, -10, 10);");
+
+                sb.Append("} }catch(e){}");
 
                 webViewUnidad3.CoreWebView2.ExecuteScriptAsync(sb.ToString());
             }
@@ -399,5 +517,33 @@ namespace U1
         {
 
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {   
+
+        }
+
+        private void textBoxGrado_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelPuntos_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonVolverMenu_Click(object sender, EventArgs e)
+        {
+            this.Owner.Show();
+            this.Close();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        // Agregar este nuevo manejador para borrar los puntos seleccionados
     }
 }
