@@ -21,7 +21,7 @@ namespace U1
         private void buttonUnidad1_Click(object sender, EventArgs e)
         {
             FormUnidad1 f1 = new FormUnidad1();
-            f1.Owner = this;   
+            f1.Owner = this;
             f1.Show();
             this.Hide();
         }
@@ -54,6 +54,14 @@ namespace U1
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonUnidad4_Click(object sender, EventArgs e)
+        {
+            FormUnidad4 f4 = new FormUnidad4();
+            f4.Owner = this;
+            f4.Show();
+            this.Hide();
         }
     }
 }

@@ -120,7 +120,7 @@
             buttonUnidad4.TextAlign = ContentAlignment.MiddleRight;
             buttonUnidad4.TextImageRelation = TextImageRelation.TextBeforeImage;
             buttonUnidad4.UseVisualStyleBackColor = false;
-            //buttonUnidad4.Click += buttonUnidad4_Click;
+            buttonUnidad4.Click += buttonUnidad4_Click;
             // 
             // buttonUnidad3
             // 
@@ -216,7 +216,7 @@
             label9.ForeColor = Color.White;
             label9.Location = new Point(384, 18);
             label9.Name = "label9";
-            label9.Size = new Size(106, 40);
+            label9.Size = new Size(77, 29);
             label9.TabIndex = 28;
             label9.Text = "Menú";
             label9.Click += label9_Click;

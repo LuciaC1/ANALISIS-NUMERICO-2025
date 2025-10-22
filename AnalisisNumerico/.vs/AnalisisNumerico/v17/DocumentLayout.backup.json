@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|c:\\users\\lara\\onedrive\\documentos\\analisis_numerico_2025\\analisisnumerico\\analisisnumerico\\formunidad3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|solutionrelative:analisisnumerico\\formunidad3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|c:\\users\\lara\\onedrive\\documentos\\analisis_numerico_2025\\analisisnumerico\\analisisnumerico\\formunidad4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|solutionrelative:analisisnumerico\\formunidad4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|c:\\users\\lara\\onedrive\\documentos\\analisis_numerico_2025\\analisisnumerico\\analisisnumerico\\formunidad3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|solutionrelative:analisisnumerico\\formunidad3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|c:\\users\\lara\\onedrive\\documentos\\analisis_numerico_2025\\analisisnumerico\\analisisnumerico\\formunidad3.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|solutionrelative:analisisnumerico\\formunidad3.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|c:\\users\\lara\\onedrive\\documentos\\analisis_numerico_2025\\analisisnumerico\\analisisnumerico\\formunidad4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{0E858D7D-569A-4552-AB7D-0E1C22AC3F77}|AnalisisNumerico\\U1.csproj|solutionrelative:analisisnumerico\\formunidad4.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -30,41 +26,28 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "FormUnidad3.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormUnidad3.Designer.cs",
-              "RelativeDocumentMoniker": "AnalisisNumerico\\FormUnidad3.Designer.cs",
-              "ToolTip": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormUnidad3.Designer.cs",
-              "RelativeToolTip": "AnalisisNumerico\\FormUnidad3.Designer.cs",
-              "ViewState": "AgIAAJ8BAAAAAAAAAAAAwO4AAABGAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "FormUnidad4.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormUnidad4.cs",
+              "RelativeDocumentMoniker": "AnalisisNumerico\\FormUnidad4.cs",
+              "ToolTip": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormUnidad4.cs [Dise\u00F1o]",
+              "RelativeToolTip": "AnalisisNumerico\\FormUnidad4.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T03:38:09.203Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-22T04:45:41.115Z",
+              "EditorCaption": " [Dise\u00F1o]"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "FormUnidad3.cs",
-              "DocumentMoniker": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormUnidad3.cs",
-              "RelativeDocumentMoniker": "AnalisisNumerico\\FormUnidad3.cs",
-              "ToolTip": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormUnidad3.cs",
-              "RelativeToolTip": "AnalisisNumerico\\FormUnidad3.cs",
-              "ViewState": "AgIAAK8BAAAAAAAAAAASwBABAAAAAAAAAAAAAA==",
+              "Title": "FormUnidad4.cs",
+              "DocumentMoniker": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormUnidad4.cs",
+              "RelativeDocumentMoniker": "AnalisisNumerico\\FormUnidad4.cs",
+              "ToolTip": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormUnidad4.cs",
+              "RelativeToolTip": "AnalisisNumerico\\FormUnidad4.cs",
+              "ViewState": "AgIAAFgBAAAAAAAAAAApwGoBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T03:30:26.127Z",
+              "WhenOpened": "2025-10-22T04:06:10.08Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "FormUnidad3.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormUnidad3.cs",
-              "RelativeDocumentMoniker": "AnalisisNumerico\\FormUnidad3.cs",
-              "ToolTip": "C:\\Users\\Lara\\OneDrive\\Documentos\\ANALISIS_NUMERICO_2025\\AnalisisNumerico\\AnalisisNumerico\\FormUnidad3.cs [Dise\u00F1o]",
-              "RelativeToolTip": "AnalisisNumerico\\FormUnidad3.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-22T02:45:11.847Z",
-              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }
