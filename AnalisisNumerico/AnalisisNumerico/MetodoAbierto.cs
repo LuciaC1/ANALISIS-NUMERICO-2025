@@ -30,7 +30,7 @@ namespace U1
                     double fx = funcion.EvaluaFx(xr);
                     derivadafx = funcion.Dx(xr);
 
-                    if (derivadafx < tolerancia || derivadafx == null)
+                    if (/*derivadafx < tolerancia || */derivadafx == 0)
                     {
                         res.Converge = "No converge, la derivada es cero.";
                         break;

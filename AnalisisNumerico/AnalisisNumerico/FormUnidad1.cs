@@ -149,7 +149,8 @@ namespace U1
                     txtResIteraciones.Text = resultado.iteraciones.ToString();
                     txtResTolerancia.Text = tol.ToString();
                     txtResRaiz.Text = resultado.raiz.ToString("G10");
-                    if (resultado.Converge == "Converge")
+                    txtResConverge.Text = resultado.Converge;
+                    /*if (resultado.Converge == "Converge")
                     {
                         txtResConverge.Text = "Si";
                     }
@@ -157,16 +158,20 @@ namespace U1
                     {
                         txtResConverge.Text = "No";
                         txtResRaiz.Text = "No hay raíz";
+                    }*/
+                    if (resultado.Converge != "Converge")
+                    {
+                        txtResRaiz.Text = "No hay raíz";
                     }
 
-                    string notacion = resultado.error.ToString("E4");
+                    /*string notacion = resultado.error.ToString("E4");
 
                     string[] partes = notacion.Split('E');
                     string mantisa = partes[0];
                     int exponente = int.Parse(partes[1]);
 
-                    string error = $"{mantisa} × 10^{exponente}";
-                    txtResError.Text = error;
+                    string error = $"{mantisa} × 10^{exponente}";*/
+                    txtResError.Text = resultado.error.ToString("F7");
                 }
 
                 if (webview.CoreWebView2 != null)
@@ -306,6 +311,11 @@ namespace U1
         }
 
         private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtResConverge_TextChanged(object sender, EventArgs e)
         {
 
         }

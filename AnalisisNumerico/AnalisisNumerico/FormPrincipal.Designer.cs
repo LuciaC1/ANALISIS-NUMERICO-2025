@@ -120,7 +120,7 @@
             buttonUnidad4.TextAlign = ContentAlignment.MiddleRight;
             buttonUnidad4.TextImageRelation = TextImageRelation.TextBeforeImage;
             buttonUnidad4.UseVisualStyleBackColor = false;
-            buttonUnidad4.Click += button3_Click;
+            //buttonUnidad4.Click += buttonUnidad4_Click;
             // 
             // buttonUnidad3
             // 
@@ -140,6 +140,7 @@
             buttonUnidad3.TextAlign = ContentAlignment.MiddleRight;
             buttonUnidad3.TextImageRelation = TextImageRelation.TextBeforeImage;
             buttonUnidad3.UseVisualStyleBackColor = false;
+            buttonUnidad3.Click += buttonUnidad3_Click;
             // 
             // buttonUnidad2
             // 
