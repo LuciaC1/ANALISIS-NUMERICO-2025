@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUnidad4));
             panel1 = new Panel();
+            webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             labelArea = new Label();
             panel2 = new Panel();
             buttonVolverMenu = new Button();
@@ -44,10 +45,9 @@
             textBoxXd = new TextBox();
             textBoxXi = new TextBox();
             textBoxFuncion = new TextBox();
-            webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)webView21).BeginInit();
+            panel2.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -62,6 +62,19 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1212, 778);
             panel1.TabIndex = 0;
+            // 
+            // webView21
+            // 
+            webView21.AllowExternalDrop = true;
+            webView21.BackColor = Color.Snow;
+            webView21.CreationProperties = null;
+            webView21.DefaultBackgroundColor = Color.White;
+            webView21.Location = new Point(459, 74);
+            webView21.Name = "webView21";
+            webView21.Size = new Size(649, 571);
+            webView21.TabIndex = 8;
+            webView21.ZoomFactor = 1D;
+            webView21.Click += webView21_Click;
             // 
             // labelArea
             // 
@@ -146,10 +159,10 @@
             comboBoxMetodo.ForeColor = Color.Black;
             comboBoxMetodo.FormattingEnabled = true;
             comboBoxMetodo.Items.AddRange(new object[] { "Integral Trapecios Simple", "Integral Trapecios Multiple", "Integral Simpson 1/3 Simple", "Integral Simpson 1/3 Multiple", "Integral Simpson 3/8", "Simpson 1/3 Multiple y Simpson 3/8 Combinados" });
-            comboBoxMetodo.Location = new Point(81, 453);
+            comboBoxMetodo.Location = new Point(12, 453);
             comboBoxMetodo.Margin = new Padding(3, 2, 3, 2);
             comboBoxMetodo.Name = "comboBoxMetodo";
-            comboBoxMetodo.Size = new Size(268, 30);
+            comboBoxMetodo.Size = new Size(418, 30);
             comboBoxMetodo.TabIndex = 8;
             comboBoxMetodo.SelectedIndexChanged += comboBoxMetodo_SelectedIndexChanged;
             // 
@@ -237,19 +250,6 @@
             textBoxFuncion.Size = new Size(276, 31);
             textBoxFuncion.TabIndex = 0;
             // 
-            // webView21
-            // 
-            webView21.AllowExternalDrop = true;
-            webView21.BackColor = Color.Snow;
-            webView21.CreationProperties = null;
-            webView21.DefaultBackgroundColor = Color.White;
-            webView21.Location = new Point(459, 74);
-            webView21.Name = "webView21";
-            webView21.Size = new Size(649, 571);
-            webView21.TabIndex = 8;
-            webView21.ZoomFactor = 1D;
-            webView21.Click += webView21_Click;
-            // 
             // FormUnidad4
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -262,9 +262,9 @@
             Text = "Form4";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)webView21).EndInit();
             ResumeLayout(false);
         }
 

@@ -80,7 +80,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(761, 773);
+            panel1.Size = new Size(761, 812);
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
@@ -244,10 +244,10 @@
             comboBox1.Font = new Font("Rockwell", 12F);
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Regresión Lineal por mínimos cuadrados", "Regresión Polinomial por mínimos cuadrados" });
-            comboBox1.Location = new Point(75, 520);
+            comboBox1.Location = new Point(53, 514);
             comboBox1.Margin = new Padding(3, 2, 3, 2);
             comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(312, 27);
+            comboBox1.Size = new Size(363, 27);
             comboBox1.TabIndex = 2;
             comboBox1.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
             // 
@@ -306,7 +306,7 @@
             labelFuncionObtenida.Size = new Size(160, 20);
             labelFuncionObtenida.TabIndex = 7;
             labelFuncionObtenida.Text = "Función Obtenida:";
-            labelFuncionObtenida.Click += this.labelFuncionObtenida_Click;
+            labelFuncionObtenida.Click += labelFuncionObtenida_Click;
             // 
             // labelCorrelacion
             // 
@@ -319,7 +319,7 @@
             labelCorrelacion.Size = new Size(140, 20);
             labelCorrelacion.TabIndex = 8;
             labelCorrelacion.Text = "Correlación (r):";
-            labelCorrelacion.Click += this.labelCorrelacion_Click;
+            labelCorrelacion.Click += labelCorrelacion_Click;
             // 
             // labelEfectividadAjuste
             // 
@@ -354,7 +354,7 @@
             webViewUnidad3.Location = new Point(11, 239);
             webViewUnidad3.Margin = new Padding(3, 2, 3, 2);
             webViewUnidad3.Name = "webViewUnidad3";
-            webViewUnidad3.Size = new Size(573, 478);
+            webViewUnidad3.Size = new Size(716, 571);
             webViewUnidad3.TabIndex = 0;
             webViewUnidad3.ZoomFactor = 1D;
             webViewUnidad3.Click += webViewUnidad3_Click;
@@ -373,7 +373,7 @@
             panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
             panel2.RightToLeft = RightToLeft.No;
-            panel2.Size = new Size(816, 773);
+            panel2.Size = new Size(816, 812);
             panel2.TabIndex = 1;
             panel2.Paint += panel2_Paint;
             // 
@@ -381,7 +381,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1577, 773);
+            ClientSize = new Size(1577, 812);
             Controls.Add(panel2);
             Controls.Add(panel1);
             Margin = new Padding(3, 2, 3, 2);
