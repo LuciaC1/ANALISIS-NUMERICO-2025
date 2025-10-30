@@ -23,6 +23,7 @@ namespace U1
         public FormUnidad4()
         {
             InitializeComponent();
+
             this.Load += FormUnidad4_Load; 
         }
 

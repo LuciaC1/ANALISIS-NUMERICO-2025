@@ -132,7 +132,7 @@
             buttonCalcular.BackColor = Color.Black;
             buttonCalcular.Font = new Font("Rockwell", 15F);
             buttonCalcular.ForeColor = SystemColors.ButtonHighlight;
-            buttonCalcular.Location = new Point(197, 665);
+            buttonCalcular.Location = new Point(197, 682);
             buttonCalcular.Name = "buttonCalcular";
             buttonCalcular.Size = new Size(159, 55);
             buttonCalcular.TabIndex = 8;
@@ -146,7 +146,7 @@
             label5.BackColor = Color.Black;
             label5.Font = new Font("Rockwell", 15F);
             label5.ForeColor = SystemColors.ControlLightLight;
-            label5.Location = new Point(229, 549);
+            label5.Location = new Point(229, 566);
             label5.Name = "label5";
             label5.Size = new Size(108, 29);
             label5.TabIndex = 9;
@@ -158,7 +158,7 @@
             comboBoxMetodo.ForeColor = Color.Black;
             comboBoxMetodo.FormattingEnabled = true;
             comboBoxMetodo.Items.AddRange(new object[] { "Regla Trapecio Simple", "Regla Trapecio Multiple", "Regla Simpson 1/3 Simple", "Regla Simpson 1/3 Multiple", "Regla Simpson 3/8", "Regla Simpson 1/3 Multiple y Regla Simpson 3/8 Combinados" });
-            comboBoxMetodo.Location = new Point(40, 604);
+            comboBoxMetodo.Location = new Point(40, 621);
             comboBoxMetodo.Name = "comboBoxMetodo";
             comboBoxMetodo.Size = new Size(523, 37);
             comboBoxMetodo.TabIndex = 8;
@@ -170,7 +170,7 @@
             label4.BackColor = Color.Black;
             label4.Font = new Font("Rockwell", 15F);
             label4.ForeColor = SystemColors.ControlLightLight;
-            label4.Location = new Point(93, 412);
+            label4.Location = new Point(93, 429);
             label4.Name = "label4";
             label4.Size = new Size(359, 29);
             label4.TabIndex = 6;
@@ -182,7 +182,7 @@
             label3.BackColor = Color.Black;
             label3.Font = new Font("Rockwell", 15F);
             label3.ForeColor = SystemColors.ControlLightLight;
-            label3.Location = new Point(338, 283);
+            label3.Location = new Point(338, 300);
             label3.Name = "label3";
             label3.Size = new Size(50, 29);
             label3.TabIndex = 5;
@@ -194,7 +194,7 @@
             label2.BackColor = Color.Black;
             label2.Font = new Font("Rockwell", 15F);
             label2.ForeColor = SystemColors.ControlLightLight;
-            label2.Location = new Point(162, 283);
+            label2.Location = new Point(162, 300);
             label2.Name = "label2";
             label2.Size = new Size(41, 29);
             label2.TabIndex = 4;
@@ -215,7 +215,7 @@
             // textBoxSubIntervalos
             // 
             textBoxSubIntervalos.BackColor = Color.FromArgb(233, 231, 235);
-            textBoxSubIntervalos.Location = new Point(190, 472);
+            textBoxSubIntervalos.Location = new Point(190, 489);
             textBoxSubIntervalos.Name = "textBoxSubIntervalos";
             textBoxSubIntervalos.Size = new Size(165, 37);
             textBoxSubIntervalos.TabIndex = 3;
@@ -223,7 +223,7 @@
             // textBoxXd
             // 
             textBoxXd.BackColor = Color.FromArgb(233, 231, 235);
-            textBoxXd.Location = new Point(301, 340);
+            textBoxXd.Location = new Point(301, 357);
             textBoxXd.Name = "textBoxXd";
             textBoxXd.Size = new Size(132, 37);
             textBoxXd.TabIndex = 2;
@@ -231,18 +231,22 @@
             // textBoxXi
             // 
             textBoxXi.BackColor = Color.FromArgb(233, 231, 235);
-            textBoxXi.Location = new Point(108, 340);
+            textBoxXi.Location = new Point(108, 357);
             textBoxXi.Name = "textBoxXi";
             textBoxXi.Size = new Size(132, 37);
             textBoxXi.TabIndex = 1;
             // 
             // textBoxFuncion
             // 
+            textBoxFuncion.Multiline = true;
+            textBoxFuncion.WordWrap = true;
+            textBoxFuncion.ScrollBars = ScrollBars.Vertical;
             textBoxFuncion.BackColor = Color.FromArgb(233, 231, 235);
             textBoxFuncion.Location = new Point(108, 172);
             textBoxFuncion.Name = "textBoxFuncion";
             textBoxFuncion.Size = new Size(315, 37);
             textBoxFuncion.TabIndex = 0;
+            textBoxFuncion.Height = textBoxFuncion.Height * 2;
             // 
             // FormUnidad4
             // 
