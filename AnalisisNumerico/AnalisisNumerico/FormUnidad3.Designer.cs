@@ -25,6 +25,14 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormUnidad3));
             panel1 = new Panel();
+            groupBoxModificacion = new GroupBox();
+            labelFuncionModificada = new Label();
+            textBoxFuncionModificada = new TextBox();
+            buttonCalcularNuevoR = new Button();
+            labelEfectividadPorcentaje = new Label();
+            textBoxEfectividadPorcentaje = new TextBox();
+            labelEfectividadAjusteNuevo = new Label();
+            textBoxEfectividadAjusteNuevo = new TextBox();
             buttonVolverMenu = new Button();
             labelGrado = new Label();
             textBoxGrado = new TextBox();
@@ -49,6 +57,7 @@
             webViewUnidad3 = new Microsoft.Web.WebView2.WinForms.WebView2();
             panel2 = new Panel();
             panel1.SuspendLayout();
+            groupBoxModificacion.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)webViewUnidad3).BeginInit();
             panel2.SuspendLayout();
             SuspendLayout();
@@ -58,6 +67,7 @@
             panel1.BackColor = SystemColors.ActiveCaptionText;
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(groupBoxModificacion);
             panel1.Controls.Add(buttonVolverMenu);
             panel1.Controls.Add(labelGrado);
             panel1.Controls.Add(textBoxGrado);
@@ -83,6 +93,96 @@
             panel1.TabIndex = 0;
             panel1.Paint += panel1_Paint;
             // 
+            // groupBoxModificacion
+            // 
+            groupBoxModificacion.BackColor = Color.FromArgb(233, 231, 235);
+            groupBoxModificacion.Controls.Add(labelFuncionModificada);
+            groupBoxModificacion.Controls.Add(textBoxFuncionModificada);
+            groupBoxModificacion.Controls.Add(buttonCalcularNuevoR);
+            groupBoxModificacion.Controls.Add(labelEfectividadPorcentaje);
+            groupBoxModificacion.Controls.Add(textBoxEfectividadPorcentaje);
+            groupBoxModificacion.Controls.Add(labelEfectividadAjusteNuevo);
+            groupBoxModificacion.Controls.Add(textBoxEfectividadAjusteNuevo);
+            groupBoxModificacion.Font = new Font("Rockwell", 15F);
+            groupBoxModificacion.Location = new Point(34, 759);
+            groupBoxModificacion.Name = "groupBoxModificacion";
+            groupBoxModificacion.Size = new Size(807, 205);
+            groupBoxModificacion.TabIndex = 0;
+            groupBoxModificacion.TabStop = false;
+            groupBoxModificacion.Text = "Modificación de recta";
+            groupBoxModificacion.Enter += groupBoxModificacion_Enter;
+            // 
+            // labelFuncionModificada
+            // 
+            labelFuncionModificada.AutoSize = true;
+            labelFuncionModificada.Font = new Font("Rockwell", 14F);
+            labelFuncionModificada.Location = new Point(15, 55);
+            labelFuncionModificada.Name = "labelFuncionModificada";
+            labelFuncionModificada.Size = new Size(239, 27);
+            labelFuncionModificada.TabIndex = 0;
+            labelFuncionModificada.Text = "Función modificada:";
+            // 
+            // textBoxFuncionModificada
+            // 
+            textBoxFuncionModificada.Font = new Font("Rockwell", 14F);
+            textBoxFuncionModificada.Location = new Point(262, 47);
+            textBoxFuncionModificada.Name = "textBoxFuncionModificada";
+            textBoxFuncionModificada.Size = new Size(270, 35);
+            textBoxFuncionModificada.TabIndex = 1;
+            // 
+            // buttonCalcularNuevoR
+            // 
+            buttonCalcularNuevoR.BackColor = SystemColors.ActiveCaptionText;
+            buttonCalcularNuevoR.Font = new Font("Rockwell", 13F);
+            buttonCalcularNuevoR.ForeColor = Color.White;
+            buttonCalcularNuevoR.Location = new Point(551, 47);
+            buttonCalcularNuevoR.Name = "buttonCalcularNuevoR";
+            buttonCalcularNuevoR.Size = new Size(154, 35);
+            buttonCalcularNuevoR.TabIndex = 2;
+            buttonCalcularNuevoR.Text = "Calcular";
+            buttonCalcularNuevoR.UseVisualStyleBackColor = false;
+            buttonCalcularNuevoR.Click += buttonCalcularNuevoR_Click;
+            // 
+            // labelEfectividadPorcentaje
+            // 
+            labelEfectividadPorcentaje.AutoSize = true;
+            labelEfectividadPorcentaje.Font = new Font("Rockwell", 13F);
+            labelEfectividadPorcentaje.Location = new Point(15, 111);
+            labelEfectividadPorcentaje.Name = "labelEfectividadPorcentaje";
+            labelEfectividadPorcentaje.Size = new Size(167, 25);
+            labelEfectividadPorcentaje.TabIndex = 3;
+            labelEfectividadPorcentaje.Text = "Coeficiente (r):";
+            labelEfectividadPorcentaje.Click += labelEfectividadPorcentaje_Click;
+            // 
+            // textBoxEfectividadPorcentaje
+            // 
+            textBoxEfectividadPorcentaje.Font = new Font("Rockwell", 13F);
+            textBoxEfectividadPorcentaje.Location = new Point(262, 108);
+            textBoxEfectividadPorcentaje.Name = "textBoxEfectividadPorcentaje";
+            textBoxEfectividadPorcentaje.ReadOnly = true;
+            textBoxEfectividadPorcentaje.Size = new Size(120, 33);
+            textBoxEfectividadPorcentaje.TabIndex = 4;
+            textBoxEfectividadPorcentaje.TextChanged += textBoxEfectividadPorcentaje_TextChanged;
+            // 
+            // labelEfectividadAjusteNuevo
+            // 
+            labelEfectividadAjusteNuevo.AutoSize = true;
+            labelEfectividadAjusteNuevo.Font = new Font("Rockwell", 13F);
+            labelEfectividadAjusteNuevo.Location = new Point(16, 163);
+            labelEfectividadAjusteNuevo.Name = "labelEfectividadAjusteNuevo";
+            labelEfectividadAjusteNuevo.Size = new Size(238, 25);
+            labelEfectividadAjusteNuevo.TabIndex = 5;
+            labelEfectividadAjusteNuevo.Text = "Efectividad del ajuste:";
+            // 
+            // textBoxEfectividadAjusteNuevo
+            // 
+            textBoxEfectividadAjusteNuevo.Font = new Font("Rockwell", 13F);
+            textBoxEfectividadAjusteNuevo.Location = new Point(262, 155);
+            textBoxEfectividadAjusteNuevo.Name = "textBoxEfectividadAjusteNuevo";
+            textBoxEfectividadAjusteNuevo.ReadOnly = true;
+            textBoxEfectividadAjusteNuevo.Size = new Size(150, 33);
+            textBoxEfectividadAjusteNuevo.TabIndex = 6;
+            // 
             // buttonVolverMenu
             // 
             buttonVolverMenu.BackColor = SystemColors.ActiveCaptionText;
@@ -103,7 +203,7 @@
             labelGrado.BackColor = Color.Black;
             labelGrado.Font = new Font("Rockwell", 15F);
             labelGrado.ForeColor = SystemColors.ControlLightLight;
-            labelGrado.Location = new Point(193, 544);
+            labelGrado.Location = new Point(96, 440);
             labelGrado.Name = "labelGrado";
             labelGrado.Size = new Size(93, 29);
             labelGrado.TabIndex = 11;
@@ -113,7 +213,7 @@
             // 
             textBoxGrado.BackColor = Color.FromArgb(233, 231, 235);
             textBoxGrado.Font = new Font("Rockwell", 12F);
-            textBoxGrado.Location = new Point(151, 588);
+            textBoxGrado.Location = new Point(214, 438);
             textBoxGrado.Name = "textBoxGrado";
             textBoxGrado.Size = new Size(166, 31);
             textBoxGrado.TabIndex = 10;
@@ -125,7 +225,7 @@
             labelDatEntrada.BackColor = Color.Black;
             labelDatEntrada.Font = new Font("Rockwell", 15F);
             labelDatEntrada.ForeColor = SystemColors.ControlLightLight;
-            labelDatEntrada.Location = new Point(151, 357);
+            labelDatEntrada.Location = new Point(135, 284);
             labelDatEntrada.Name = "labelDatEntrada";
             labelDatEntrada.Size = new Size(209, 29);
             labelDatEntrada.TabIndex = 3;
@@ -137,7 +237,7 @@
             buttonBorrarTodos.BackColor = SystemColors.ActiveCaptionText;
             buttonBorrarTodos.Font = new Font("Rockwell", 12F);
             buttonBorrarTodos.ForeColor = SystemColors.ButtonHighlight;
-            buttonBorrarTodos.Location = new Point(696, 763);
+            buttonBorrarTodos.Location = new Point(688, 657);
             buttonBorrarTodos.Name = "buttonBorrarTodos";
             buttonBorrarTodos.Size = new Size(153, 53);
             buttonBorrarTodos.TabIndex = 5;
@@ -151,7 +251,7 @@
             labelPuntosIngresar.BackColor = Color.Black;
             labelPuntosIngresar.Font = new Font("Rockwell", 15F);
             labelPuntosIngresar.ForeColor = SystemColors.ControlLightLight;
-            labelPuntosIngresar.Location = new Point(545, 143);
+            labelPuntosIngresar.Location = new Point(557, 75);
             labelPuntosIngresar.Name = "labelPuntosIngresar";
             labelPuntosIngresar.Size = new Size(227, 29);
             labelPuntosIngresar.TabIndex = 9;
@@ -163,7 +263,7 @@
             labelMetodo.BackColor = Color.Black;
             labelMetodo.Font = new Font("Rockwell", 15F);
             labelMetodo.ForeColor = SystemColors.ControlLightLight;
-            labelMetodo.Location = new Point(193, 648);
+            labelMetodo.Location = new Point(196, 507);
             labelMetodo.Name = "labelMetodo";
             labelMetodo.Size = new Size(108, 29);
             labelMetodo.TabIndex = 8;
@@ -175,7 +275,7 @@
             labelTole.BackColor = Color.Black;
             labelTole.Font = new Font("Rockwell", 15F);
             labelTole.ForeColor = SystemColors.ControlLightLight;
-            labelTole.Location = new Point(176, 432);
+            labelTole.Location = new Point(179, 332);
             labelTole.Name = "labelTole";
             labelTole.Size = new Size(139, 29);
             labelTole.TabIndex = 7;
@@ -187,7 +287,7 @@
             labelPuntos.BackColor = Color.Black;
             labelPuntos.Font = new Font("Rockwell", 15F);
             labelPuntos.ForeColor = SystemColors.ControlLightLight;
-            labelPuntos.Location = new Point(163, 115);
+            labelPuntos.Location = new Point(37, 152);
             labelPuntos.Name = "labelPuntos";
             labelPuntos.Size = new Size(198, 29);
             labelPuntos.TabIndex = 6;
@@ -199,7 +299,7 @@
             buttonCalcular.BackColor = SystemColors.ActiveCaptionText;
             buttonCalcular.Font = new Font("Rockwell", 15F);
             buttonCalcular.ForeColor = SystemColors.ButtonHighlight;
-            buttonCalcular.Location = new Point(176, 765);
+            buttonCalcular.Location = new Point(179, 610);
             buttonCalcular.Name = "buttonCalcular";
             buttonCalcular.Size = new Size(142, 51);
             buttonCalcular.TabIndex = 2;
@@ -212,7 +312,7 @@
             buttonCargar.BackColor = SystemColors.ActiveCaptionText;
             buttonCargar.Font = new Font("Rockwell", 15F);
             buttonCargar.ForeColor = SystemColors.ButtonHighlight;
-            buttonCargar.Location = new Point(176, 241);
+            buttonCargar.Location = new Point(179, 204);
             buttonCargar.Name = "buttonCargar";
             buttonCargar.Size = new Size(142, 51);
             buttonCargar.TabIndex = 3;
@@ -225,7 +325,7 @@
             buttonBorrarUltimo.BackColor = SystemColors.ActiveCaptionText;
             buttonBorrarUltimo.Font = new Font("Rockwell", 11F);
             buttonBorrarUltimo.ForeColor = SystemColors.ButtonHighlight;
-            buttonBorrarUltimo.Location = new Point(459, 763);
+            buttonBorrarUltimo.Location = new Point(451, 657);
             buttonBorrarUltimo.Name = "buttonBorrarUltimo";
             buttonBorrarUltimo.Size = new Size(231, 53);
             buttonBorrarUltimo.TabIndex = 4;
@@ -239,7 +339,7 @@
             comboBox1.Font = new Font("Rockwell", 12F);
             comboBox1.FormattingEnabled = true;
             comboBox1.Items.AddRange(new object[] { "Regresión Lineal por mínimos cuadrados", "Regresión Polinomial por mínimos cuadrados" });
-            comboBox1.Location = new Point(46, 685);
+            comboBox1.Location = new Point(49, 544);
             comboBox1.Name = "comboBox1";
             comboBox1.Size = new Size(414, 30);
             comboBox1.TabIndex = 2;
@@ -249,7 +349,7 @@
             // 
             textBoxTolerancia.BackColor = Color.FromArgb(233, 231, 235);
             textBoxTolerancia.Font = new Font("Rockwell", 12F);
-            textBoxTolerancia.Location = new Point(151, 484);
+            textBoxTolerancia.Location = new Point(155, 378);
             textBoxTolerancia.Name = "textBoxTolerancia";
             textBoxTolerancia.Size = new Size(166, 31);
             textBoxTolerancia.TabIndex = 4;
@@ -258,7 +358,7 @@
             // 
             textBoxY.BackColor = Color.FromArgb(233, 231, 235);
             textBoxY.Font = new Font("Rockwell", 12F);
-            textBoxY.Location = new Point(258, 179);
+            textBoxY.Location = new Point(392, 151);
             textBoxY.Name = "textBoxY";
             textBoxY.Size = new Size(110, 31);
             textBoxY.TabIndex = 3;
@@ -268,7 +368,7 @@
             // 
             textBoxX.BackColor = Color.FromArgb(233, 231, 235);
             textBoxX.Font = new Font("Rockwell", 12F);
-            textBoxX.Location = new Point(122, 179);
+            textBoxX.Location = new Point(256, 151);
             textBoxX.Name = "textBoxX";
             textBoxX.Size = new Size(110, 31);
             textBoxX.TabIndex = 2;
@@ -279,7 +379,7 @@
             panelPuntosIngresados.BackColor = Color.FromArgb(233, 231, 235);
             panelPuntosIngresados.BorderStyle = BorderStyle.FixedSingle;
             panelPuntosIngresados.Font = new Font("Rockwell", 6F);
-            panelPuntosIngresados.Location = new Point(516, 189);
+            panelPuntosIngresados.Location = new Point(528, 120);
             panelPuntosIngresados.Name = "panelPuntosIngresados";
             panelPuntosIngresados.Size = new Size(295, 531);
             panelPuntosIngresados.TabIndex = 1;
@@ -377,6 +477,8 @@
             Load += FormUnidad3_Load_1;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            groupBoxModificacion.ResumeLayout(false);
+            groupBoxModificacion.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)webViewUnidad3).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
@@ -422,7 +524,14 @@
         private Label labelDatSalida;
         private Microsoft.Web.WebView2.WinForms.WebView2 webViewUnidad3;
         private Panel panel2;
-
+        private GroupBox groupBoxModificacion;
+        private Label labelFuncionModificada;
+        private TextBox textBoxFuncionModificada;
+        private Button buttonCalcularNuevoR;
+        private Label labelEfectividadPorcentaje;
+        private TextBox textBoxEfectividadPorcentaje;
+        private Label labelEfectividadAjusteNuevo;
+        private TextBox textBoxEfectividadAjusteNuevo;
     }
 
 }

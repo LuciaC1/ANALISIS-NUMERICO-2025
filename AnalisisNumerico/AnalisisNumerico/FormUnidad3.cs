@@ -1,23 +1,24 @@
-﻿using System;
+﻿using Calculus;
+using System;
+using System;
+using System.Collections.Generic;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using Calculus;
-using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
+using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static System.Runtime.InteropServices.JavaScript.JSType;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace U1
 {
@@ -65,7 +66,7 @@ namespace U1
                 Panel puntoContainer = new Panel();
                 puntoContainer.Size = new Size(panelPuntosIngresados.Width - 4, 20);
                 puntoContainer.Location = new Point(0, puntoY);
-                puntoContainer.Tag = punto; 
+                puntoContainer.Tag = punto;
                 puntoContainer.BorderStyle = BorderStyle.None;
 
                 Label puntoIngresado = new Label();
@@ -106,7 +107,7 @@ namespace U1
                         l.ForeColor = Color.Black;
                     }
                 }
- 
+
                 if (lbl.Tag is int idx)
                 {
                     selectedPointIndex = idx;
@@ -148,7 +149,7 @@ namespace U1
                 panelPuntosIngresados.Controls.Remove(cont);
             }
 
-   
+
             int idx = 0;
             foreach (Panel cont in panelPuntosIngresados.Controls.OfType<Panel>().OrderBy(p => p.Top))
             {
@@ -472,6 +473,117 @@ namespace U1
             return resultado3;
         }
 
+        //Método para obtener coeficientes:
+        private Tuple<double, double> ObtenerCoeficientesFuncion(string funcion)
+        {
+            if (string.IsNullOrWhiteSpace(funcion))
+                throw new ArgumentException("La función no puede estar vacía.");
+
+            var regex = new Regex(@"y\s*=\s*([+-]?\d+(?:[.,]\d+)?)x\s*([+-]\s*\d+(?:[.,]\d+)?)");
+            var match = regex.Match(funcion);
+
+            if (!match.Success)
+                throw new FormatException("Formato inválido. Ejemplo esperado: y = 2.5x - 1.3");
+
+            string a1Str = match.Groups[1].Value.Replace(',', '.');
+            string a0Str = match.Groups[2].Value.Replace(',', '.').Replace(" ", "");
+
+            double a1 = double.Parse(a1Str, CultureInfo.InvariantCulture);
+            double a0 = double.Parse(a0Str, CultureInfo.InvariantCulture);
+
+            return Tuple.Create(a1, a0);
+        }
+
+        public double CalcularCorrelacionRectaModificada(string funcion)
+        {
+            if (PuntosCargados == null || PuntosCargados.Count == 0)
+                throw new InvalidOperationException("No hay puntos cargados para calcular la correlación.");
+
+            double sumY = 0;
+            foreach (double[] punto in PuntosCargados)
+            {
+                sumY += punto[1];
+            }
+
+            var coeficientes = ObtenerCoeficientesFuncion(funcion);
+            double a1 = coeficientes.Item1;
+            double a0 = coeficientes.Item2;
+
+            double st = 0;
+            double sr = 0;
+            double mediaY = sumY / PuntosCargados.Count;
+
+            foreach (double[] punto in PuntosCargados)
+            {
+                st += Math.Pow(mediaY - punto[1], 2);
+                sr += Math.Pow((a1 * punto[0] + a0) - punto[1], 2);
+            }
+
+            double r = Math.Sqrt((st - sr) / st) * 100;
+
+            return r;
+        }
+
+        private void buttonCalcularNuevoR_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Obtener los controles del GroupBox de modificación
+                System.Windows.Forms.TextBox textBoxFuncionModificada = groupBoxModificacion.Controls["textBoxFuncionModificada"] as System.Windows.Forms.TextBox;
+                System.Windows.Forms.TextBox textBoxEfectividadPorcentaje = groupBoxModificacion.Controls["textBoxEfectividadPorcentaje"] as System.Windows.Forms.TextBox;
+                System.Windows.Forms.TextBox textBoxEfectividadAjusteNuevo = groupBoxModificacion.Controls["textBoxEfectividadAjusteNuevo"] as System.Windows.Forms.TextBox;
+
+                if (textBoxFuncionModificada == null)
+                {
+                    MessageBox.Show("No se encontró el campo de función modificada.",
+                                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                string funcion = textBoxFuncionModificada.Text.Trim();
+
+                if (string.IsNullOrWhiteSpace(funcion))
+                {
+                    MessageBox.Show("Por favor, ingrese una función modificada (por ejemplo: y = 1x - 3).",
+                                    "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
+                }
+
+                // Calcular el nuevo coeficiente de correlación r
+                double nuevoR = CalcularCorrelacionRectaModificada(funcion);
+
+                // Obtener la tolerancia (por defecto 80)
+                double tolerancia = 80;
+                if (!string.IsNullOrWhiteSpace(textBoxTolerancia.Text))
+                    double.TryParse(textBoxTolerancia.Text, NumberStyles.Any, CultureInfo.InvariantCulture, out tolerancia);
+
+                // Mostrar resultados en los TextBox del grupo "Modificación de recta"
+                textBoxEfectividadPorcentaje.Text = $"{nuevoR:F5}";
+                textBoxEfectividadAjusteNuevo.Text = (nuevoR >= tolerancia) ? "Aceptable" : "No aceptable";
+
+                // Mensaje opcional de confirmación
+                MessageBox.Show(
+                    $"Coeficiente de correlación recalculado correctamente.\n\nr = {nuevoR:F4}%\nEfectividad: {(nuevoR >= tolerancia ? "Aceptable" : "No aceptable")}",
+                    "Cálculo exitoso",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Error en el formato de la función. Asegúrese de que tenga el formato: y = a1x + a0.\n\n" + ex.Message,
+                                "Error de formato", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ocurrió un error al calcular el nuevo coeficiente de correlación:\n\n" + ex.Message,
+                                "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+
+
         private void btnVolver_Click(object sender, EventArgs e)
         {
             this.Owner.Show();
@@ -509,7 +621,7 @@ namespace U1
         }
 
         private void panel2_Paint(object sender, PaintEventArgs e)
-        {   
+        {
 
         }
 
@@ -544,6 +656,25 @@ namespace U1
         {
         }
 
-        // Agregar este nuevo manejador para borrar los puntos seleccionados
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelEfectividadPorcentaje_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBoxModificacion_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxEfectividadPorcentaje_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
