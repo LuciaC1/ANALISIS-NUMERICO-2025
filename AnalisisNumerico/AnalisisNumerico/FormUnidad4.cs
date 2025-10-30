@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Calculus;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization; 
 using System.Linq;
-using System.Text;
+using System.Text; 
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Calculus;
-using System.Globalization; 
-using System.Text; 
+using System.Text.RegularExpressions;
 
 namespace U1
 {
@@ -39,7 +39,29 @@ namespace U1
     
             string xiText = (textBoxXi.Text ?? string.Empty).Trim().Replace(',', '.');
             string xdText = (textBoxXd.Text ?? string.Empty).Trim().Replace(',', '.');
-            string funcionRaw = textBoxFuncion.Text ?? string.Empty;
+            //string funcionRaw = textBoxFuncion.Text ?? string.Empty;
+            string funcionStr = textBoxFuncion.Text;
+
+            int pos = funcionStr.IndexOf("||");
+
+            int firstPos = funcionStr.IndexOf('|');
+
+            if (firstPos != -1)
+            {
+                int secondPos = funcionStr.IndexOf('|', firstPos + 1);
+
+                if (secondPos != -1)
+                {
+                    string contenido = funcionStr.Substring(firstPos + 1, secondPos - firstPos - 1);
+                    string conteni = "abs(" + contenido + ")";
+                    funcionStr = funcionStr.Replace($"|{contenido}|", $"{conteni}");
+                }
+            }
+
+            if ((funcionStr.Contains("e")))
+            {
+                funcionStr = Regex.Replace(funcionStr, @"e\^\((.*?)\)", "exp($1)");
+            }
             string subIntervalosText = (textBoxSubIntervalos.Text ?? string.Empty).Trim();
 
             if (!double.TryParse(xiText, System.Globalization.NumberStyles.Float, CultureInfo.InvariantCulture, out double xi))
@@ -59,44 +81,44 @@ namespace U1
             }
 
 
-            string funcion = funcionRaw.Replace(',', '.');
+            string funcion = funcionStr.Replace(',', '.');
 
             double resultado = double.NaN;
 
-            if (seleccion == "Integral Trapecios Simple")
+            if (seleccion == "Regla Trapecio Simple")
             {
                 resultado = CalcularIntegralTrapeciosSimple(funcion, xi, xd);
-                labelArea.Text = $"El área es de {resultado} UA";
+                labelArea.Text = $"El área calculada es {resultado:F4} UA";
             }
 
-            if (seleccion == "Integral Trapecios Multiple")
+            if (seleccion == "Regla Trapecio Multiple")
             {
                 resultado = CalcularIntegralTrapeciosMultiple(funcion, xi, xd, subIntervalos);
-                labelArea.Text = $"El área es de {resultado} UA";
+                labelArea.Text = $"El área calculada es {resultado:F4} UA";
             }
 
-            if (seleccion == "Integral Simpson 1/3 Simple")
+            if (seleccion == "Regla Simpson 1/3 Simple")
             {
                 resultado = CalcularIntegralSimpsonTercioSimple(funcion, xi, xd);
-                labelArea.Text = $"El área es de {resultado} UA";
+                labelArea.Text = $"El área calculada es {resultado:F4} UA";
             }
 
-            if (seleccion == "Integral Simpson 1/3 Multiple")
+            if (seleccion == "Regla Simpson 1/3 Multiple")
             {
                 resultado = CalcularIntegralSimpsonTercioMultiple(funcion, xi, xd, subIntervalos);
-                labelArea.Text = $"El área es de {resultado} UA";
+                labelArea.Text = $"El área calculada es {resultado:F4} UA";
             }
 
-            if (seleccion == "Integral Simpson 3/8")
+            if (seleccion == "Regla Simpson 3/8")
             {
                 resultado = CalcularIntegralSimpsonTresOctavos(funcion, xi, xd);
-                labelArea.Text = $"El área es de {resultado} UA";
+                labelArea.Text = $"El área calculada es {resultado:F4} UA";
             }
 
-            if (seleccion == "Simpson 1/3 Multiple y Simpson 3/8 Combinados")
+            if (seleccion == "Regla Simpson 1/3 Multiple y Regla Simpson 3/8 Combinados")
             {
                 resultado = CalcularIntegralSimpsonCombinados(funcion, xi, xd, subIntervalos);
-                labelArea.Text = $"El área es de {resultado} UA";
+                labelArea.Text = $"El área calculada es {resultado:F4} UA";
             }
 
 
@@ -120,8 +142,7 @@ namespace U1
                 return resultado;
             }
             else
-            {
-                
+            {                
                 return double.NaN;
             }
         }

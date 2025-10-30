@@ -52,7 +52,7 @@ namespace U1
         {
             if (textBoxX.Text != "" && textBoxY.Text != "")
             {
-                    double xVal = double.Parse(textBoxX.Text, CultureInfo.InvariantCulture);
+                double xVal = double.Parse(textBoxX.Text, CultureInfo.InvariantCulture);
                 double yVal = double.Parse(textBoxY.Text, CultureInfo.InvariantCulture);
 
                 double[] punto = new double[2] { xVal, yVal };
@@ -106,7 +106,6 @@ namespace U1
                         l.ForeColor = Color.Black;
                     }
                 }
-
  
                 if (lbl.Tag is int idx)
                 {
